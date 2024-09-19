@@ -1,15 +1,6 @@
 import Link from "next/link"
-import { MoreHorizontal, PlusSquare, type LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export function NavProjects({
   projects,

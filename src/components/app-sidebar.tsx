@@ -3,16 +3,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-  Atom,
   Bird,
   Check,
-  Bot,
-  Code2,
-  Eclipse,
-  Frame,
   ClipboardList,
   LifeBuoy,
-  Map,
   Bell,
   Rabbit,
   Send,
@@ -27,7 +21,6 @@ import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
-import { StorageCard } from "@/components/storage-card"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
