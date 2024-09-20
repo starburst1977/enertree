@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+
+
 "use client"
 
 import {
@@ -846,3 +850,6 @@ export function Charts() {
     </div>
   )
 }
+
+
+/* eslint-enable @typescript-eslint/no-unused-vars */

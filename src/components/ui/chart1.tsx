@@ -1,6 +1,5 @@
 "use client"
 
-import { /* TrendingUp, */ /* other used imports */ } from "lucide-react"
 import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
 
 import {
