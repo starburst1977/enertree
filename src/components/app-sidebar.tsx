@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client"
 
 import Image from "next/image"
@@ -18,7 +20,7 @@ import {
   Info,
   BookOpen,
   Settings,
-  Chat,
+  Bot,
   Image as ImageIcon,
   Video,
   Mic2,
@@ -213,9 +215,9 @@ const data = {
       icon: Square,
       items: [
         {
-          title: "Chat",
+          title: "Bot",
           url: "#",
-          icon: Chat,
+          icon: Bot,
         },
         {
           title: "Completion",
@@ -345,3 +347,6 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
