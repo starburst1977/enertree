@@ -15,6 +15,13 @@ import {
   Square,
   Rows3,
   Turtle,
+  Info,
+  BookOpen,
+  Settings,
+  Chat,
+  Image as ImageIcon,
+  Video,
+  Mic2,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -30,6 +37,15 @@ import {
   SidebarItem,
   SidebarLabel,
 } from "@/components/ui/sidebar"
+
+interface NavItem {
+  title: string
+  url: string
+  icon?: LucideIcon // Made optional
+  isActive?: boolean
+  items?: NavItem[]
+}
+
 const data = {
   teams: [
     {
@@ -172,18 +188,22 @@ const data = {
         {
           title: "Introduction",
           url: "#",
+          icon: Info,
         },
         {
           title: "Get Started",
           url: "#",
+          icon: BookOpen,
         },
         {
           title: "Tutorials",
           url: "#",
+          icon: Settings,
         },
         {
           title: "Changelog",
           url: "#",
+          icon: Info,
         },
       ],
     },
@@ -195,22 +215,27 @@ const data = {
         {
           title: "Chat",
           url: "#",
+          icon: Chat,
         },
         {
           title: "Completion",
           url: "#",
+          icon: Check,
         },
         {
           title: "Images",
           url: "#",
+          icon: ImageIcon,
         },
         {
           title: "Video",
           url: "#",
+          icon: Video,
         },
         {
           title: "Speech",
           url: "#",
+          icon: Mic2,
         },
       ],
     },
