@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+
 "use client"
 
 import * as React from "react"
@@ -363,3 +366,6 @@ export {
   ChartLegendContent,
   ChartStyle,
 }
+
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
