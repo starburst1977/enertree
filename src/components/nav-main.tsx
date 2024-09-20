@@ -10,27 +10,12 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 
-export function NavMain({
-  className,
-  items,
-}: {
-  items: {
-    title: string
-    url: string
-    icon: LucideIcon
-    isActive?: boolean
-    items?: {
-      title: string
-      url: string
-      icon: LucideIcon
-      items?: {
-        title: string
-        url: string
-        icon: LucideIcon
-      }[]
-    }[]
-  }[]
-} & React.ComponentProps<"ul">) {
+interface NavMainProps {
+  items: NavItem[];
+  searchResults: Array<{ title: string; teaser: string; url: string }>;
+}
+
+export const NavMain: React.FC<NavMainProps> = ({ items, searchResults }) => {
   return (
     <ul className={cn("grid gap-0.5", className)}>
       
