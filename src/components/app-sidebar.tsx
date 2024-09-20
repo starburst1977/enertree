@@ -24,6 +24,7 @@ import {
   Image as ImageIcon,
   Video,
   Mic2,
+  LucideIcon, // Add this import
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -43,7 +44,7 @@ import {
 interface NavItem {
   title: string
   url: string
-  icon?: LucideIcon // Made optional
+  icon?: LucideIcon // Now this should work
   isActive?: boolean
   items?: NavItem[]
 }
