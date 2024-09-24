@@ -11,6 +11,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { NavItem } from "@/components/nav-types"
 
 interface NavMainProps {
   items: NavItem[];

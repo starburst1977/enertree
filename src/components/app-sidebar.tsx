@@ -41,12 +41,10 @@ import {
   SidebarLabel,
 } from "@/components/ui/sidebar"
 
-interface NavItem {
-  title: string
-  url: string
-  icon?: LucideIcon // Now this should work
-  isActive?: boolean
-  items?: NavItem[]
+import { NavItem } from "@/components/nav-types"
+
+interface NavMainProps {
+  items: NavItem[];
 }
 
 const data = {
