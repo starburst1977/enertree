@@ -17,7 +17,7 @@ interface NavMainProps {
 
 export const NavMain: React.FC<NavMainProps> = ({ items, searchResults }) => {
   return (
-    <ul className={cn("grid gap-0.5", className)}>
+    <ul className={cn("grid gap-0.5")}>
       
       {items.map((item) => (
         <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
