@@ -257,17 +257,17 @@ const data = {
   ],
   projects: [
     {
-      name: "Device List",
+      title: "Device List",
       url: "#",
       icon: TableProperties,
     },
     {
-      name: "Notifications",
+      title: "Notifications",
       url: "#",
       icon: Bell,
     },
     {
-      name: "Reports",
+      title: "Reports",
       url: "#",
       icon: ClipboardList,
     },
