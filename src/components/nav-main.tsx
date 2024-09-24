@@ -3,7 +3,7 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -11,7 +11,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { NavItem } from "@/components/nav-types"
 
 export interface NavItem {
   title: string

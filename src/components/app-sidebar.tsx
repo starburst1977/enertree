@@ -41,12 +41,6 @@ import {
   SidebarLabel,
 } from "@/components/ui/sidebar"
 
-import { NavItem } from "@/components/nav-types"
-
-interface NavMainProps {
-  items: NavItem[];
-}
-
 const data = {
   teams: [
     {
