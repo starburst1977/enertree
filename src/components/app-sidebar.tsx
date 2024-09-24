@@ -43,7 +43,7 @@ import {
 
 import { NavItem } from "@/components/nav-types"
 
-interface NavMainProps {
+interface NavMain {
   items: NavItem[];
 }
 
@@ -165,19 +165,16 @@ const data = {
           title: "Genesis",
           url: "#",
           icon: Rabbit,
-          description: "Our fastest model for general use cases.",
         },
         {
           title: "Explorer",
           url: "#",
           icon: Bird,
-          description: "Performance and speed for efficiency.",
         },
         {
           title: "Quantum",
           url: "#",
           icon: Turtle,
-          description: "The most powerful model for complex computations.",
         },
       ],
     },
