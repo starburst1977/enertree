@@ -14,7 +14,7 @@ interface NavMainProps {
   items: NavItem[];
 }
 
-export const NavMain: React.FC<NavMainProps> = ({ items, searchResults }) => {
+export const NavMain: React.FC<NavMainProps> = ({ items }) => {
   return (
     <ul className={cn("grid gap-0.5")}>
       
