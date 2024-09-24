@@ -43,7 +43,7 @@ import {
 
 import { NavItem } from "@/components/nav-types"
 
-interface NavMain {
+interface NavMainProps {
   items: NavItem[];
 }
 
