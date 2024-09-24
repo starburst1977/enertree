@@ -12,7 +12,6 @@ import {
 
 interface NavMainProps {
   items: NavItem[];
-  searchResults: Array<{ title: string; teaser: string; url: string }>;
 }
 
 export const NavMain: React.FC<NavMainProps> = ({ items, searchResults }) => {
