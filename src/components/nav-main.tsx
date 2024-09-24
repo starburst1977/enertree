@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/collapsible"
 
 export interface NavItem {
-  title: string
-  url: string
+  title?: string
+  url?: string
   icon?: LucideIcon
   isActive?: boolean
   items?: NavItem[]

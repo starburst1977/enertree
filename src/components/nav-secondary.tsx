@@ -10,12 +10,12 @@ export function NavSecondary({
   items,
 }: {
   items: {
-    title: string
-    url: string
-    icon: LucideIcon
+    title?: string
+    url?: string
+    icon?: LucideIcon
     items?: {
-      title: string
-      url: string
+      title?: string
+      url?: string
     }[]
   }[]
 } & React.ComponentProps<"ul">) {

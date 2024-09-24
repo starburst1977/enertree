@@ -7,9 +7,9 @@ export function NavProjects({
   className,
 }: {
   projects: {
-    name: string
-    url: string
-    icon: LucideIcon
+    name?: string
+    url?: string
+    icon?: LucideIcon
   }[]
 } & React.ComponentProps<"ul">) {
   return (
