@@ -29,7 +29,7 @@ export const NavMain: React.FC<NavMainProps> = ({ items }) => {
                 href={item.url}
                 className="min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
               >
-                <item.icon className="h-4 w-4 shrink-0" />
+                {React.createElement(item.icon, { className: "h-4 w-4 shrink-0" })}
                 <div className="flex flex-1 overflow-hidden">
                   <div className="line-clamp-1 pr-6">{item.title}</div>
                 </div>
