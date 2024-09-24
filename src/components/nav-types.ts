@@ -3,7 +3,7 @@ import { LucideIcon } from "lucide-react"
 export interface NavItem {
   title: string
   url: string
-  icon: React.ElementType 
+  icon?: LucideIcon
   isActive?: boolean
   items?: NavItem[]
 }
