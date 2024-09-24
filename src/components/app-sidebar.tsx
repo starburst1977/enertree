@@ -274,38 +274,6 @@ const data = {
       icon: ClipboardList,
     },
   ],
-  searchResults: [
-    {
-      title: "Routing Fundamentals",
-      teaser:
-        "The skeleton of every application is routing. This page will introduce you to the fundamental concepts routing for web and how handle in Next.js.",
-      url: "#",
-    },
-    {
-      title: "Layouts and Templates",
-      teaser:
-        "The special files layout.js and template.js allow you to create UI that is shared between routes. This page will guide through how when use these files.",
-      url: "#",
-    },
-    {
-      title: "Data Fetching, Caching, and Revalidating",
-      teaser:
-        "Data fetching is a core part of any application. This page goes through how you can fetch, cache, and revalidate data in React Next.js.",
-      url: "#",
-    },
-    {
-      title: "Server and Client Composition Patterns",
-      teaser:
-        "When building React applications, you will need to consider what parts of your application should be rendered on the server or client.",
-      url: "#",
-    },
-    {
-      title: "Server Actions and Mutations",
-      teaser:
-        "Server Actions are asynchronous functions that executed on the server. They can be used in and Client Components to handle form submissions data mutations Next.js applications.",
-      url: "#",
-    },
-  ],
 }
 
 export function AppSidebar() {
@@ -330,7 +298,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarItem>
           <SidebarLabel className="text-blue-600">Rooms</SidebarLabel>
-          <NavMain items={data.navMain} searchResults={data.searchResults} />
+          <NavMain items={data.navMain} />
         </SidebarItem>
         <SidebarItem>
           <SidebarLabel className="text-blue-600">Options</SidebarLabel>
