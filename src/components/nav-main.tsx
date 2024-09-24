@@ -3,7 +3,7 @@
 "use client"
 
 import Link from "next/link"
-import { LucideIcon } from "lucide-react"
+import { ChevronRight, type LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
