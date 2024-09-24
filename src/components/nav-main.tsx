@@ -11,16 +11,17 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { NavItem } from "@/components/nav-types"
 
-interface NavItem {
-  title: string;
-  url: string;
-  icon: LucideIcon; // Ensure icon is typed as LucideIcon
-  isActive?: boolean;
-  items?: NavItem[];
+export interface NavItem {
+  title: string
+  url: string
+  icon?: LucideIcon
+  isActive?: boolean
+  items?: NavItem[]
 }
 
-export const NavMain: React.FC<NavMainProps> = ({ items }) => {
+export const NavMain: React.FC<NavItem> = ({ items }) => {
   return (
     <ul className={cn("grid gap-0.5")}>
       
