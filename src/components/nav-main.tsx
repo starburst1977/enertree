@@ -11,6 +11,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { usePathname } from 'next/navigation'
 
 export interface NavItem {
   title?: string
@@ -25,6 +26,8 @@ interface NavMainProps {
 }
 
 export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
+  const pathname = usePathname()
+
   return (
     <ul className={cn("grid gap-0.5")}>
       {items.map((item) => (
@@ -33,7 +36,10 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
             <div className="relative flex items-center">
               <Link
                 href={item.url || '#'}
-                className="min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
+                className={cn(
+                  "min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+                  pathname === item.url && ""
+                )}
               >
                 {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
                 <div className="flex flex-1 overflow-hidden">

@@ -359,7 +359,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader>
       <Link
-            href="#"
+            href="/"
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-md bg-blue-700 text-lg font-semibold text-neutral-50 md:h-8 md:w-8 md:text-base dark:bg-neutral-50 dark:text-neutral-900"
           >
             <Image 
