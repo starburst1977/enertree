@@ -28,10 +28,10 @@ export function NavSecondary({
       {items.map((item) => (
         <li key={item.title}>
           <Link
-            href={item.url}
+            href={item.url || '#'}
             className="flex h-7 items-center gap-2.5 overflow-hidden rounded-md px-1.5 text-xs ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
           >
-            <item.icon className="h-4 w-4 shrink-0 translate-x-0.5 text-neutral-500 dark:text-neutral-400" />
+            {item.icon && <item.icon className="h-4 w-4 shrink-0 translate-x-0.5 text-neutral-500 dark:text-neutral-400" />}
             <div className="line-clamp-1 grow overflow-hidden pr-6 font-medium text-neutral-500 dark:text-neutral-400">
               {item.title}
             </div>
