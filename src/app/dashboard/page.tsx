@@ -5,11 +5,8 @@ import {
 } from "@/components/ui/sidebar"
 
 export default async function Page() {
-  const { cookies } = await import("next/headers")
   return (
-    <SidebarLayout
-      defaultOpen={cookies().get("sidebar:state")?.value === "true"}
-    >
+    <SidebarLayout >
       <AppSidebar />
       
       <Dashboard />
