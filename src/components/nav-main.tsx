@@ -32,10 +32,10 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
           <li>
             <div className="relative flex items-center">
               <Link
-                href={item.url}
+                href={item.url || '#'}
                 className="min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
               >
-                <item.icon className="h-4 w-4 shrink-0" />
+                {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
                 <div className="flex flex-1 overflow-hidden">
                   <div className="line-clamp-1 pr-6">{item.title}</div>
                 </div>
@@ -53,7 +53,7 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
             <CollapsibleContent className="px-l py-0.5">
               <ul className="grid border-l border-blue-600 pl-2 ml-3">
                 {item.items?.map((subItem) => (
-                  <SubCollapsible key={subItem.title} item={subItem} />
+                  <SubCollapsible key={subItem.title} item={subItem as { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[]; isActive?: boolean }} />
                 ))}
               </ul>
             </CollapsibleContent>
@@ -64,16 +64,16 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
   )
 }
 
-function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[] } }) {
+function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[]; isActive?: boolean } }) {
   return (
     <Collapsible asChild defaultOpen={item.isActive}>
       <li>
         <div className="relative flex items-center justify-between w-full">
           <Link
-            href={item.url}
+            href={item.url || '#'}
             className="min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-neutral-500 ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:text-neutral-400 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
           >
-            <item.icon className="h-4 w-4 shrink-0" />
+            {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
             <div className="line-clamp-1 pr-4">{item.title}</div>
           </Link>
           {item.items && (
@@ -94,10 +94,10 @@ function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: 
               {item.items.map((subSubItem) => (
                 <li key={subSubItem.title}>
                   <Link
-                    href={subSubItem.url}
+                    href={subSubItem.url || '#'}
                     className="min-w-8 flex h-8 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-neutral-500 ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:text-neutral-400 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
                   >
-                    <subSubItem.icon className="h-4 w-4 shrink-0" />
+                    {subSubItem.icon && <subSubItem.icon className="h-4 w-4 shrink-0" />}
                     <div className="line-clamp-1">{subSubItem.title}</div>
                   </Link>
                 </li>
