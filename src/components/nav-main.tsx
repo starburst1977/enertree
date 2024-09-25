@@ -21,7 +21,7 @@ export interface NavItem {
 }
 
 interface NavMainProps {
-  items?: NavItem[]
+  items?: NavItem[] 
 }
 
 export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
