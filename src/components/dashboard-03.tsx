@@ -68,7 +68,7 @@ export default function Dashboard() {
                 className="overflow-hidden rounded-full"
               >
                 <Image
-                  src="images/user1.jpg"
+                  src="/images/user1.jpg"
                   width={36}
                   height={36}
                   alt="Avatar"
