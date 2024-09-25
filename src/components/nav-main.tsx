@@ -61,7 +61,7 @@ export const NavMain: React.FC<NavItem> = ({ items }) => {
   )
 }
 
-function SubCollapsible({ item }: { item: { title?: string; url?: string; icon?: LucideIcon; items?: { title?: string; icon?: LucideIcon; url?: string }[] } }) {
+function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[] } }) {
   return (
     <Collapsible asChild defaultOpen={item.isActive}>
       <li>
