@@ -67,84 +67,84 @@ const data = {
   navMain: [
     {
       title: "Room 1",
-      url: "#",
+      url: "/room",
       icon: Square,
       isActive: true,
       items: [
         {
           title: "Row 1",
           icon: AlignJustify,
-          url: "#",
+          url: "/row",
           isActive: true,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 2",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             }
           ]
         },
         {
           title: "Row 2",
-          url: "#",
+          url: "/row",
           icon: AlignJustify,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 2",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 3",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 4",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 5",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             }
           ]
         },
         {
           title: "Row 3",
-          url: "#",
+          url: "/row",
           icon: AlignJustify,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 2",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 3",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             },
             {
               title: "Rack 4",
               icon: Rows3,
-              url: "#"
+              url: "/rack"
             }
           ]
         }
@@ -152,84 +152,173 @@ const data = {
     },
     {
       title: "Room 2",
-      url: "#",
+      url: "/room",
       icon: Square,
+      isActive: true,
       items: [
         {
-          title: "Genesis",
-          url: "#",
-          icon: Rabbit,
+          title: "Row 1",
+          icon: AlignJustify,
+          url: "/row",
+          isActive: true,
+          items: [
+            {
+              title: "Rack 1",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 2",
+              icon: Rows3,
+              url: "/rack"
+            }
+          ]
         },
         {
-          title: "Explorer",
-          url: "#",
-          icon: Bird,
+          title: "Row 2",
+          url: "/row",
+          icon: AlignJustify,
+          items: [
+            {
+              title: "Rack 1",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 2",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 3",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 4",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 5",
+              icon: Rows3,
+              url: "/rack"
+            }
+          ]
         },
         {
-          title: "Quantum",
-          url: "#",
-          icon: Turtle,
-        },
-      ],
+          title: "Row 3",
+          url: "/row",
+          icon: AlignJustify,
+          items: [
+            {
+              title: "Rack 1",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 2",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 3",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 4",
+              icon: Rows3,
+              url: "/rack"
+            }
+          ]
+        }
+      ]
     },
     {
       title: "Room 3",
-      url: "#",
+      url: "/room",
       icon: Square,
+      isActive: true,
       items: [
         {
-          title: "Introduction",
-          url: "#",
-          icon: Info,
+          title: "Row 1",
+          icon: AlignJustify,
+          url: "/row",
+          isActive: true,
+          items: [
+            {
+              title: "Rack 1",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 2",
+              icon: Rows3,
+              url: "/rack"
+            }
+          ]
         },
         {
-          title: "Get Started",
-          url: "#",
-          icon: BookOpen,
+          title: "Row 2",
+          url: "/row",
+          icon: AlignJustify,
+          items: [
+            {
+              title: "Rack 1",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 2",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 3",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 4",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 5",
+              icon: Rows3,
+              url: "/rack"
+            }
+          ]
         },
         {
-          title: "Tutorials",
-          url: "#",
-          icon: Settings,
-        },
-        {
-          title: "Changelog",
-          url: "#",
-          icon: Info,
-        },
-      ],
-    },
-    {
-      title: "Room 4",
-      url: "#",
-      icon: Square,
-      items: [
-        {
-          title: "Bot",
-          url: "#",
-          icon: Bot,
-        },
-        {
-          title: "Completion",
-          url: "#",
-          icon: Check,
-        },
-        {
-          title: "Images",
-          url: "#",
-          icon: ImageIcon,
-        },
-        {
-          title: "Video",
-          url: "#",
-          icon: Video,
-        },
-        {
-          title: "Speech",
-          url: "#",
-          icon: Mic2,
-        },
-      ],
+          title: "Row 3",
+          url: "/row",
+          icon: AlignJustify,
+          items: [
+            {
+              title: "Rack 1",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 2",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 3",
+              icon: Rows3,
+              url: "/rack"
+            },
+            {
+              title: "Rack 4",
+              icon: Rows3,
+              url: "/rack"
+            }
+          ]
+        }
+      ]
     },
     
   ],

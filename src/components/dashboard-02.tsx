@@ -46,7 +46,7 @@ export default function Dashboard() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="#" className="text-blue-700 font-bold text-lg">Dashboard Room</Link>
+                  <Link href="#" className="text-blue-700 font-bold text-lg">Dashboard Rack</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               
