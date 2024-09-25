@@ -24,7 +24,7 @@ export default function Home() {
           <li>
             <a
               className="underline text-blue-600"
-              href="/room"
+              href="room"
             >
               Dashboard Prototpe
             </a>
