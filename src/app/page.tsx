@@ -10,7 +10,7 @@ export default function Home() {
           <div className="flex items-center justify-center bg-blue-700 rounded-lg p-4">
             <Image
               className=""
-              src="/images/logo.svg" 
+              src="images/logo.svg" 
               alt="logo"
               width={36}
               height={36}
