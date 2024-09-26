@@ -31,6 +31,10 @@ import {
 import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faServer as farServer } from '@fortawesome/pro-regular-svg-icons'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
 export default function Dashboard() {
@@ -52,6 +56,9 @@ export default function Dashboard() {
               
             </BreadcrumbList>
           </Breadcrumb>
+          <Button variant="outline" size="default" className="flex items-center gap-2">
+            <FontAwesomeIcon icon={farServer} /> Show all devices in room
+          </Button>
           <div className="relative ml-auto flex-1 md:grow-0">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-neutral-500 dark:text-neutral-400" />
             <Input

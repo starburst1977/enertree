@@ -57,7 +57,7 @@ export default function Dashboard() {
             </BreadcrumbList>
           </Breadcrumb>
           <Button variant="outline" size="default" className="flex items-center gap-2">
-          <FontAwesomeIcon icon={farServer} /> Show all devices in rack
+            <FontAwesomeIcon icon={farServer} /> Show all devices in rack
           </Button>
           <div className="relative ml-auto flex-1 md:grow-0">
             
