@@ -47,12 +47,7 @@ export default function Dashboard() {
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
                   <Link href="#" className="text-blue-700 font-bold text-lg">Dashboard Rack</Link>
-                  <Button
-                    variant="outline"
-                    className="overflow-hidden rounded-full"
-                  >
-                    Show all devices in this rack
-                  </Button>
+                  
                 </BreadcrumbLink>
               </BreadcrumbItem>
               
