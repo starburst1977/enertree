@@ -47,12 +47,19 @@ export default function Dashboard() {
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
                   <Link href="#" className="text-blue-700 font-bold text-lg">Dashboard Rack</Link>
+                  <Button
+                    variant="outline"
+                    className="overflow-hidden rounded-full"
+                  >
+                    Show all devices in this rack
+                  </Button>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               
             </BreadcrumbList>
           </Breadcrumb>
           <div className="relative ml-auto flex-1 md:grow-0">
+
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-neutral-500 dark:text-neutral-400" />
             <Input
               type="search"

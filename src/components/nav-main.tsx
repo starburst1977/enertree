@@ -192,7 +192,7 @@ function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: 
           <CollapsibleContent className="px-l py-0.5">
             <ul className="grid border-l border-blue-600 pl-[0.3rem] ml-[0.6rem]">
               {item.items.map((subItem) => (
-                <SubCollapsible key={subItem.title} item={subItem} />
+                <SubCollapsible key={subItem.title ?? ''} item={subItem} />
               ))}
             </ul>
           </CollapsibleContent>
