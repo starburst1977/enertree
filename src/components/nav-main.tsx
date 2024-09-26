@@ -22,14 +22,15 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
 export interface NavItem {
-  title?: string
-  url?: string
-  alarm?: boolean
-  alarmamount?: number
-  warning?: boolean
-  warningamount?: number
-  isActive?: boolean
-  items?: NavItem[]
+  title: string;
+  url?: string;
+  icon?: LucideIcon;
+  items?: NavItem[];
+  isActive?: boolean;
+  alarm?: boolean;
+  alarmamount?: number;
+  warning?: boolean;
+  warningamount?: number;
 }
 
 interface NavMainProps {
@@ -110,7 +111,7 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
             <CollapsibleContent className="px-l py-0.5">
               <ul className="grid border-l border-blue-600 pl-[0.3rem] ml-[0.6rem]">
                 {item.items?.map((subItem) => (
-                  <SubCollapsible key={subItem.title} item={subItem as { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[]; isActive?: boolean; alarm?: boolean; alarmamount?: number; warning?: boolean; warningamount?: number }} />
+                  <SubCollapsible key={subItem.title} item={subItem} />
                 ))}
               </ul>
             </CollapsibleContent>
@@ -121,7 +122,7 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
   )
 }
 
-function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: LucideIcon; items?: NavItem[]; isActive?: boolean; alarm?: boolean; alarmamount?: number; warning?: boolean; warningamount?: number } }) {
+function SubCollapsible({ item }: { item: NavItem }) {
   const pathname = usePathname()
   return (
     <Collapsible asChild defaultOpen={item.isActive}>
@@ -192,7 +193,7 @@ function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: 
           <CollapsibleContent className="px-l py-0.5">
             <ul className="grid border-l border-blue-600 pl-[0.3rem] ml-[0.6rem]">
               {item.items.map((subItem) => (
-                <SubCollapsible key={subItem.title ?? ''} item={subItem} />
+                <SubCollapsible key={subItem.title} item={subItem} />
               ))}
             </ul>
           </CollapsibleContent>
