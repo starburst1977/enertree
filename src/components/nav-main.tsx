@@ -12,11 +12,22 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { usePathname } from 'next/navigation'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle as fasCircle, faTriangle as fasTriangle } from '@fortawesome/pro-solid-svg-icons'
+import { faCircle as farCircle, faTriangle as farTriangle } from '@fortawesome/pro-regular-svg-icons'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
+// Prevent Font Awesome from adding its CSS since we did it manually above
+config.autoAddCss = false
 
 export interface NavItem {
   title?: string
   url?: string
-  icon?: LucideIcon
+  alarm?: boolean
+  alarmamount?: number
+  warning?: boolean
+  warningamount?: number
   isActive?: boolean
   items?: NavItem[]
 }
@@ -37,12 +48,52 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
               <Link
                 href={item.url || '#'}
                 className={cn(
-                  "min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+                  "min-w-8 flex h-8 flex-1 items-center gap-1 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
                   pathname === item.url && ""
                 )}
               >
-                {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
-                <div className="flex flex-1 overflow-hidden">
+                <div className="flex items-end">
+                  <FontAwesomeIcon
+                    icon={item.alarm ? fasCircle : farCircle}
+                    className={cn(
+                      "text-[8px]",
+                      item.alarm
+                        ? "text-red-600 dark:text-red-400"
+                        : "text-neutral-300 dark:text-neutral-400"
+                    )}
+                  />
+                  <div className="flex flex-col gap-[1px] min-h-[8px] justify-end items-end w-[4px]">
+                    {[...Array(Math.min(item.alarmamount || 0, 3))].map((_, index) => (
+                      <FontAwesomeIcon 
+                        key={index} 
+                        icon={fasCircle} 
+                        className="text-[2px] text-red-600"
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="flex items-end gap-0.5">
+                  <FontAwesomeIcon
+                    icon={item.warning ? fasTriangle : farTriangle}
+                    className={cn(
+                      "text-[9px]",
+                      item.warning
+                        ? "text-yellow-600 dark:text-red-400"
+                        : "text-neutral-300 dark:text-neutral-400"
+                    )}
+                  />
+                  <div className="flex flex-col gap-[1px] min-h-[8px] justify-end items-end w-[4px]">
+                    {[...Array(Math.min(item.warningamount || 0, 3))].map((_, index) => (
+                      <FontAwesomeIcon 
+                        key={index} 
+                        icon={fasCircle} 
+                        className="text-[2px] text-yellow-600"
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-1 overflow-hidden pl-2">
                   <div className="line-clamp-1 pr-6">{item.title}</div>
                 </div>
               </Link>
@@ -57,9 +108,9 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
               </CollapsibleTrigger>
             </div>
             <CollapsibleContent className="px-l py-0.5">
-              <ul className="grid border-l border-blue-600 pl-2 ml-3">
+              <ul className="grid border-l border-blue-600 pl-[0.3rem] ml-[0.6rem]">
                 {item.items?.map((subItem) => (
-                  <SubCollapsible key={subItem.title} item={subItem as { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[]; isActive?: boolean }} />
+                  <SubCollapsible key={subItem.title} item={subItem as { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[]; isActive?: boolean; alarm?: boolean; alarmamount?: number; warning?: boolean; warningamount?: number }} />
                 ))}
               </ul>
             </CollapsibleContent>
@@ -70,19 +121,62 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
   )
 }
 
-function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: LucideIcon; items?: { title: string; icon?: LucideIcon; url?: string }[]; isActive?: boolean } }) {
+function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: LucideIcon; items?: NavItem[]; isActive?: boolean; alarm?: boolean; alarmamount?: number; warning?: boolean; warningamount?: number } }) {
+  const pathname = usePathname()
   return (
     <Collapsible asChild defaultOpen={item.isActive}>
       <li>
         <div className="relative flex items-center justify-between w-full">
           <Link
             href={item.url || '#'}
-            className="min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-neutral-500 ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:text-neutral-400 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
-          >
-            {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
+            className={cn(
+              "min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+              pathname === item.url && ""
+            )}>
+            <div className="flex items-end gap-0.5">
+              <FontAwesomeIcon
+                icon={item.alarm ? fasCircle : farCircle}
+                className={cn(
+                  "text-[8px]",
+                  item.alarm
+                    ? "text-red-600 dark:text-red-400"
+                    : "text-neutral-300 dark:text-neutral-400"
+                )}
+              />
+              <div className="flex flex-col gap-[1px] min-h-[9px] justify-end items-end w-[4px]">
+                {[...Array(Math.min(item.alarmamount || 0, 3))].map((_, index) => (
+                  <FontAwesomeIcon 
+                    key={index} 
+                    icon={fasCircle} 
+                    className="text-[2px] text-red-600"
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex items-end gap-0.5">
+              <FontAwesomeIcon
+                icon={item.warning ? fasTriangle : farTriangle}
+                className={cn(
+                  "text-[9px]",
+                  item.warning
+                    ? "text-yellow-600 dark:text-yellow-400"
+                    : "text-neutral-300 dark:text-neutral-400"
+                )}
+              />
+              <div className="flex flex-col gap-[1px] min-h-[9px] justify-end items-end w-[4px]">
+                {[...Array(Math.min(item.warningamount || 0, 3))].map((_, index) => (
+                  <FontAwesomeIcon 
+                    key={index} 
+                    icon={fasCircle} 
+                    className="text-[2px] text-yellow-600"
+                  />
+                ))}
+              </div>
+            </div>
             <div className="line-clamp-1 pr-4">{item.title}</div>
           </Link>
-          {item.items && (
+          {item.items && item.items.length > 0 && (
             <CollapsibleTrigger asChild>
               <Button
                 variant="ghost"
@@ -94,19 +188,11 @@ function SubCollapsible({ item }: { item: { title: string; url?: string; icon?: 
             </CollapsibleTrigger>
           )}
         </div>
-        {item.items && (
-          <CollapsibleContent className="pl-2 py-0.5 ml-1.5">
-            <ul className="grid border-l border-purple-600 px-2">
-              {item.items.map((subSubItem) => (
-                <li key={subSubItem.title}>
-                  <Link
-                    href={subSubItem.url || '#'}
-                    className="min-w-8 flex h-8 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-neutral-500 ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:text-neutral-400 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
-                  >
-                    {subSubItem.icon && <subSubItem.icon className="h-4 w-4 shrink-0" />}
-                    <div className="line-clamp-1">{subSubItem.title}</div>
-                  </Link>
-                </li>
+        {item.items && item.items.length > 0 && (
+          <CollapsibleContent className="px-l py-0.5">
+            <ul className="grid border-l border-blue-600 pl-[0.3rem] ml-[0.6rem]">
+              {item.items.map((subItem) => (
+                <SubCollapsible key={subItem.title} item={subItem} />
               ))}
             </ul>
           </CollapsibleContent>

@@ -67,78 +67,98 @@ const data = {
   navMain: [
     {
       title: "Room 1",
-      url: "/room",
-      icon: Square,
+      url: "/room?=1",
+      alarm: true,
+      alarmamount: 3,
+      warning: true,
+      warningamount: 2,
       isActive: true,
       items: [
         {
           title: "Row 1",
           icon: AlignJustify,
-          url: "/row",
+          url: "/row?=1",
           isActive: true,
+          alarm: true,
+          alarmamount: 2,
+          warning: true,
+          warningamount: 1,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
-              url: "/rack"
+              alarm: true,
+              alarmamount: 1,
+              warning: false,
+              url: "/rack?=2"
             },
             {
               title: "Rack 2",
               icon: Rows3,
-              url: "/rack"
+              warning: true,
+              warningamount: 1,
+              url: "/rack?=3"
             }
           ]
         },
         {
           title: "Row 2",
-          url: "/row",
+          url: "/row?=2",
           icon: AlignJustify,
+          alarm: true,
+          alarmamount: 1,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
-              url: "/rack"
+              url: "/rack?=4"
             },
             {
               title: "Rack 2",
               icon: Rows3,
-              url: "/rack"
+              alarm: true,
+              alarmamount: 1,
+              url: "/rack?=5"
             },
             {
               title: "Rack 3",
               icon: Rows3,
-              url: "/rack"
+              url: "/rack?=6"
             },
             {
               title: "Rack 4",
               icon: Rows3,
-              url: "/rack"
+              url: "/rack?=7"
             },
             {
               title: "Rack 5",
               icon: Rows3,
-              url: "/rack"
+              url: "/rack?=8"
             }
           ]
         },
         {
           title: "Row 3",
-          url: "/row",
+          url: "/row?=3",
           icon: AlignJustify,
+          warning: true,
+          warningamount: 1,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
-              url: "/rack"
+              url: "/rack?=9"
             },
             {
               title: "Rack 2",
               icon: Rows3,
-              url: "/rack"
+              url: "/rack?=10"
             },
             {
               title: "Rack 3",
               icon: Rows3,
+              warning: true,
+              warningamount: 1,
               url: "/rack"
             },
             {
@@ -153,8 +173,9 @@ const data = {
     {
       title: "Room 2",
       url: "/room",
-      icon: Square,
-      isActive: true,
+      alarm: false,
+      warning: true,
+      warningamount: 1,
       items: [
         {
           title: "Row 1",
@@ -239,12 +260,16 @@ const data = {
       title: "Room 3",
       url: "/room",
       icon: Square,
-      isActive: true,
+      alarm: true,
+      alarmamount: 2,
+      warning: false,
       items: [
         {
           title: "Row 1",
           icon: AlignJustify,
           url: "/row",
+          alarm: true,
+          alarmamount: 1,
           isActive: true,
           items: [
             {
@@ -255,6 +280,8 @@ const data = {
             {
               title: "Rack 2",
               icon: Rows3,
+              alarm: true,
+              alarmamount: 1,
               url: "/rack"
             }
           ]
@@ -262,11 +289,15 @@ const data = {
         {
           title: "Row 2",
           url: "/row",
+          alarm: true,
+          alarmamount: 1,
           icon: AlignJustify,
           items: [
             {
               title: "Rack 1",
               icon: Rows3,
+              alarm: true,
+              alarmamount: 1,
               url: "/rack"
             },
             {
