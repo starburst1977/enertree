@@ -24,7 +24,6 @@ import {
   Image as ImageIcon,
   Video,
   Mic2,
-  LucideIcon, // Add this import
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -369,7 +368,7 @@ const data = {
   projects: [
     {
       name: "Device List",
-      url: "#",
+      url: "devices",
       icon: TableProperties,
     },
     {
