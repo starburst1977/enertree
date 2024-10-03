@@ -63,18 +63,10 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
                         : "text-neutral-300 dark:text-neutral-400"
                     )}
                   />
-                  <div className="flex flex-col gap-[1px] min-h-[8px] justify-end items-end w-[4px]">
-                    {[...Array(Math.min(item.alarmamount || 0, 3))].map((_, index) => (
-                      <FontAwesomeIcon 
-                        key={index} 
-                        icon={fasCircle} 
-                        className="text-[2px] text-red-600"
-                      />
-                    ))}
-                  </div>
+                  
                 </div>
                 
-                <div className="flex items-end gap-0.5">
+                <div className="flex items-end">
                   <FontAwesomeIcon
                     icon={item.warning ? fasTriangle : farTriangle}
                     className={cn(
@@ -84,15 +76,7 @@ export const NavMain: React.FC<NavMainProps> = ({ items = [] }) => {
                         : "text-neutral-300 dark:text-neutral-400"
                     )}
                   />
-                  <div className="flex flex-col gap-[1px] min-h-[8px] justify-end items-end w-[4px]">
-                    {[...Array(Math.min(item.warningamount || 0, 3))].map((_, index) => (
-                      <FontAwesomeIcon 
-                        key={index} 
-                        icon={fasCircle} 
-                        className="text-[2px] text-yellow-600"
-                      />
-                    ))}
-                  </div>
+                  
                 </div>
                 <div className="flex flex-1 overflow-hidden pl-2">
                   <div className="line-clamp-1 pr-6">{item.title}</div>
@@ -131,7 +115,7 @@ function SubCollapsible({ item }: { item: NavItem }) {
           <Link
             href={item.url || '#'}
             className={cn(
-              "min-w-8 flex h-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+              " flex h-8 flex-1 items-center gap-1 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
               pathname === item.url && ""
             )}>
             <div className="flex items-end gap-0.5">
@@ -144,15 +128,7 @@ function SubCollapsible({ item }: { item: NavItem }) {
                     : "text-neutral-300 dark:text-neutral-400"
                 )}
               />
-              <div className="flex flex-col gap-[1px] min-h-[9px] justify-end items-end w-[4px]">
-                {[...Array(Math.min(item.alarmamount || 0, 3))].map((_, index) => (
-                  <FontAwesomeIcon 
-                    key={index} 
-                    icon={fasCircle} 
-                    className="text-[2px] text-red-600"
-                  />
-                ))}
-              </div>
+              
             </div>
             
             <div className="flex items-end gap-0.5">
@@ -165,17 +141,9 @@ function SubCollapsible({ item }: { item: NavItem }) {
                     : "text-neutral-300 dark:text-neutral-400"
                 )}
               />
-              <div className="flex flex-col gap-[1px] min-h-[9px] justify-end items-end w-[4px]">
-                {[...Array(Math.min(item.warningamount || 0, 3))].map((_, index) => (
-                  <FontAwesomeIcon 
-                    key={index} 
-                    icon={fasCircle} 
-                    className="text-[2px] text-yellow-600"
-                  />
-                ))}
-              </div>
+              
             </div>
-            <div className="line-clamp-1 pr-4">{item.title}</div>
+            <div className="line-clamp-1 pr-4 pl-2">{item.title}</div>
           </Link>
           {item.items && item.items.length > 0 && (
             <CollapsibleTrigger asChild>
