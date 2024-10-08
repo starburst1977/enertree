@@ -31,8 +31,6 @@ import {
 import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faServer as farServer } from '@fortawesome/pro-regular-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 

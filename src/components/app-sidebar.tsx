@@ -28,7 +28,6 @@ import {
 } from "lucide-react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGauge as farGauge } from '@fortawesome/pro-regular-svg-icons'
-import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
