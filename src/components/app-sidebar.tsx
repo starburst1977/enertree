@@ -20,6 +20,7 @@ import {
   Info,
   BookOpen,
   Settings,
+  Settings2,
   Bot,
   Image as ImageIcon,
   Video,
@@ -355,14 +356,14 @@ const data = {
 
   navSecondary: [
     {
-      title: "Support",
+      title: "Manage Settings Profiles",
       url: "#",
-      icon: LifeBuoy,
+      icon: Settings2,
     },
     {
-      title: "Feedback",
+      title: "Manage Switch Profiles",
       url: "#",
-      icon: Send,
+      icon: Settings2,
     },
   ],
   projects: [
@@ -413,7 +414,7 @@ export function AppSidebar() {
           <NavProjects projects={data.projects} />
         </SidebarItem>
         <SidebarItem className="mt-auto">
-          <SidebarLabel className="text-blue-600">Help</SidebarLabel>
+          <SidebarLabel className="text-blue-600">Settings</SidebarLabel>
           <NavSecondary items={data.navSecondary} />
         </SidebarItem>
         
