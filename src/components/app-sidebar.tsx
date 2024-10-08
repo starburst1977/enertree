@@ -26,7 +26,10 @@ import {
   Video,
   Mic2,
 } from "lucide-react"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGauge as farGauge } from '@fortawesome/pro-regular-svg-icons'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 import { NavSecondary } from "@/components/nav-secondary"
@@ -406,11 +409,16 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarItem>
-          <SidebarLabel className="text-blue-600">Rooms</SidebarLabel>
+          <SidebarLabel className="text-blue-600">DC</SidebarLabel>
+          <Link href="/dc" className="flex h-8 text-sm items-center gap-2.5 overflow-hidden text-neutral-700 rounded-md px-1.5 outline-none ring-neutral-950 transition-all hover:bg-neutral-100 hover:text-blue-600 focus-visible:ring-2 dark:ring-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50">
+            <FontAwesomeIcon icon={farGauge} />
+            Overview
+          </Link>
+          <SidebarLabel className="text-blue-600 pt-4">Rooms</SidebarLabel>
           <NavMain items={data.navMain} />
         </SidebarItem>
         <SidebarItem>
-          <SidebarLabel className="text-blue-600">Options</SidebarLabel>
+          <SidebarLabel className="text-blue-600">Views</SidebarLabel>
           <NavProjects projects={data.projects} />
         </SidebarItem>
         <SidebarItem className="mt-auto">
