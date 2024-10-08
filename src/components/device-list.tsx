@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -70,9 +71,9 @@ const devices = [
 ];
 
 const deviceItemColors = {
-  ok: "bg-lime-300/75 text-lime-800 rounded-lg grid grid-cols-4",
-  warning: "bg-yellow-300/70 text-yellow-800 rounded-lg grid grid-cols-4",
-  alert: "bg-red-300/75 text-red-800 rounded-lg grid grid-cols-4",
+  ok: "border border-gray-200 bg-white text-lime-800 rounded-lg grid grid-cols-4",
+  warning: "border border-gray-200 bg-white text-yellow-800 rounded-lg grid grid-cols-4",
+  alert: "border-2 border-red-400 bg-white text-red-800 rounded-lg grid grid-cols-4",
 };
 
 const deviceBgBarColors = {
@@ -91,6 +92,7 @@ export function DeviceListComponent() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [sortBy, setSortBy] = useState("name");
+  const [checkedDevices, setCheckedDevices] = useState<Set<number>>(new Set());
 
   const filteredAndSortedDevices = useMemo(() => {
     return devices
@@ -143,53 +145,99 @@ export function DeviceListComponent() {
           </SelectContent>
         </Select>
       </div>
-      <div className="flex flex-col gap-2">
-        {filteredAndSortedDevices.map((device) => (
-          <div
-            key={device.id}
-            className={
-              deviceItemColors[device.state as keyof typeof deviceItemColors]
-            }>
-            <div className="pl-6 py-4">
-              <div className="text-base text-black/75 font-bold">
-                {device.name}
-              </div>
-              <div className="text-sm text-black/40">{device.location}</div>
-            </div>
-            <div className="pl-6 py-4">
-              <div className="text-base text-black/50">{device.vendor}</div>
-              <div className="text-sm text-black/40 dark:text-neutral-400">
-                {device.type}
-              </div>
-            </div>
 
-            <div className="col-span-2 px-4 py-4">
-              <div
-                  className={cn(
-                    deviceBgBarColors[
-                      device.state as keyof typeof deviceBarColors
-                    ],
-                    "rounded-md flex justify-end" // Add minimum width here
-                  )}
-                >
+      <div className="flex gap-4">
+        <div className="flex flex-col gap-2 flex-1">
+          {filteredAndSortedDevices.map((device) => (
+            <div
+              key={device.id}
+              className={
+                deviceItemColors[device.state as keyof typeof deviceItemColors]
+              }>
+              
+              <div className="flex items-center">
+                <div className="pl-6 py-4">
+                  <input 
+                    type="checkbox" 
+                    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    checked={checkedDevices.has(device.id)}
+                    onChange={(e) => {
+                      const newCheckedDevices = new Set(checkedDevices);
+                      if (e.target.checked) {
+                        newCheckedDevices.add(device.id);
+                      } else {
+                        newCheckedDevices.delete(device.id);
+                      }
+                      setCheckedDevices(newCheckedDevices);
+                    }}
+                  />
+                </div>
+                <div className="pl-6 py-4">
+                  <div className="text-base text-black/75 font-bold">
+                    {device.name}
+                  </div>
+                  <div className="text-sm text-black/40">{device.location}</div>
+                </div>
+              </div>
+              <div className="pl-6 py-4">
+                <div className="text-base text-black/50">{device.vendor}</div>
+                <div className="text-sm text-black/40 dark:text-neutral-400">
+                  {device.type}
+                </div>
+              </div>
+
+              <div className="col-span-2 px-4 py-4">
                 <div
-                  className={cn(
-                    deviceBarColors[
-                      device.state as keyof typeof deviceBarColors
-                    ],
-                    "whitespace-nowrap py-2 rounded-md text-right px-4 text-lg flex items-center justify-end",
-                    "min-w-[2rem] font-bold" // Add minimum width here
-                  )}
-                  style={{ 
-                    width: `${Math.max(Math.min(device.value, 100), 16)}%`  // 16% is roughly 4rem of 25rem
-                  }}
-                >
-                  {device.value.toFixed(1)} A
+                    className={cn(
+                      deviceBgBarColors[
+                        device.state as keyof typeof deviceBarColors
+                      ],
+                      "rounded-md flex justify-end" // Add minimum width here
+                    )}
+                  >
+                  <div
+                    className={cn(
+                      deviceBarColors[
+                        device.state as keyof typeof deviceBarColors
+                      ],
+                      "whitespace-nowrap py-2 rounded-md text-right px-4 text-lg flex items-center justify-end",
+                      "min-w-[2rem] font-bold" // Add minimum width here
+                    )}
+                    style={{ 
+                      width: `${Math.max(Math.min(device.value, 100), 16)}%`  // 16% is roughly 4rem of 25rem
+                    }}
+                  >
+                    {device.value.toFixed(1)} A
+                  </div>
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+        {checkedDevices.size > 0 && (
+          <div className="flex flex-col gap-2 border-l border-gray-200 p-2 pl-4 pr-0">
+            <Button size="default" variant="outline">
+              <span className="sm:whitespace-nowrap">
+                Apply Settings Profile
+              </span>
+            </Button>
+            <Button size="default" variant="outline">
+              <span className="sm:whitespace-nowrap">
+                Apply Switch Profile
+              </span>
+            </Button>
+            <Button size="default" variant="outline">
+              <span className="sm:whitespace-nowrap">
+                Firmware update
+              </span>
+            </Button>
+            <Button size="default" variant="outline">
+              <span className="sm:whitespace-nowrap">
+                Perform Self Test
+              </span>
+            </Button>
           </div>
-        ))}
+        )}
       </div>
       {filteredAndSortedDevices.length === 0 && (
         <p className="text-center text-neutral-500 mt-4 dark:text-neutral-400">
