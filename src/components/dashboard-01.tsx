@@ -58,16 +58,13 @@ export default function Dashboard() {
           
           <div className="relative ml-auto flex items-center gap-2">
           <div className="text-xs text-neutral-400">Time frame</div>
-            <Tabs defaultValue="l1" className="mr-4">
+            <Tabs defaultValue="30" className="mr-4">
               <TabsList>
-                <TabsTrigger value="l1">30 days</TabsTrigger>
-                <TabsTrigger value="l2">14 days</TabsTrigger>
-                <TabsTrigger value="l3">7 days</TabsTrigger>
-                <TabsTrigger value="l3">Today</TabsTrigger>
+                <TabsTrigger value="30">30 days</TabsTrigger>
+                <TabsTrigger value="14">14 days</TabsTrigger>
+                <TabsTrigger value="7">7 days</TabsTrigger>
+                <TabsTrigger value="1">Today</TabsTrigger>
               </TabsList>
-              <TabsContent value="l1"></TabsContent>
-              <TabsContent value="l2"></TabsContent>
-              <TabsContent value="l3"></TabsContent>
             </Tabs>
             <div className="text-xs text-neutral-400">Source</div>
             <Tabs defaultValue="l1" className="">
@@ -76,9 +73,6 @@ export default function Dashboard() {
                 <TabsTrigger value="l2">L2</TabsTrigger>
                 <TabsTrigger value="l3">L3</TabsTrigger>
               </TabsList>
-              <TabsContent value="l1"></TabsContent>
-              <TabsContent value="l2"></TabsContent>
-              <TabsContent value="l3"></TabsContent>
             </Tabs>
           </div>
           
