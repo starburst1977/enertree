@@ -5,10 +5,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-  Bird,
+  FileCog,
   Check,
   ClipboardList,
-  LifeBuoy,
+  FolderCog,
   Bell,
   Rabbit,
   Send,
@@ -16,7 +16,7 @@ import {
   AlignJustify,
   Square,
   Rows3,
-  Turtle,
+  GitFork,
   Info,
   BookOpen,
   Settings,
@@ -358,14 +358,19 @@ const data = {
 
   navSecondary: [
     {
+      title: "Configure DC Structure",
+      url: "/structure", // Change this line
+      icon: GitFork,
+    },
+    {
       title: "Manage Settings Profiles",
       url: "#",
-      icon: Settings2,
+      icon: FolderCog,
     },
     {
       title: "Manage Switch Profiles",
       url: "#",
-      icon: Settings2,
+      icon: FileCog,
     },
   ],
   projects: [

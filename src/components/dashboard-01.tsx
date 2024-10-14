@@ -6,6 +6,8 @@ import Link from "next/link"
 import {
   Search,
 } from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -54,40 +56,32 @@ export default function Dashboard() {
             </BreadcrumbList>
           </Breadcrumb>
           
-          <div className="relative ml-auto flex-1 md:grow-0">
-            
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-neutral-500 dark:text-neutral-400" />
-            <Input
-              type="search"
-              placeholder="Search......."
-              className="w-full rounded-lg bg-white pl-8 md:w-[200px] lg:w-[320px] dark:bg-neutral-950"
-            />
+          <div className="relative ml-auto flex items-center gap-2">
+          <div className="text-xs text-neutral-400">Time frame</div>
+            <Tabs defaultValue="l1" className="mr-4">
+              <TabsList>
+                <TabsTrigger value="l1">30 days</TabsTrigger>
+                <TabsTrigger value="l2">14 days</TabsTrigger>
+                <TabsTrigger value="l3">7 days</TabsTrigger>
+                <TabsTrigger value="l3">Today</TabsTrigger>
+              </TabsList>
+              <TabsContent value="l1"></TabsContent>
+              <TabsContent value="l2"></TabsContent>
+              <TabsContent value="l3"></TabsContent>
+            </Tabs>
+            <div className="text-xs text-neutral-400">Source</div>
+            <Tabs defaultValue="l1" className="">
+              <TabsList>
+                <TabsTrigger value="l1">L1</TabsTrigger>
+                <TabsTrigger value="l2">L2</TabsTrigger>
+                <TabsTrigger value="l3">L3</TabsTrigger>
+              </TabsList>
+              <TabsContent value="l1"></TabsContent>
+              <TabsContent value="l2"></TabsContent>
+              <TabsContent value="l3"></TabsContent>
+            </Tabs>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="overflow-hidden rounded-full"
-              >
-                <Image
-                  src="/images/user1.jpg"
-                  width={36}
-                  height={36}
-                  alt="Avatar"
-                  className="overflow-hidden rounded-full"
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          
         </header>
         <main className="">
           <Charts />
