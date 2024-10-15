@@ -6,7 +6,8 @@ import Link from "next/link"
 import {
   Search,
 } from "lucide-react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { TopTabs, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
+import { Charts } from "@/components/charts-02"
 
 import {
   Breadcrumb,
@@ -27,9 +28,6 @@ import { Input } from "@/components/ui/input"
 import {
   TooltipProvider,
 } from "@/components/ui/tooltip"
-import {
-  Charts,
-} from "@/components/charts-01"
 import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
@@ -58,22 +56,22 @@ export default function Dashboard() {
           
           <div className="relative ml-auto flex items-center gap-2">
           <div className="text-xs text-neutral-400">Time frame</div>
-            <Tabs defaultValue="30" className="mr-4">
-              <TabsList>
-                <TabsTrigger value="30">30 days</TabsTrigger>
-                <TabsTrigger value="14">14 days</TabsTrigger>
-                <TabsTrigger value="7">7 days</TabsTrigger>
-                <TabsTrigger value="1">Today</TabsTrigger>
-              </TabsList>
-            </Tabs>
+            <TopTabs defaultValue="30" className="mr-4">
+              <TopTabsList>
+                <TopTabsTrigger value="30">30 days</TopTabsTrigger>
+                <TopTabsTrigger value="14">14 days</TopTabsTrigger>
+                <TopTabsTrigger value="7">7 days</TopTabsTrigger>
+                <TopTabsTrigger value="1">Today</TopTabsTrigger>
+              </TopTabsList>
+            </TopTabs>
             <div className="text-xs text-neutral-400">Source</div>
-            <Tabs defaultValue="l1" className="">
-              <TabsList>
-                <TabsTrigger value="l1">L1</TabsTrigger>
-                <TabsTrigger value="l2">L2</TabsTrigger>
-                <TabsTrigger value="l3">L3</TabsTrigger>
-              </TabsList>
-            </Tabs>
+            <TopTabs defaultValue="l1" className="">
+              <TopTabsList>
+                <TopTabsTrigger value="l1">L1</TopTabsTrigger>
+                <TopTabsTrigger value="l2">L2</TopTabsTrigger>
+                <TopTabsTrigger value="l3">L3</TopTabsTrigger>
+              </TopTabsList>
+            </TopTabs>
           </div>
           
         </header>
