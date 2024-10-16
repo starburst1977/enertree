@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client"
 
 import * as React from "react"
@@ -86,3 +88,5 @@ export default function Dashboard() {
     </TooltipProvider>
   )
 }
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
