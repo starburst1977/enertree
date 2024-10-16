@@ -82,7 +82,7 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
         >
           <ResponsiveContainer width="100%" height="100%">
             <LineChart width={200} height={150} data={powerData}>
-              <Line type="monotone" dataKey="current" stroke="#1C4ED8" strokeWidth={2} />
+              <Line type="monotone" dataKey="current" stroke="#1C4ED8" dot={false} strokeWidth={2} />
               <Tooltip />
             </LineChart>
             
