@@ -35,6 +35,9 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
 export default function Dashboard() {
+
+  const [activeTimeFrame, setActiveTimeFrame] = React.useState("30");
+  const [activePhase, setActivePhase] = React.useState("L1");
   return (
     <TooltipProvider>
     <div className="flex min-h-screen mx-auto max-w-screen-2xl flex-col bg-neutral-100/40 dark:bg-neutral-800/40">
@@ -56,7 +59,7 @@ export default function Dashboard() {
           
           <div className="relative ml-auto flex items-center gap-2">
           <div className="text-xs text-neutral-400">Time frame</div>
-            <TopTabs defaultValue="30" className="mr-4">
+            <TopTabs value={activeTimeFrame} className="mr-4" onValueChange={(value) => setActiveTimeFrame(value)}>
               <TopTabsList>
                 <TopTabsTrigger value="30">30 days</TopTabsTrigger>
                 <TopTabsTrigger value="14">14 days</TopTabsTrigger>
@@ -65,18 +68,18 @@ export default function Dashboard() {
               </TopTabsList>
             </TopTabs>
             <div className="text-xs text-neutral-400">Source</div>
-            <TopTabs defaultValue="l1" className="">
+            <TopTabs value={activePhase} className=""  onValueChange={(value) => setActivePhase(value)}>
               <TopTabsList>
-                <TopTabsTrigger value="l1">L1</TopTabsTrigger>
-                <TopTabsTrigger value="l2">L2</TopTabsTrigger>
-                <TopTabsTrigger value="l3">L3</TopTabsTrigger>
+                <TopTabsTrigger value="L1">L1</TopTabsTrigger>
+                <TopTabsTrigger value="L2">L2</TopTabsTrigger>
+                <TopTabsTrigger value="L3">L3</TopTabsTrigger>
               </TopTabsList>
             </TopTabs>
           </div>
           
         </header>
         <main className="">
-          <Charts />
+          <Charts activeTimeFrame={activeTimeFrame} activePhase={activePhase} />
         </main>
       </div>
     </div>

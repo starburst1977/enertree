@@ -5,6 +5,7 @@ import { Line, LineChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { DashboardUIState } from "./charts-02"
 
 // Generate 30 days of dummy data
 const generateDummyData = () => {
@@ -21,42 +22,57 @@ const generateDummyData = () => {
   return data
 }
 
-const powerData = generateDummyData()
 
-// Current power levels for each line
-const powerLevels = {
-  L1: 6.8,
-  L2: 7.2,
-  L3: 6.5
+export interface ChartProps extends DashboardUIState {
+  chartTitle: string;
+  phaseValues: Record<string, number>;
+  unit: string;
 }
 
-export default function PowerCurrentChart() {
-  const [selectedInput, setSelectedInput] = useState("L2")
+export default function DashboardChart({ activePhase, activeTimeFrame, chartTitle, phaseValues, unit }: ChartProps) {
+
+  const powerData = generateDummyData();
+
+  let timeFrameTitle;
+  switch (activeTimeFrame) {
+    case "30":
+      timeFrameTitle = "30 Day";
+      break
+    case "14":
+      timeFrameTitle = "14 Day";
+      break
+    case "7":
+      timeFrameTitle = "7 Day";
+      break
+    case "1":
+      timeFrameTitle = "Today's";
+      break;
+  }
 
   return (
     <Card className="w-full max-w-3xl overflow-hidden">
       <CardHeader className="p-0">
-        <Tabs value={selectedInput} onValueChange={setSelectedInput} className="w-full">
+        <Tabs value={activePhase} className="w-full">
           <TabsList className="grid w-full grid-cols-3 h-12 border-b border-input">
-            {Object.entries(powerLevels).map(([line, level]) => (
+            {Object.entries(phaseValues).map(([line, level]) => (
               <TabsTrigger 
                 key={line} 
                 value={line} 
                 className="data-[state=active]:bg-background data-[state=active]:border-none rounded-none"
               >
                 <h3 className="text-xs text-blue-600 pr-2">{line}</h3> 
-                <span className="text-base text-neutral-800">{level.toFixed(1)}A</span>
+                <span className="text-base text-neutral-800">{level.toFixed(1)} {unit}</span>
               </TabsTrigger>
             ))}
           </TabsList>
         </Tabs>
       </CardHeader>
       <CardContent className="p-6 pt-4">
-        <CardTitle className="pt-4 pb-8 pl-2">30-Day Power Current: {selectedInput}</CardTitle>
+        <CardTitle className="pt-4 pb-8 pl-2">{timeFrameTitle} {chartTitle}: {activePhase}</CardTitle>
         <ChartContainer
           config={{
             current: {
-              label: "Current (A)",
+              label: `${chartTitle} (${unit})`,
               color: "hsl(var(--chart-1))",
             },
           }}
@@ -87,4 +103,4 @@ export default function PowerCurrentChart() {
   )
 }
 
-export { PowerCurrentChart }
+export { DashboardChart }
