@@ -42,7 +42,7 @@ export interface DashboardUIState {
 
 export function Charts({ activePhase, activeTimeFrame }: DashboardUIState) {
   return (
-    <div className="chart-wrapper mx-auto max-w-screen-2xl grid grid-cols-2 gap-4 sm:px-6">
+    <div className="chart-wrapper mx-auto max-w-screen-2xl grid grid-cols-3 gap-4 sm:px-6">
       <div className="w-full flex flex-col gap-4">
       
         <DashboardChart activeTimeFrame={activeTimeFrame}
@@ -53,23 +53,144 @@ export function Charts({ activePhase, activeTimeFrame }: DashboardUIState) {
             L3: 6.5
           }} />
         
-      </div>
-      <div className="flex flex-col w-full gap-4">
         <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Power" unit="W"
           phaseValues={{
-            L1: 5002,
-            L2: 6821,
-            L3: 6892
+            L1: 500,
+            L2: 681,
+            L3: 692
+          }} />
+        <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Residual Current" unit="W"
+          phaseValues={{
+            L1: 500,
+            L2: 681,
+            L3: 692
+          }} />
+      </div>
+      <div className="w-full flex flex-col gap-4">
+      
+        <DashboardChart activeTimeFrame={activeTimeFrame}
+          activePhase={activePhase} chartTitle="Neutral Current" unit="A"
+          phaseValues={{
+            L1: 6.2,
+            L2: 6.2,
+            L3: 6.8
+          }} />
+        
+        <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Active Power" unit="W"
+          phaseValues={{
+            L1: 462,
+            L2: 255,
+            L3: 298
+          }} />
+        <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Apparent Power" unit="VA"
+          phaseValues={{
+            L1: 102,
+            L2: 90,
+            L3: 88
           }} />
       </div>
       <div className="flex flex-col w-full gap-4">
-        <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Voltage" unit="V"
-          phaseValues={{
-            L1: 222,
-            L2: 223,
-            L3: 221
-          }}
-        />
+      <Card
+          x-chunk="An area chart showing the time spent in bed for past 7 days."
+          className="max-w-xl"
+        >
+          <CardHeader className="p-6 pb-0">
+            <CardTitle>Insights</CardTitle>
+          </CardHeader>
+          <CardHeader className="flex flex-row items-center gap-x-4 space-y-0 [&>div]:flex-1">
+            <div>
+              <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
+                694
+              </CardTitle>
+              <CardDescription className=""> Total Devices</CardDescription>
+            </div>
+            <div>
+              <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums text-red-600">
+                5
+              </CardTitle>
+              <CardDescription className="text-red-600"> Active Alerts</CardDescription>
+            </div>
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <Table className="">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-red-600 font-bold">Alerts</TableHead>
+                  <TableHead className="text-right">Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-red-600">Voltage Drop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-red-600">Hardware Defect</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-red-600">Hardware Defect</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-red-600">Voltage Drop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-red-600">Hardware Defect</TableCell>
+                  </TableRow>
+              </TableBody>
+            </Table>
+            <Table className="mt-4">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-amber-500 font-bold">Warnings</TableHead>
+                  <TableHead className="text-right">Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Voltage Drop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Hardware Defect</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Voltage Drop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Hardware Defect</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Voltage Drop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Hardware Defect</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Hardware Defect</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Voltage Drop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
+                    <TableCell className="text-right text-amber-500">Hardware Defect</TableCell>
+                  </TableRow>
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+        
       </div>
     </div>
   )

@@ -16,7 +16,7 @@ const generateDummyData = () => {
     date.setDate(startDate.getDate() + i)
     data.push({
       date: date.toISOString().split('T')[0],
-      current: (Math.sin(i * 0.2) + 1) * 3 + Math.random() * 0.5 + 5 // Generates a value between 5 and 8.5
+      current: (Math.sin(i * 0.12) + 1) * 2.5 + Math.random() * 0.75 + 5 // Generates a value between 5 and 8.5
     })
   }
   return data
@@ -58,17 +58,17 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
               <TabsTrigger 
                 key={line} 
                 value={line} 
-                className="data-[state=active]:bg-background data-[state=active]:border-none rounded-none"
+                className="data-[state=active]:bg-background data-[state=active]:border-none rounded-none flex flex-col gap-0 items-start px-8"
               >
-                <h3 className="text-xs text-blue-600 pr-2">{line}</h3> 
-                <span className="text-base text-neutral-800">{level.toFixed(1)} {unit}</span>
+                <h3 className="text-xs">{line}</h3> 
+                <span className="text-base font-bold">{level.toFixed(1)} {unit}</span>
               </TabsTrigger>
             ))}
           </TabsList>
         </Tabs>
       </CardHeader>
       <CardContent className="p-6 pt-4">
-        <CardTitle className="pt-4 pb-8 pl-2">{timeFrameTitle} {chartTitle}: {activePhase}</CardTitle>
+        <CardTitle className="pt-4 pb-8 pl-2">{timeFrameTitle} - {chartTitle}</CardTitle>
         <ChartContainer
           config={{
             current: {
@@ -76,26 +76,14 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
               color: "hsl(var(--chart-1))",
             },
           }}
-          className="h-[300px]"
+          className="h-[150px] w-[325px]"
         >
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={powerData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="date" 
-                tickFormatter={(value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                interval={6}
-              />
-              <YAxis domain={[5, 10]} ticks={[5, 10, 15]}  />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <Line
-                type="monotone"
-                dataKey="current"
-                stroke="var(--color-current)"
-                strokeWidth={2}
-                dot={false}
-              />
+            <LineChart width={200} height={150} data={powerData}>
+              <Line type="monotone" dataKey="current" stroke="#1C4ED8" strokeWidth={2} />
+              <Tooltip />
             </LineChart>
+            
           </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
