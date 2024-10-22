@@ -3,7 +3,29 @@
 "use client"
 
 import { useState } from "react"
-import { Line, LineChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -51,6 +73,49 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
       break;
   }
 
+  const chartData = {
+    labels: powerData.map(item => item.date),
+    datasets: [
+      {
+        label: `${chartTitle} (${unit})`,
+        data: powerData.map(item => item.current),
+        borderColor: 'hsl(var(--chart-1))',
+        backgroundColor: 'hsl(var(--chart-1) / 0.1)',
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        mode: 'index' as const,
+        intersect: false,
+      },
+    },
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Date',
+        },
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: `${chartTitle} (${unit})`,
+        },
+      },
+    },
+  };
+
   return (
     <Card className="w-full max-w-3xl overflow-hidden">
       <CardHeader className="p-0">
@@ -71,23 +136,9 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
       </CardHeader>
       <CardContent className="p-6 pt-4">
         <CardTitle className="pt-4 pb-8 pl-2">{timeFrameTitle} - {chartTitle}</CardTitle>
-        <ChartContainer
-          config={{
-            current: {
-              label: `${chartTitle} (${unit})`,
-              color: "hsl(var(--chart-1))",
-            },
-          }}
-          className="h-[150px] w-[325px]"
-        >
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart width={200} height={150} data={powerData}>
-              <Line type="monotone" dataKey="current" stroke="#1C4ED8" dot={false} strokeWidth={2} />
-              <Tooltip />
-            </LineChart>
-            
-          </ResponsiveContainer>
-        </ChartContainer>
+        <div className="">
+          <Line data={chartData} options={chartOptions} />
+        </div>
       </CardContent>
     </Card>
   )
