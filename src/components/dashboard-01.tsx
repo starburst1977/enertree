@@ -72,6 +72,7 @@ export default function Dashboard() {
             <div className="text-xs text-neutral-400">Source</div>
             <TopTabs value={activePhase} className=""  onValueChange={(value) => setActivePhase(value)}>
               <TopTabsList>
+                <TopTabsTrigger value="All">All</TopTabsTrigger>
                 <TopTabsTrigger value="L1">L1</TopTabsTrigger>
                 <TopTabsTrigger value="L2">L2</TopTabsTrigger>
                 <TopTabsTrigger value="L3">L3</TopTabsTrigger>

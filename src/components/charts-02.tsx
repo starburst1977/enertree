@@ -4,20 +4,6 @@
 
 "use client"
 
-import {
-  Area,
-  AreaChart,
-  Bar,
-  BarChart,
-  RadialBarChart,
-  RadialBar,
-  PolarAngleAxis,
-  Rectangle,
-  CartesianGrid,
-  LabelList,
-  XAxis,
-  YAxis,
-} from "recharts"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { DashboardChart } from "@/components/power-current-chart"
 import {

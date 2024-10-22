@@ -119,7 +119,7 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
         dataset.pointStyle = false;
         dataset.showLine = false;
 
-        dataset.backgroundColor = dataset.borderColor + '4a';
+        dataset.backgroundColor = dataset.borderColor + '33';
         dataset.borderColor = dataset.borderColor + '6f';
         if (isMin) {
             dataset.fill = '+2';
@@ -145,6 +145,7 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
     plugins: {
       legend: {
         display: false,
+        color: '#ddd',
       },
       tooltip: {
         mode: 'index' as const,
@@ -161,32 +162,52 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
         ticks: {
           source: 'auto',
           callback: dateTickFormatCb,
+          color: '#bbb',
         },
         title: {
-          display: true,
+          display: false,
           text: 'Date',
+          color: '#ddd',
         },
+        grid: {
+          display: false,
+        }
       },
       y: {
         display: true,
         title: {
-          display: true,
+          display: false,
           text: `${chartTitle} (${unit})`,
         },
+        ticks: {
+          color: '#bbb',
+        },
+        grid: {
+          display: false,
+        }
       },
     },
   };
 
   return (
     <Card className="w-full max-w-3xl overflow-hidden">
+      
+      <CardContent className="px-6 py-4">
+        <CardTitle className="pt-2 pb-6 pl-2 flex items-center justify-between">
+          <span>{chartTitle}</span><span className="font-normal text-blue-600">{timeFrameTitle}</span>
+        </CardTitle>
+        <div className="">
+          <Line data={chartData} options={chartOptions} />
+        </div>
+      </CardContent>
       <CardHeader className="p-0">
         <Tabs value={activePhase} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 h-12 border-b border-input">
+          <TabsList className="grid w-full grid-cols-3 h-10 border-b border-input">
             {Object.entries(phaseValues).map(([line, level]) => (
               <TabsTrigger 
                 key={line} 
                 value={line} 
-                className="data-[state=active]:bg-background data-[state=active]:border-none rounded-none flex flex-col gap-0 items-start px-8"
+                className="data-[state=active]:border-none flex flex-col gap-0 items-center px-8"
               >
                 <h3 className="text-xs">{line}</h3> 
                 <span className="text-base font-bold">{level.toFixed(1)} {unit}</span>
@@ -195,12 +216,6 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
           </TabsList>
         </Tabs>
       </CardHeader>
-      <CardContent className="p-6 pt-4">
-        <CardTitle className="pt-4 pb-8 pl-2">{timeFrameTitle} - {chartTitle}</CardTitle>
-        <div className="">
-          <Line data={chartData} options={chartOptions} />
-        </div>
-      </CardContent>
     </Card>
   )
 }
