@@ -2,7 +2,8 @@
 
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
+import 'chartjs-adapter-dayjs-3';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -10,10 +11,15 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  TimeScale,
+  TimeSeriesScale,
+  Filler,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
+
+import dayjs from "dayjs";
 
 // Register Chart.js components
 ChartJS.register(
@@ -21,9 +27,12 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
+  Filler,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  TimeSeriesScale,
+  TimeScale,
 );
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -31,17 +40,29 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { DashboardUIState } from "./charts-02"
 
+const chartDayChangeTickFormatOptions =  { day: 'numeric', "month": "numeric" };
+
+export const dateTickFormatCb = function(value, index, ticks) {
+  return Intl.DateTimeFormat('de-DE', chartDayChangeTickFormatOptions).format(ticks[index].value);
+};
+
+function formatGermanDate(date: Date) {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+
+  return `${day}.${month}.`;
+}
+
 // Generate 30 days of dummy data
-const generateDummyData = () => {
-  const data = []
-  const startDate = new Date(2023, 4, 1) // May 1, 2023
-  for (let i = 0; i < 30; i++) {
-    const date = new Date(startDate)
-    date.setDate(startDate.getDate() + i)
-    data.push({
-      date: date.toISOString().split('T')[0],
-      current: (Math.sin(i * 0.12) + 1) * 2.5 + Math.random() * 0.75 + 5 // Generates a value between 5 and 8.5
-    })
+const generateDummyData = (numDays: number, scale = 1) => {
+  const data = {};
+  const startDate = new Date() // today
+  for (let i = numDays; i > 0; i--) {
+    const date = new Date(startDate);
+    date.setDate(startDate.getDate() - i)
+    data[dayjs(date)] = 
+      ((Math.sin(i * 0.12) + 1) * 2.5 + Math.random() * 0.75 + 5) * scale // Generates a value between 5 and 8.5
+    ;
   }
   return data
 }
@@ -55,7 +76,19 @@ export interface ChartProps extends DashboardUIState {
 
 export default function DashboardChart({ activePhase, activeTimeFrame, chartTitle, phaseValues, unit }: ChartProps) {
 
-  const powerData = generateDummyData();
+  const showMinMax = true;
+
+  const powerData = useMemo(() => {
+    return generateDummyData(+activeTimeFrame, 1);
+  }, [activeTimeFrame]);
+
+  const minData = useMemo(() => {
+    return generateDummyData(+activeTimeFrame, 0.8);
+  }, [activeTimeFrame]);
+  
+  const maxData = useMemo(() => {
+    return generateDummyData(+activeTimeFrame, 1.2);
+  }, [activeTimeFrame]);
 
   let timeFrameTitle;
   switch (activeTimeFrame) {
@@ -73,18 +106,38 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
       break;
   }
 
+  const getDataSet = (isMin, isMax, chartData) => {
+    const hiddenBecauseMinMax = !showMinMax && (isMax || isMin);
+    const hidden = hiddenBecauseMinMax; // || hiddenTopics[mainTopic];
+    const dataset = {
+        data: chartData,
+        label: `${chartTitle} (${unit}) $${isMin ? 'min' : ''}${isMax ? 'max' : ''}`,
+        borderColor: '#537bc4',
+        backgroundColor: '#537bc4',
+    };
+    if (isMax || isMin) {
+        dataset.pointStyle = false;
+        dataset.showLine = false;
+
+        dataset.backgroundColor = dataset.borderColor + '4a';
+        dataset.borderColor = dataset.borderColor + '6f';
+        if (isMin) {
+            dataset.fill = '+2';
+        }
+    }
+    return dataset;
+  }
+
   const chartData = {
-    labels: powerData.map(item => item.date),
+    // labels: powerData.map(item => item.date),
     datasets: [
-      {
-        label: `${chartTitle} (${unit})`,
-        data: powerData.map(item => item.current),
-        borderColor: 'hsl(var(--chart-1))',
-        backgroundColor: 'hsl(var(--chart-1) / 0.1)',
-        tension: 0.4,
-      },
+      getDataSet(true, false, minData),
+      getDataSet(false, false, powerData),
+      getDataSet(false, true, maxData),
     ],
   };
+
+  console.log('data')
 
   const chartOptions = {
     responsive: true,
@@ -101,6 +154,14 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
     scales: {
       x: {
         display: true,
+        type: 'time',
+        time: {
+          minUnit: "day",
+        },
+        ticks: {
+          source: 'auto',
+          callback: dateTickFormatCb,
+        },
         title: {
           display: true,
           text: 'Date',
