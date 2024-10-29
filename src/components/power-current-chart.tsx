@@ -17,6 +17,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartDataset,
 } from 'chart.js';
 
 import dayjs from "dayjs";
@@ -112,14 +113,14 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
     const hiddenBecauseMinMax = !showMinMax && (isMax || isMin);
     const hidden = hiddenBecauseMinMax; // || hiddenTopics[mainTopic];
     const dataset = {
-        data: chartData,
-        label: `${chartTitle} (${unit}) $${isMin ? 'min' : ''}${isMax ? 'max' : ''}`,
-        borderColor: '#537bc4',
-        backgroundColor: '#537bc4',
-    };
+      data: chartData,
+      label: `${chartTitle} (${unit}) $${isMin ? 'min' : ''}${isMax ? 'max' : ''}`,
+      borderColor: '#537bc4',
+      backgroundColor: '#537bc4',
+    } as unknown as ChartDataset<'line'>;
     if (isMax || isMin) {
-        dataset.pointStyle = false;
-        dataset.showLine = false;
+        (dataset as any).pointStyle = false;
+        (dataset as any).showLine = false;
 
         dataset.backgroundColor = dataset.borderColor + '33';
         dataset.borderColor = dataset.borderColor + '6f';
@@ -199,7 +200,16 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
           <span>{chartTitle}</span><span className="font-normal text-blue-600">{timeFrameTitle}</span>
         </CardTitle>
         <div className="">
-          <Line data={chartData} options={chartOptions} />
+          <Line data={chartData} options={{
+            ...chartOptions,
+            scales: {
+              ...chartOptions.scales,
+              x: {
+                ...chartOptions.scales.x,
+                type: 'time'
+              }
+            }
+          }} />
         </div>
       </CardContent>
       <CardHeader className="p-0">
