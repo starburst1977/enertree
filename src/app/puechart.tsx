@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-/// <reference types="react-gauge-chart" />
+import React from 'react'
 import GaugeChart from 'react-gauge-chart'
 
 export function PUEChart() {
@@ -19,5 +19,6 @@ export function PUEChart() {
 }
 
 export default PUEChart;
+
 
 /* eslint-enable @typescript-eslint/no-unused-vars */
