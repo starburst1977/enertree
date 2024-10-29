@@ -1,3 +1,4 @@
+/// <reference types="react-gauge-chart" />
 import GaugeChart from 'react-gauge-chart'
 
 export function PUEChart() {
