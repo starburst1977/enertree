@@ -34,7 +34,7 @@ const chartConfig = {
 export function PUEChart2() {
   return (
     
-        <ChartContainer config={chartConfig} className="h-[120px]">
+        <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <XAxis
               dataKey="date"
@@ -62,7 +62,7 @@ export function PUEChart2() {
             <ChartTooltip
               content={<ChartTooltipContent />}
               cursor={false}
-              defaultIndex={1}
+              defaultIndex={0}
             />
           </BarChart>
         </ChartContainer>

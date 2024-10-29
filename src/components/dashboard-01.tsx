@@ -60,7 +60,7 @@ export default function Dashboard() {
           </Breadcrumb>
           
           <div className="relative ml-auto flex items-center gap-2">
-          <div className="text-xs text-neutral-400">Time frame</div>
+            <div className="text-xs text-neutral-400">Time frame</div>
             <TopTabs value={activeTimeFrame} className="mr-4" onValueChange={(value) => setActiveTimeFrame(value)}>
               <TopTabsList>
                 <TopTabsTrigger value="30">30 days</TopTabsTrigger>

@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import {
   ChartConfig,
@@ -13,53 +13,54 @@ import {
 export const description = "A line chart with dots"
 
 const chartData = [
-  { month: "01", desktop: 202, mobile: 76 },
-  { month: "02", desktop: 182, mobile: 84 },
-  { month: "03", desktop: 186, mobile: 80 },
-  { month: "06", desktop: 305, mobile: 200 },
-  { month: "07", desktop: 237, mobile: 120 },
-  { month: "08", desktop: 73, mobile: 190 },
-  { month: "09", desktop: 209, mobile: 130 },
-  { month: "10", desktop: 214, mobile: 140 },
+  { month: "01", percent: 95, },
+  { month: "02", percent: 92, },
+  { month: "03", percent: 91, },
+  { month: "06", percent: 95, },
+  { month: "07", percent: 96, },
+  { month: "08", percent: 91, },
+  { month: "09", percent: 95, },
+  { month: "10", percent: 97, },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "percent",
     color: "hsl(var(--chart-1))",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
 
 export function PowerChart() {
   return (
     
-        <ChartContainer config={chartConfig} className="h-[116px]">
+        <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 24,
-              right: 12,
+              left: 0,
+              right: 6,
             }}
           >
-            <CartesianGrid vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="month"
               tickLine={false}
-              axisLine={false}
+              axisLine={true}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <YAxis
+              dataKey="percent"
+              tickLine={false}
+              axisLine={true}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Line
-              dataKey="desktop"
+              dataKey="percent"
               type="linear"
               stroke="hsl(var(--chart-blue-1))"
               strokeWidth={2}
