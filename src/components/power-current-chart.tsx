@@ -40,9 +40,12 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { DashboardUIState } from "./charts-02"
 
-const chartDayChangeTickFormatOptions =  { day: 'numeric', "month": "numeric" };
+const chartDayChangeTickFormatOptions: Intl.DateTimeFormatOptions = { 
+  day: 'numeric', 
+  month: 'numeric' 
+};
 
-export const dateTickFormatCb = function(value, index, ticks) {
+export const dateTickFormatCb = function(value: number, index: number, ticks: Array<{ value: number }>) {
   return Intl.DateTimeFormat('de-DE', chartDayChangeTickFormatOptions).format(ticks[index].value);
 };
 
@@ -59,12 +62,11 @@ const generateDummyData = (numDays: number, scale = 1) => {
   const startDate = new Date() // today
   for (let i = numDays; i > 0; i--) {
     const date = new Date(startDate);
-    date.setDate(startDate.getDate() - i)
-    data[dayjs(date)] = 
-      ((Math.sin(i * 0.12) + 1) * 2.5 + Math.random() * 0.75 + 5) * scale // Generates a value between 5 and 8.5
-    ;
+    date.setDate(startDate.getDate() - i);
+    const key = dayjs(date).format('YYYY-MM-DD');
+    (data as Record<string, number>)[key] = ((Math.sin(i * 0.12) + 1) * 2.5 + Math.random() * 0.75 + 5) * scale; // Generates a value between 5 and 8.5
   }
-  return data
+  return data as Record<string, number>;
 }
 
 
@@ -106,7 +108,7 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
       break;
   }
 
-  const getDataSet = (isMin, isMax, chartData) => {
+  const getDataSet = (isMin: boolean, isMax: boolean, chartData: Record<string, number>) => {
     const hiddenBecauseMinMax = !showMinMax && (isMax || isMin);
     const hidden = hiddenBecauseMinMax; // || hiddenTopics[mainTopic];
     const dataset = {
