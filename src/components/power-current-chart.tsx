@@ -206,7 +206,17 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
               ...chartOptions.scales,
               x: {
                 ...chartOptions.scales.x,
-                type: 'time'
+                type: 'time',
+                time: {
+                  minUnit: "day"
+                },
+                ticks: {
+                  source: 'auto',
+                  color: '#bbb',
+                  callback: function(tickValue: string | number, index: number, ticks: any[]) {
+                    return dateTickFormatCb(Number(tickValue), index, ticks);
+                  }
+                }
               }
             }
           }} />
