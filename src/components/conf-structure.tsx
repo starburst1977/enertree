@@ -2,7 +2,6 @@
 
 "use client";
 
-import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,14 +17,6 @@ import {
   BreadcrumbList,
 } from "@/components/ui/breadcrumb"
 import Link from "next/link"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { cn } from "@/lib/utils";
 import {
   Settings,
   Trash2,

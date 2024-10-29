@@ -10,7 +10,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -23,8 +22,6 @@ export interface DashboardUIState {
   activePhase: string; // Replace 'string' with the appropriate type if needed
   activeTimeFrame: string; // Replace 'string' with the appropriate type if needed
 }
-
-import { TrendingUp } from "lucide-react"
 
 import * as React from "react"
 
