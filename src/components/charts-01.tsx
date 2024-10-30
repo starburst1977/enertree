@@ -42,6 +42,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import { Separator } from "@/components/ui/separator"
+import { AlertList } from "./ui/AlertList"
 
 export function Charts() {
   return (
@@ -750,106 +751,7 @@ export function Charts() {
           </CardContent>
         </Card>
         
-        <Card
-          x-chunk="An area chart showing the time spent in bed for past 7 days."
-          className="max-w-lg"
-        >
-          <CardHeader className="p-6 pb-0">
-            <CardTitle>Insights</CardTitle>
-          </CardHeader>
-          <CardHeader className="flex flex-row items-center gap-x-4 space-y-0 [&>div]:flex-1">
-            <div>
-              <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
-                694
-              </CardTitle>
-              <CardDescription className=""> Total Devices</CardDescription>
-            </div>
-            <div>
-              <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums text-red-600">
-                5
-              </CardTitle>
-              <CardDescription className="text-red-600"> Active Alerts</CardDescription>
-            </div>
-          </CardHeader>
-          <CardContent className="p-4 pt-0">
-            <Table className="">
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="text-red-600 font-bold">Alerts</TableHead>
-                  <TableHead className="text-right">Description</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-red-600">Voltage Drop</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-red-600">Hardware Defect</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-red-600">Hardware Defect</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-red-600">Voltage Drop</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-red-600">Hardware Defect</TableCell>
-                  </TableRow>
-              </TableBody>
-            </Table>
-            <Table className="mt-4">
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="text-orange-500 font-bold">Warnings</TableHead>
-                  <TableHead className="text-right">Description</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Voltage Drop</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Hardware Defect</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Voltage Drop</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Hardware Defect</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Voltage Drop</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Hardware Defect</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Hardware Defect</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Voltage Drop</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                    <TableCell className="text-right text-orange-500">Hardware Defect</TableCell>
-                  </TableRow>
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
+        <AlertList />
       </div>
     </div>
   )
