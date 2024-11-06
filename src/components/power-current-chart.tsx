@@ -39,11 +39,10 @@ ChartJS.register(
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { DashboardUIState } from "./charts-02"
 
 const chartDayChangeTickFormatOptions: Intl.DateTimeFormatOptions = { 
   day: 'numeric', 
-  month: 'numeric' 
+  month: 'numeric'
 };
 
 export const dateTickFormatCb = function(value: number, index: number, ticks: Array<{ value: number }>) {
@@ -70,14 +69,27 @@ const generateDummyData = (numDays: number, scale = 1) => {
   return data as Record<string, number>;
 }
 
-
-export interface ChartProps extends DashboardUIState {
+// Add this interface to define the props
+interface ChartProps {
+  activeTimeFrame: string;
+  activePhase: string;
   chartTitle: string;
-  phaseValues: Record<string, number>;
   unit: string;
+  phaseValues: {
+    L1: number;
+    L2: number;
+    L3: number;
+  };
 }
 
-export default function DashboardChart({ activePhase, activeTimeFrame, chartTitle, phaseValues, unit }: ChartProps) {
+// Update the component definition to use the interface
+export function DashboardChart({
+  activeTimeFrame,
+  activePhase,
+  chartTitle,
+  unit,
+  phaseValues,
+}: ChartProps) {
 
   const showMinMax = true;
 
@@ -241,7 +253,5 @@ export default function DashboardChart({ activePhase, activeTimeFrame, chartTitl
     </Card>
   )
 }
-
-export { DashboardChart }
 
 /* eslint-enable @typescript-eslint/no-unused-vars */

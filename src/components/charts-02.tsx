@@ -77,13 +77,14 @@ export function Charts() {
           </div>
           <div className="w-full grid grid-cols-2 gap-4">
             <div className="relative w-full flex flex-col gap-4">
-              <DashboardChart activeTimeFrame={activeTimeFrame}
-                  activePhase={activePhase} chartTitle="Current" unit="A"
-                  phaseValues={{
-                    L1: 6.8,
-                    L2: 7.2,
-                    L3: 6.5
-                  }} />
+              <DashboardChart
+              chartTitle="Current"
+              unit="A"
+              phaseValues={{
+                L1: 6.8,
+                L2: 7.2,
+                L3: 6.5
+              }} activeTimeFrame={""} activePhase={""} />
                 
               <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Power" unit="W"
                   phaseValues={{
@@ -91,12 +92,12 @@ export function Charts() {
                     L2: 681,
                     L3: 692
                   }} />
-              <DashboardChart activeTimeFrame={activeTimeFrame} activePhase={activePhase} chartTitle="Residual Current" unit="W"
-                  phaseValues={{
-                    L1: 500,
-                    L2: 681,
-                    L3: 692
-                  }} />
+              <DashboardChart chartTitle="Residual Current" unit="W"
+            phaseValues={{
+              L1: 500,
+              L2: 681,
+              L3: 692
+            }} activeTimeFrame={""} activePhase={""} />
             </div>
             <div className="w-full flex flex-col gap-4">
               
