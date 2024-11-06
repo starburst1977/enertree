@@ -50,11 +50,11 @@ export default function Dashboard() {
             <div className="relative ml-auto flex-1 md:grow-0 flex flex-row gap-4">
               <div className="flex flex-row items-baseline gap-2">
                 <div className="text-xs text-neutral-500 whitespace-nowrap">Total Devices</div>
-                <div className="flex items-baseline gap-1 text-2xl tabular-nums font-bold">694</div>
+                <div className="flex items-baseline gap-1 text-2xl tabular-nums font-bold">224</div>
               </div>
               <div className="flex flex-row items-baseline gap-2">
                 <div className="text-xs text-neutral-500 whitespace-nowrap">Active Alerts</div>
-                <div className="flex items-baseline gap-1 text-2xl tabular-nums font-bold text-red-600">5</div>
+                <div className="flex items-baseline gap-1 text-2xl tabular-nums font-bold text-red-600">2</div>
               </div>
             </div>
           </header>
