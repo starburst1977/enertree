@@ -44,9 +44,6 @@ export default function Dashboard() {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
-            <Button variant="outline" size="default" className="flex items-center gap-2">
-              <FontAwesomeIcon icon={farServer} /> Show all devices in rack
-            </Button>
             <div className="relative ml-auto flex-1 md:grow-0 flex flex-row gap-4">
               <div className="flex flex-row items-baseline gap-2">
                 <div className="text-xs text-neutral-500 whitespace-nowrap">Total Devices</div>

@@ -110,63 +110,7 @@ export function Charts() {
           </div>
         </div>
         <div className="col-span-2 flex flex-col gap-4">
-          <Card
-            x-chunk="An area chart showing the time spent in bed for past 7 days."
-            className="max-w-full"
-          >
-            <CardHeader className="p-6 pb-6">
-              <CardTitle>Notifications</CardTitle>
-            </CardHeader>
-            
-            <CardContent className="p-4 pt-0">
-              <Table className="">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-red-600 font-bold flex items-center gap-2">
-                      <FontAwesomeIcon icon={fasCircle} className="text-[10px] text-red-600 dark:text-red-400"/>
-                      Alerts
-                    </TableHead>
-                    <TableHead className="text-right">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow>
-                      <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                      <TableCell className="text-right text-red-600">Voltage Drop</TableCell>
-                    </TableRow>
-                </TableBody>
-              </Table>
-              <Table className="mt-4">
-                <TableHeader>
-                  <TableRow>
-                  <TableHead className="text-amber-600 font-bold flex items-center gap-2">
-                      <FontAwesomeIcon icon={fasTriangle} className="text-[10px] text-amber-600 dark:text-amber-400"/>
-                      Warnings
-                    </TableHead>
-                    <TableHead className="text-right">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow>
-                      <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                      <TableCell className="text-right text-amber-600">Voltage Drop</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                      <TableCell className="text-right text-amber-600">Hardware Defect</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium">PDU3_RowA_RackD</TableCell>
-                      <TableCell className="text-right text-amber-600">Voltage Drop</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium">PDU7_RowA_RackD</TableCell>
-                      <TableCell className="text-right text-amber-600">Hardware Defect</TableCell>
-                    </TableRow>
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
+          
           <Card
             x-chunk="An area chart showing the time spent in bed for past 7 days."
             className="max-w-full"
@@ -337,6 +281,126 @@ export function Charts() {
                     <TableCell className="text-gray-600 w-1/4">Sensorbox</TableCell>
                     <TableCell className="font-medium">HW Group</TableCell>
                     <TableCell className="text-right text-green-600">32.00 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Schleifenbauer</TableCell>
+                    <TableCell className="text-right text-green-600">20.25 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">29.20 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">DEST24</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">Sensorbox</TableCell>
+                    <TableCell className="font-medium">HW Group</TableCell>
+                    <TableCell className="text-right text-green-600">32.00 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Schleifenbauer</TableCell>
+                    <TableCell className="text-right text-green-600">20.25 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">29.20 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">DEST24</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">Sensorbox</TableCell>
+                    <TableCell className="font-medium">HW Group</TableCell>
+                    <TableCell className="text-right text-green-600">32.00 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Schleifenbauer</TableCell>
+                    <TableCell className="text-right text-green-600">20.25 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">29.20 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">DEST24</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">Sensorbox</TableCell>
+                    <TableCell className="font-medium">HW Group</TableCell>
+                    <TableCell className="text-right text-green-600">32.00 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Schleifenbauer</TableCell>
+                    <TableCell className="text-right text-green-600">20.25 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">29.20 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">DEST24</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">Sensorbox</TableCell>
+                    <TableCell className="font-medium">HW Group</TableCell>
+                    <TableCell className="text-right text-green-600">32.00 A</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>
+                    <TableCell className="text-gray-600 w-1/4">PDU</TableCell>
+                    <TableCell className="font-medium">Raritan</TableCell>
+                    <TableCell className="text-right text-green-600">30.90 A</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-medium w-1/4">PDU3_RowA_RackD</TableCell>

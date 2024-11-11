@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   Select,
   SelectContent,
@@ -149,69 +150,70 @@ export function DeviceListComponent() {
       <div className="flex gap-4">
         <div className="flex flex-col gap-2 flex-1">
           {filteredAndSortedDevices.map((device) => (
-            <div
-              key={device.id}
-              className={
-                deviceItemColors[device.state as keyof typeof deviceItemColors]
-              }>
-              
-              <div className="flex items-center">
-                <div className="pl-6 py-4">
-                  <input 
-                    type="checkbox" 
-                    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    checked={checkedDevices.has(device.id)}
-                    onChange={(e) => {
-                      const newCheckedDevices = new Set(checkedDevices);
-                      if (e.target.checked) {
-                        newCheckedDevices.add(device.id);
-                      } else {
-                        newCheckedDevices.delete(device.id);
-                      }
-                      setCheckedDevices(newCheckedDevices);
-                    }}
-                  />
-                </div>
-                <div className="pl-6 py-4">
-                  <div className="text-base text-black/75 font-bold">
-                    {device.name}
+            
+              <div
+                key={device.id}
+                className={
+                  deviceItemColors[device.state as keyof typeof deviceItemColors]
+                }>
+                
+                <div className="flex items-center">
+                  <div className="pl-6 py-4">
+                    <input 
+                      type="checkbox" 
+                      className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      checked={checkedDevices.has(device.id)}
+                      onChange={(e) => {
+                        const newCheckedDevices = new Set(checkedDevices);
+                        if (e.target.checked) {
+                          newCheckedDevices.add(device.id);
+                        } else {
+                          newCheckedDevices.delete(device.id);
+                        }
+                        setCheckedDevices(newCheckedDevices);
+                      }}
+                    />
                   </div>
-                  <div className="text-sm text-black/40">{device.location}</div>
+                  <div className="pl-6 py-4">
+                    <div className="text-base text-black/75 font-bold">
+                    <Link href={`/devices/detail`} >{device.name}</Link>
+                    </div>
+                    <div className="text-sm text-black/40">{device.location}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="pl-6 py-4">
-                <div className="text-base text-black/50">{device.vendor}</div>
-                <div className="text-sm text-black/40 dark:text-neutral-400">
-                  {device.type}
+                <div className="pl-6 py-4">
+                  <div className="text-base text-black/50">{device.vendor}</div>
+                  <div className="text-sm text-black/40 dark:text-neutral-400">
+                    {device.type}
+                  </div>
                 </div>
-              </div>
 
-              <div className="col-span-2 px-4 py-4">
-                <div
-                    className={cn(
-                      deviceBgBarColors[
-                        device.state as keyof typeof deviceBarColors
-                      ],
-                      "rounded-md flex justify-end" // Add minimum width here
-                    )}
-                  >
+                <div className="col-span-2 px-4 py-4">
                   <div
-                    className={cn(
-                      deviceBarColors[
-                        device.state as keyof typeof deviceBarColors
-                      ],
-                      "whitespace-nowrap py-2 rounded-md text-right px-4 text-lg flex items-center justify-end",
-                      "min-w-[2rem] font-bold" // Add minimum width here
-                    )}
-                    style={{ 
-                      width: `${Math.max(Math.min(device.value, 100), 16)}%`  // 16% is roughly 4rem of 25rem
-                    }}
-                  >
-                    {device.value.toFixed(1)} A
+                      className={cn(
+                        deviceBgBarColors[
+                          device.state as keyof typeof deviceBarColors
+                        ],
+                        "rounded-md flex justify-end" // Add minimum width here
+                      )}
+                    >
+                    <div
+                      className={cn(
+                        deviceBarColors[
+                          device.state as keyof typeof deviceBarColors
+                        ],
+                        "whitespace-nowrap py-2 rounded-md text-right px-4 text-lg flex items-center justify-end",
+                        "min-w-[2rem] font-bold" // Add minimum width here
+                      )}
+                      style={{ 
+                        width: `${Math.max(Math.min(device.value, 100), 16)}%`  // 16% is roughly 4rem of 25rem
+                      }}
+                    >
+                      {device.value.toFixed(1)} A
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
           ))}
         </div>
         {checkedDevices.size > 0 && (
