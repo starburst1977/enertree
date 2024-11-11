@@ -26,7 +26,14 @@ import {
 } from '@fortawesome/pro-solid-svg-icons'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import * as React from "react"
 import { TopTabs, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
 import { Button } from "./ui/button"
@@ -40,12 +47,96 @@ export function Charts() {
         <Card className="max-w-full col-span-3">
           <CardHeader className="px-4 py-4 flex flex-row items-center justify-between">
             <CardTitle className="pl-3">Devices in this rack</CardTitle>
-            <Button size="default" variant="outline" className="flex flex-row gap-2 items-center" >
-              <FontAwesomeIcon icon={fasPlus} className="text-blue-600"/>
-              <span className="sm:whitespace-nowrap">
-                Assign Device to Rack
-              </span>
-            </Button>
+            
+            <Sheet>
+              <SheetTrigger>
+                <Button size="default" variant="outline" className="flex flex-row gap-2 items-center" >
+                  <FontAwesomeIcon icon={fasPlus} className="text-blue-600"/>
+                  <span className="sm:whitespace-nowrap">
+                    Assign Device to Rack
+                  </span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="w-[800px] sm:max-w-2xl">
+                <SheetHeader>
+                  <SheetTitle>Unassigned devices</SheetTitle>
+                  <SheetDescription>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Name</TableHead>
+                          <TableHead>Type</TableHead>
+                          <TableHead className="text-right">Value</TableHead>
+                          <TableHead className="text-right">Options</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell>
+                            <div className="font-medium text-gray-800">PDU3_RowA_RackD</div>
+                            <div className="text-gray-400">Schleifenbauer</div>
+                          </TableCell>
+                          <TableCell>PDU</TableCell>
+                          <TableCell className="text-right text-yellow-600">0.25 A</TableCell>
+                          <TableCell className="text-right">
+                            <Button size="default" variant="outline">
+                              <span className="sm:whitespace-nowrap text-gray-800">
+                                Assign 
+                              </span>
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>
+                            <div className="font-medium text-gray-800">PDU3_RowA_RackB</div>
+                            <div className="text-gray-400">Schleifenbauer</div>
+                          </TableCell>
+                          <TableCell>PDU</TableCell>
+                          <TableCell className="text-right text-green-600">20.15 A</TableCell>
+                          <TableCell className="text-right">
+                            <Button size="default" variant="outline">
+                              <span className="sm:whitespace-nowrap text-gray-800">
+                                Assign 
+                              </span>
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>
+                            <div className="font-medium text-gray-800">PDU3_RowA_RackD</div>
+                            <div className="text-gray-400">Schleifenbauer</div>
+                          </TableCell>
+                          <TableCell>PDU</TableCell>
+                          <TableCell className="text-right text-green-600">200.25 V</TableCell>
+                          <TableCell className="text-right">
+                            <Button size="default" variant="outline">
+                              <span className="sm:whitespace-nowrap text-gray-800">
+                                Assign 
+                              </span>
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>
+                            <div className="font-medium text-gray-800">PDU3_RowA</div>
+                            <div className="text-gray-400">Schleifenbauer</div>
+                          </TableCell>
+                          <TableCell>PDU</TableCell>
+                          <TableCell className="text-right text-green-600">210.25 V</TableCell>
+                          <TableCell className="text-right">
+                            <Button size="default" variant="outline">
+                              <span className="sm:whitespace-nowrap text-gray-800">
+                                Assign 
+                              </span>
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </SheetDescription>
+                </SheetHeader>
+              </SheetContent>
+            </Sheet>
           </CardHeader>
           
           <CardContent className="p-4 pt-0">
@@ -70,7 +161,7 @@ export function Charts() {
                     <TableCell className="font-medium">Schleifenbauer</TableCell>
                     <TableCell className="text-right text-red-600">0.0 A</TableCell>
                     <TableCell className="text-right text-gray-400 flex items-center gap-2 justify-end">
-                      <Button size="default" variant="outline" className="flex flex-row gap-2 items-center">
+                    <Button size="default" variant="outline">
                         <span className="sm:whitespace-nowrap text-gray-800">
                           Unassign device
                         </span>
