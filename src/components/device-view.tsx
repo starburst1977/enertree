@@ -166,7 +166,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">1</TableCell>
                             <TableCell className="h-6">445</TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -176,7 +176,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">2</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -186,7 +186,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">3</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -196,7 +196,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">4</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -206,7 +206,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">5</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -216,7 +216,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">6</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -226,7 +226,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">7</TableCell>
                             <TableCell className="h-6">On</TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -236,7 +236,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">8</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -246,7 +246,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">9</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -256,7 +256,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">10</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -266,7 +266,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">11</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -276,7 +276,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">12</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -286,7 +286,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">13</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -296,7 +296,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">14</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -306,7 +306,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">15</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -316,7 +316,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">16</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -326,7 +326,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">17</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -336,7 +336,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">18</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -346,7 +346,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">19</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -356,7 +356,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">20</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -366,7 +366,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">21</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -376,7 +376,7 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="h-6">22</TableCell>
                             <TableCell className="h-6"></TableCell>
-                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -446,21 +446,21 @@ export default function DeviceViewComponent() {
                             <TableCell className="">Temperature 1</TableCell>
                             <TableCell className="">Temperature</TableCell>
                             <TableCell className="text-right text-neutral-600">24.00<span className="text-xs text-neutral-400 pl-1">°C</span></TableCell>
-                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="/images/chartline.png" alt="Chart" className="h-8" /></TableCell>
+                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="../images/chartline.png" alt="Chart" className="h-8" /></TableCell>
                           </TableRow>
                           <TableRow>
                             <TableCell className="">25</TableCell>
                             <TableCell className="">Relative Humidity 1</TableCell>
                             <TableCell className="">Humidity</TableCell>
                             <TableCell className="text-right text-neutral-600">42.47<span className="text-xs text-neutral-400 pl-1">%</span></TableCell>
-                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="/images/chartline.png" alt="Chart" className="h-8" /></TableCell>
+                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="../images/chartline.png" alt="Chart" className="h-8" /></TableCell>
                           </TableRow>
                           <TableRow>
                             <TableCell className="">26</TableCell>
                             <TableCell className="">Temperature 2</TableCell>
                             <TableCell className="">Temperature</TableCell>
                             <TableCell className="text-right text-neutral-600">24.00<span className="text-xs text-neutral-400 pl-1">°C</span></TableCell>
-                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="/images/chartline.png" alt="Chart" className="h-8" /></TableCell>
+                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="../images/chartline.png" alt="Chart" className="h-8" /></TableCell>
                           </TableRow>
                         </TableBody>
                       </Table>
