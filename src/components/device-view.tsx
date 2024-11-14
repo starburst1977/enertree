@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/sidebar"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowUpRightFromSquare as faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons'
+import { faArrowUpRightFromSquare as faArrowUpRightFromSquare, faPowerOff as faPowerOff } from '@fortawesome/pro-regular-svg-icons'
 
 
 export default function DeviceViewComponent() {
@@ -71,79 +71,569 @@ export default function DeviceViewComponent() {
               </TopTabsList>
             </div>
             <TopTabsContent value="info">
-              <div className="flex flex-col gap-4">
-                <Card className="max-w-xl">
-                  <CardHeader className="p-6 pb-6">
-                    <CardTitle>Input Measurements</CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="p-4 pt-0">
-                    <Table className="">
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="text-blue-600 flex items-center gap-2">
-                            Parameters
-                          </TableHead>
-                          <TableHead className="text-right text-gray-400">All</TableHead>
-                          <TableHead className="text-right text-gray-400">L1</TableHead>
-                          <TableHead className="text-right text-gray-400">L2</TableHead>
-                          <TableHead className="text-right text-gray-400">L3</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        <TableRow>
-                          <TableCell className="">Voltage</TableCell>
-                          <TableCell className="text-right"></TableCell>
-                          <TableCell className="text-right text-neutral-600">199.81<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">200.36<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">198.41<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="">L-L Voltage</TableCell>
-                          <TableCell className="text-right text-neutral-600">199.88<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">199.81<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">200.36<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">198.41<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="">Current</TableCell>
-                          <TableCell className="text-right text-neutral-600">30.14<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">9.56<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">11.24<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">10.51<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                    <Table className="mt-6">
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="text-blue-600 flex items-center gap-2">
-                            Parameters
-                          </TableHead>
-                          <TableHead className="text-right text-gray-400">Values</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        <TableRow>
-                          <TableCell className="">Unbalanced Current</TableCell>
-                          <TableCell className="text-right text-neutral-600">3.81<span className="text-xs text-neutral-400 pl-1">%</span></TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="">Active Power</TableCell>
-                          <TableCell className="text-right text-neutral-600">3881.07<span className="text-xs text-neutral-400 pl-1">w</span></TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="">Apparent Power</TableCell>
-                          <TableCell className="text-right text-neutral-600">4501.00<span className="text-xs text-neutral-400 pl-1">VA</span></TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="">Power Factor</TableCell>
-                          <TableCell className="text-right text-neutral-600">0.86</TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                  </CardContent>
-                </Card>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col gap-4">
+                  <Card className="max-w-3xl">
+                    <CardHeader className="p-6 pb-6">
+                      <CardTitle>Input Measurements</CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="p-4 pt-0">
+                      <Table className="">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              Parameters
+                            </TableHead>
+                            <TableHead className="text-right text-gray-400">All</TableHead>
+                            <TableHead className="text-right text-gray-400">L1</TableHead>
+                            <TableHead className="text-right text-gray-400">L2</TableHead>
+                            <TableHead className="text-right text-gray-400">L3</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="">Voltage</TableCell>
+                            <TableCell className="text-right"></TableCell>
+                            <TableCell className="text-right text-neutral-600">199.81<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">200.36<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">198.41<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">L-L Voltage</TableCell>
+                            <TableCell className="text-right text-neutral-600">199.88<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">199.81<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">200.36<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">198.41<span className="text-xs text-neutral-400 pl-1">v</span></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Current</TableCell>
+                            <TableCell className="text-right text-neutral-600">30.14<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">9.56<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">11.24<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                            <TableCell className="text-right text-neutral-600">10.51<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                      <Table className="mt-6">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              Parameters
+                            </TableHead>
+                            <TableHead className="text-right text-gray-400">Values</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="">Unbalanced Current</TableCell>
+                            <TableCell className="text-right text-neutral-600">3.81<span className="text-xs text-neutral-400 pl-1">%</span></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Active Power</TableCell>
+                            <TableCell className="text-right text-neutral-600">3881.07<span className="text-xs text-neutral-400 pl-1">w</span></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Apparent Power</TableCell>
+                            <TableCell className="text-right text-neutral-600">4501.00<span className="text-xs text-neutral-400 pl-1">VA</span></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Power Factor</TableCell>
+                            <TableCell className="text-right text-neutral-600">0.86</TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                  <Card className="max-w-3xl">
+                    <CardHeader className="p-6 pb-6">
+                      <CardTitle>Switching</CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="p-4 pt-0">
+                      <Table className="">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              #
+                            </TableHead>
+                            <TableHead className=" text-gray-400">Name</TableHead>
+                            <TableHead className="text-right text-gray-400">Outlets</TableHead>
+                            <TableHead className="w-6 text-gray-400"></TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="h-6">1</TableCell>
+                            <TableCell className="h-6">445</TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">2</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">3</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">4</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">5</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">6</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">7</TableCell>
+                            <TableCell className="h-6">On</TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">8</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">9</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">10</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">11</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">12</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">13</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">14</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">15</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">16</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">17</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">18</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">19</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">20</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">21</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">22</TableCell>
+                            <TableCell className="h-6"></TableCell>
+                            <TableCell className="flex items-center justify-end"><img src="/images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <Card className="max-w-3xl">
+                    <CardHeader className="p-6 pb-6">
+                      <CardTitle>General Setup</CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="p-4 pt-0">
+                      
+                      <Table className="">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              Parameters
+                            </TableHead>
+                            <TableHead className="text-right text-gray-400">Settings</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="">Name</TableCell>
+                            <TableCell className="text-right text-neutral-600">PDU-C1-9</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Extra info.</TableCell>
+                            <TableCell className="text-right text-neutral-600"></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Location</TableCell>
+                            <TableCell className="text-right text-neutral-600">My Location</TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                  <Card className="max-w-3xl">
+                    <CardHeader className="p-6 pb-6">
+                      <CardTitle>Environment Sensors</CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="p-4 pt-0">
+                      <Table className="">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              #
+                            </TableHead>
+                            <TableHead className=" text-gray-400">Name</TableHead>
+                            <TableHead className=" text-gray-400">Type</TableHead>
+                            <TableHead className="text-right text-gray-400">Value</TableHead>
+                            <TableHead className="text-right text-gray-400">History</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="">24</TableCell>
+                            <TableCell className="">Temperature 1</TableCell>
+                            <TableCell className="">Temperature</TableCell>
+                            <TableCell className="text-right text-neutral-600">24.00<span className="text-xs text-neutral-400 pl-1">°C</span></TableCell>
+                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="/images/chartline.png" alt="Chart" className="h-8" /></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">25</TableCell>
+                            <TableCell className="">Relative Humidity 1</TableCell>
+                            <TableCell className="">Humidity</TableCell>
+                            <TableCell className="text-right text-neutral-600">42.47<span className="text-xs text-neutral-400 pl-1">%</span></TableCell>
+                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="/images/chartline.png" alt="Chart" className="h-8" /></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">26</TableCell>
+                            <TableCell className="">Temperature 2</TableCell>
+                            <TableCell className="">Temperature</TableCell>
+                            <TableCell className="text-right text-neutral-600">24.00<span className="text-xs text-neutral-400 pl-1">°C</span></TableCell>
+                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="/images/chartline.png" alt="Chart" className="h-8" /></TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                  <Card className="max-w-3xl">
+                    <CardHeader className="p-6 pb-6">
+                      <CardTitle>Digital Outputs</CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="p-4 pt-0">
+                      <Table className="">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              #
+                            </TableHead>
+                            <TableHead className=" text-gray-400">Name</TableHead>
+                            <TableHead className="w-6 text-gray-400"></TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="h-6">7</TableCell>
+                            <TableCell className="h-6">Dry Contact 1</TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-red-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">8</TableCell>
+                            <TableCell className="h-6">Dry Contact 2</TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-red-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">15</TableCell>
+                            <TableCell className="h-6">Dry Contact 3</TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-red-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">16</TableCell>
+                            <TableCell className="h-6">Dry Contact 4</TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-red-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">22</TableCell>
+                            <TableCell className="h-6">Powered Dry Contact 1</TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-red-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="h-6">23</TableCell>
+                            <TableCell className="h-6">Powered Dry Contact 2</TableCell>
+                            <TableCell className="">
+                              <div className="flex items-center h-6 w-6 justify-center bg-red-400 rounded text-xs">
+                                <FontAwesomeIcon icon={faPowerOff} />
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                  <Card className="max-w-3xl">
+                    <CardHeader className="p-6 pb-6">
+                      <CardTitle>Digital Inputs</CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="p-4 pt-0">
+                      <Table className="">
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-blue-600 flex items-center gap-2">
+                              #
+                            </TableHead>
+                            <TableHead className=" text-gray-400">Name</TableHead>
+                            <TableHead className=" text-gray-400">State</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="">1</TableCell>
+                            <TableCell className="">Hall Effect 1</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">2</TableCell>
+                            <TableCell className="">On_Off 1</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">3</TableCell>
+                            <TableCell className="">On_Off 2</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">4</TableCell>
+                            <TableCell className="">On_Off 3</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">5</TableCell>
+                            <TableCell className="">On_Off 4</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">6</TableCell>
+                            <TableCell className="">Hall Effect 2</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">7</TableCell>
+                            <TableCell className="">On_Off 5</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">8</TableCell>
+                            <TableCell className="">On_Off 6</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">9</TableCell>
+                            <TableCell className="">On_Off 7</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">10</TableCell>
+                            <TableCell className="">On_Off 8</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">11</TableCell>
+                            <TableCell className="">On_Off 9</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">12</TableCell>
+                            <TableCell className="">On_Off 10</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">13</TableCell>
+                            <TableCell className="">On_Off 11</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">14</TableCell>
+                            <TableCell className="">On_Off 12</TableCell>
+                            <TableCell className="">Inactive</TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                </div>
+                
               </div>
             </TopTabsContent>
             <TopTabsContent value="config">Configuration</TopTabsContent>
