@@ -72,6 +72,150 @@ export default function DeviceViewComponent() {
             </div>
             <TopTabsContent value="info">
               <div className="grid grid-cols-2 gap-4">
+
+                <Card className="max-w-full col-span-2">
+                  <CardHeader className="p-6 pb-6">
+                    <CardTitle>Output Measurements</CardTitle>
+                  </CardHeader>
+                  
+                  <CardContent className="p-4 pt-0">
+                    <Table className="">
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="text-blue-600 flex items-center gap-2">
+                            Connected to
+                          </TableHead>
+                          <TableHead className="text-right text-gray-400">#</TableHead>
+                          <TableHead className=" text-gray-400">Name</TableHead>
+                          <TableHead className="text-right text-gray-400"> Total</TableHead>
+                          <TableHead className="text-right text-gray-400">Subtotal</TableHead>
+                          <TableHead className="text-right text-gray-400">App. Power</TableHead>
+                          <TableHead className="text-right text-gray-400">Rec. Power</TableHead>
+                          <TableHead className="text-right text-gray-400">Phase Angle</TableHead>
+                          <TableHead className="text-right text-gray-400">Voltage</TableHead>
+                          <TableHead className="text-right text-gray-400">Act. Power</TableHead>
+                          <TableHead className="text-right text-gray-400">Current</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell rowSpan={4} className="">
+                            <div className="font-bold ">
+                              Bank "Disabled"
+                            </div>
+                            <div className="font-bold text-lg pt-1">
+                              0.64 <span className="text-xs text-neutral-400 pl-1">A</span>
+                            </div>
+                          </TableCell>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell rowSpan={4} className="">
+                            <div className="font-bold ">
+                              Bank "Disabled"
+                            </div>
+                            <div className="font-bold text-lg pt-1">
+                              0.64 <span className="text-xs text-neutral-400 pl-1">A</span>
+                            </div>
+                          </TableCell>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="text-right">A1</TableCell>
+                          <TableCell className=" text-neutral-600">USV</TableCell>
+                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                    
+                  </CardContent>
+                </Card>
+
                 <div className="flex flex-col gap-4">
                   <Card className="max-w-3xl">
                     <CardHeader className="p-6 pb-6">
@@ -437,7 +581,6 @@ export default function DeviceViewComponent() {
                             <TableHead className=" text-gray-400">Name</TableHead>
                             <TableHead className=" text-gray-400">Type</TableHead>
                             <TableHead className="text-right text-gray-400">Value</TableHead>
-                            <TableHead className="text-right text-gray-400">History</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -446,21 +589,18 @@ export default function DeviceViewComponent() {
                             <TableCell className="">Temperature 1</TableCell>
                             <TableCell className="">Temperature</TableCell>
                             <TableCell className="text-right text-neutral-600">24.00<span className="text-xs text-neutral-400 pl-1">°C</span></TableCell>
-                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="../images/chartline.png" alt="Chart" className="h-8" /></TableCell>
                           </TableRow>
                           <TableRow>
                             <TableCell className="">25</TableCell>
                             <TableCell className="">Relative Humidity 1</TableCell>
                             <TableCell className="">Humidity</TableCell>
                             <TableCell className="text-right text-neutral-600">42.47<span className="text-xs text-neutral-400 pl-1">%</span></TableCell>
-                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="../images/chartline.png" alt="Chart" className="h-8" /></TableCell>
                           </TableRow>
                           <TableRow>
                             <TableCell className="">26</TableCell>
                             <TableCell className="">Temperature 2</TableCell>
                             <TableCell className="">Temperature</TableCell>
                             <TableCell className="text-right text-neutral-600">24.00<span className="text-xs text-neutral-400 pl-1">°C</span></TableCell>
-                            <TableCell className="flex items-center justify-end text-neutral-600"><img src="../images/chartline.png" alt="Chart" className="h-8" /></TableCell>
                           </TableRow>
                         </TableBody>
                       </Table>
