@@ -5,6 +5,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -102,7 +103,7 @@ export default function DeviceViewComponent() {
                         <TableRow>
                           <TableCell rowSpan={4} className="">
                             <div className="font-bold ">
-                              Bank "Disabled"
+                              Bank &quot;Disabled&quot;
                             </div>
                             <div className="font-bold text-lg pt-1">
                               0.64 <span className="text-xs text-neutral-400 pl-1">A</span>
@@ -118,7 +119,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -136,7 +137,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -154,7 +155,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -172,7 +173,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -182,7 +183,7 @@ export default function DeviceViewComponent() {
                         <TableRow>
                           <TableCell rowSpan={4} className="">
                             <div className="font-bold ">
-                              Bank "Disabled"
+                              Bank &quot;Disabled&quot;
                             </div>
                             <div className="font-bold text-lg pt-1">
                               0.64 <span className="text-xs text-neutral-400 pl-1">A</span>
@@ -198,7 +199,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -216,7 +217,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -234,7 +235,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C19.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
@@ -252,7 +253,7 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
                           <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
-                          <TableCell className="flex items-center justify-end"><img src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
+                          <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" className="h-6" /></TableCell>
                             <TableCell className="">
                               <div className="flex items-center h-6 w-6 justify-center bg-green-400 rounded text-xs">
                                 <FontAwesomeIcon icon={faPowerOff} />
