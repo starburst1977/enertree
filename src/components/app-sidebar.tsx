@@ -380,8 +380,8 @@ const data = {
       icon: TableProperties,
     },
     {
-      name: "Notifications",
-      url: "#",
+      name: "Alarms",
+      url: "/notifications",
       icon: Bell,
     },
     {
