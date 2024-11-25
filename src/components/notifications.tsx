@@ -19,7 +19,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTriangle as faTriangle, faCircle as faCircle } from '@fortawesome/pro-solid-svg-icons'
 import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall } from '@fortawesome/pro-solid-svg-icons'
-import { Badge } from "@/components/ui/badge"
+import { Switch } from "@/components/ui/switch"
 import {
   Select,
   SelectContent,
@@ -159,6 +159,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_A",
     status: "Alert",
     active: true,
+    action: false,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
   {
@@ -166,6 +167,7 @@ const data: Payment[] = [
     amount: "RowA_Rack2_A",
     status: "Alert",
     active: true,
+    action: true,
     email: "The device at the IP address 192.168.33.211 has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.",
   },
   {
@@ -173,6 +175,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_A",
     status: "Warning",
     active: true,
+    action: true,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
   {
@@ -180,6 +183,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_B",
     status: "Warning",
     active: true,
+    action: false,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
   {
@@ -187,6 +191,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_A",
     status: "Alert",
     active: false,
+    action: false,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
   {
@@ -194,6 +199,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_A",
     status: "Warning",
     active: false,
+    action: false,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
   {
@@ -201,6 +207,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_B",
     status: "Warning",
     active: false,
+    action: false,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
   {
@@ -208,6 +215,7 @@ const data: Payment[] = [
     amount: "RowA_Rack1_A",
     status: "Alert",
     active: false,
+    action: false,
     email: "The device 192.168.33.208 could not connect, it will be retried.",
   },
 ]
@@ -218,6 +226,7 @@ export type Payment = {
   status: "Warning" | "Alert"
   email: string
   active: boolean
+  action: boolean
 }
 
 export const columns: ColumnDef<Payment>[] = [
@@ -252,7 +261,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "status",
-    header: () => <div className="text-gray-400">Type</div>,
+    header: () => <div className="text-gray-400">Severity</div>,
     cell: ({ row }) => {
       const status = row.getValue("status")
       return (
@@ -264,6 +273,15 @@ export const columns: ColumnDef<Payment>[] = [
     },
   },
   {
+    accessorKey: "action",
+    header: () => <div className="text-gray-400">Acknowledged</div>,
+    cell: ({ row }) => (
+      <div className="flex items-center justify-center">
+        {row.getValue("action") ? <Switch defaultChecked /> : <Switch />}
+      </div>
+    ),
+  },
+  {
     accessorKey: "email",
     header: ({ column }) => {
       return (
@@ -271,7 +289,7 @@ export const columns: ColumnDef<Payment>[] = [
           variant="ghost"
           className="pl-0 text-gray-400"
         >
-          Title
+          Description
         </Button>
       )
     },
@@ -286,21 +304,7 @@ export const columns: ColumnDef<Payment>[] = [
       <div className="capitalize">{row.getValue("amount")}</div>
     ),
   },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original
-
-      return (
-        <div className="flex justify-end pr-6">
-          <Button variant="outline">
-            Acknowledge
-          </Button>
-        </div>
-      )
-    },
-  },
+  
 ]
 
 

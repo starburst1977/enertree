@@ -16,6 +16,7 @@ import {
   AlignJustify,
   Square,
   Rows3,
+  ScrollText,
   GitFork,
   Info,
   BookOpen,
@@ -383,6 +384,11 @@ const data = {
       name: "Alarms",
       url: "/notifications",
       icon: Bell,
+    },
+    {
+      name: "Audit Log",
+      url: "/audit",
+      icon: ScrollText,
     },
     {
       name: "Reports",
