@@ -1,5 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar"
-import { Notifications, Example } from "@/components/notifications"
+import { Example } from "@/components/notifications"
 import {
   SidebarLayout,
 } from "@/components/ui/sidebar"

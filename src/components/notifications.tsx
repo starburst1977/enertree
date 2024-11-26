@@ -251,7 +251,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                Value of 200.00 at inlet "total" (1) has exceeded the warning threshold of 180.00 via rule "Schieflast" for PDU "real PDU 3.6.1".
+                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU "real PDU 3.6.1".
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
@@ -272,7 +272,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                The Schleifenbauer device "real PDU 3.6.1", sensor "Presence Detector 1" for slot 1 is in an alarmed state.
+                The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
@@ -297,7 +297,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                Value of 200.00 at inlet "total" (1) has exceeded the warning threshold of 180.00 via rule "Schieflast" for PDU "real PDU 3.6.1".
+                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU "real PDU 3.6.1".
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
@@ -322,7 +322,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-              The device "192.168.33.223" could not connect, it will be retried.
+              The device &quot;192.168.33.223&quot; could not connect, it will be retried.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
@@ -347,7 +347,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-              The device at the IP address "192.168.33.249" has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
+              The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
@@ -372,7 +372,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-              Unsuccessful login attempt into Om7Sense Gateway as user "admin" from IP address "172.20.0.2".
+              Unsuccessful login attempt into Om7Sense Gateway as user &quot;admin&quot; from IP address &quot;172.20.0.2&quot;.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
