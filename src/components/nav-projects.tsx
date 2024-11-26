@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import { type LucideIcon } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 export function NavProjects({
   projects,
@@ -11,6 +12,7 @@ export function NavProjects({
     name?: string
     url?: string
     icon?: LucideIcon
+    count?: number
   }[]
 } & React.ComponentProps<"ul">) {
   return (
@@ -28,6 +30,9 @@ export function NavProjects({
             <div className="line-clamp-1 grow overflow-hidden pr-6 font-medium">
               {item.name}
             </div>
+            {item.count && (
+              <Badge variant="destructive">{item.count}</Badge>
+            )}
           </Link>
           
         </li>

@@ -18,7 +18,7 @@ import {
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTriangle as faTriangle, faCircle as faCircle } from '@fortawesome/pro-solid-svg-icons'
-import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall } from '@fortawesome/pro-solid-svg-icons'
+import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall, faEye as faEye, faBell as faBell, faBellSlash as faBellSlash } from '@fortawesome/pro-solid-svg-icons'
 import { Switch } from "@/components/ui/switch"
 import {
   Select,
@@ -28,7 +28,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
@@ -42,6 +42,9 @@ import Link from "next/link"
 import {
   Search,
   ChevronsUpDown,
+  ChevronRight,
+  Eye,
+  Bell,
   Check,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -78,7 +81,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
- 
+import { TopTabs, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
+
 const frameworks = [
   {
     value: "PDU-B1-9",
@@ -117,7 +121,7 @@ export function Combobox() {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select device..."}
+            : "Select device or location..."}
           <ChevronsUpDown className="opacity-50 size-4" />
         </Button>
       </PopoverTrigger>
@@ -153,312 +157,240 @@ export function Combobox() {
   )
 }
 
-const data: Payment[] = [
-  {
-    id: "m5gr84i9",
-    amount: "RowA_Rack1_A",
-    status: "Alert",
-    active: true,
-    action: false,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-  {
-    id: "3u1reuv4",
-    amount: "RowA_Rack2_A",
-    status: "Alert",
-    active: true,
-    action: true,
-    email: "The device at the IP address 192.168.33.211 has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.",
-  },
-  {
-    id: "derv1ws0",
-    amount: "RowA_Rack1_A",
-    status: "Warning",
-    active: true,
-    action: true,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-  {
-    id: "5kma53ae",
-    amount: "RowA_Rack1_B",
-    status: "Warning",
-    active: true,
-    action: false,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-  {
-    id: "bhqecj4p",
-    amount: "RowA_Rack1_A",
-    status: "Alert",
-    active: false,
-    action: false,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-  {
-    id: "derv1ws0",
-    amount: "RowA_Rack1_A",
-    status: "Warning",
-    active: false,
-    action: false,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-  {
-    id: "5kma53ae",
-    amount: "RowA_Rack1_B",
-    status: "Warning",
-    active: false,
-    action: false,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-  {
-    id: "bhqecj4p",
-    amount: "RowA_Rack1_A",
-    status: "Alert",
-    active: false,
-    action: false,
-    email: "The device 192.168.33.208 could not connect, it will be retried.",
-  },
-]
 
-export type Payment = {
-  id: string
-  amount: string
-  status: "Warning" | "Alert"
-  email: string
-  active: boolean
-  action: boolean
+ 
+export function ToggleGroupType() {
+  const [activeType, setActiveType] = React.useState("bothtype");
+  return (
+    <TopTabs className="mr-4"  value={activeType} onValueChange={(value) => setActiveType(value)}>
+      <TopTabsList>
+        <TopTabsTrigger value="bothtype">Both</TopTabsTrigger>
+        <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-yellow-600" size="sm" icon={faTriangle} /></TopTabsTrigger>
+        <TopTabsTrigger value="warning"><FontAwesomeIcon className="text-red-600" size="sm" icon={faCircle} /></TopTabsTrigger>
+      </TopTabsList>
+    </TopTabs>
+    
+  )
 }
 
-export const columns: ColumnDef<Payment>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "active",
-    header: () => <div className="text-gray-400">Status</div>,
-    cell: ({ row }) => (
-      <div className="flex items-center justify-center">{row.getValue("active") ? <FontAwesomeIcon className="text-green-600" icon={faCircleDot} /> : <FontAwesomeIcon className="text-gray-200" icon={faCircleSmall} />}</div>
-    ),
-  },
-  {
-    accessorKey: "status",
-    header: () => <div className="text-gray-400">Severity</div>,
-    cell: ({ row }) => {
-      const status = row.getValue("status")
-      return (
-        <div className="flex items-center justify-center">
-          {status === "Alert" ? <FontAwesomeIcon className="text-red-600" icon={faCircle} /> : <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />}
-          
-        </div>
-      )
-    },
-  },
-  {
-    accessorKey: "action",
-    header: () => <div className="text-gray-400">Acknowledged</div>,
-    cell: ({ row }) => (
-      <div className="flex items-center justify-center">
-        {row.getValue("action") ? <Switch defaultChecked /> : <Switch />}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="pl-0 text-gray-400"
-        >
-          Description
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="">{row.getValue("email")}</div>,
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "amount",
-    header: () => <div className="text-gray-400">Location</div>,
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("amount")}</div>
-    ),
-  },
-  
-]
-
-
-
-export function Notifications() {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
-
-  const table = useReactTable({
-    data,
-    columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-    },
-  })
-
+export function ToggleGroupState() {
+  const [activeState, setActiveState] = React.useState("bothstate");
   return (
-    <div className="flex min-h-screen mx-auto w-full max-w-screen-2xl flex-col bg-neutral-100/40 dark:bg-neutral-800/40">
+    
+    <TopTabs className="mr-4"  value={activeState} onValueChange={(value) => setActiveState(value)}>
+      <TopTabsList>
+        <TopTabsTrigger value="bothstate">Both</TopTabsTrigger>
+        <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-gray-600" size="sm" icon={faBell} /></TopTabsTrigger>
+        <TopTabsTrigger value="warning"><FontAwesomeIcon className="text-gray-600" size="sm" icon={faBellSlash} /></TopTabsTrigger>
+      </TopTabsList>
+    </TopTabs>
+    
+  )
+}
+
+
+export function Example() {
+  return (
+    <div className="flex flex-col">
+      <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 py-4">
       
-      <div className="flex flex-col">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 dark:bg-neutral-950 py-4">
+        <Breadcrumb className="hidden md:flex">
+          <SidebarTrigger />
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="#" className="text-blue-700 font-bold text-lg">Active Alarms</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            
+          </BreadcrumbList>
+        </Breadcrumb>
         
-          <Breadcrumb className="hidden md:flex">
-            <SidebarTrigger />
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="#" className="text-blue-700 font-bold text-lg">Alarms</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              
-            </BreadcrumbList>
-          </Breadcrumb>
-          
-          <div className="relative ml-auto flex-1 md:grow-0 flex items-center gap-2">
-            <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="inactive">Inactive</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                <SelectItem value="alert">Alert</SelectItem>
-                <SelectItem value="warning">Warning</SelectItem>
-              </SelectContent>
-            </Select>
-            <Combobox />
+        <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-2">
+          <div className="flex flex-row gap-2 items-center">
+            <div className="text-xs text-neutral-400">Type</div>
+            <ToggleGroupType />
+          </div>
+          <div className="flex flex-row gap-2 items-center">
+            <div className="text-xs text-neutral-400">State</div>
+            <ToggleGroupState />
           </div>
           
-        </header>
-        <main className="bg-white border-t border-neutral-200">
           
-          <Table>
-            <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => {
-                    return (
-                      <TableHead key={header.id}>
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                      </TableHead>
-                    )
-                  })}
-                </TableRow>
-              ))}
-            </TableHeader>
-            <TableBody>
-              {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell
-                    colSpan={columns.length}
-                    className="h-24 text-center"
-                  >
-                    No results.
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-          
-        </main>
-        <div className="flex items-center justify-end space-x-2 py-4 px-8 border-t">
-            <div className="flex-1 text-sm text-muted-foreground text-gray-400">
-              {table.getFilteredSelectedRowModel().rows.length} of{" "}
-              {table.getFilteredRowModel().rows.length} row(s) selected.
-            </div>
-            <div className="space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.previousPage()}
-                disabled={!table.getCanPreviousPage()}
-              >
-                Previous
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.nextPage()}
-                disabled={!table.getCanNextPage()}
-              >
-                Next
-              </Button>
-            </div>
-          </div>
+          <Combobox />
+        </div>
+        
+      </header>
+      
+      <div className="overflow-hidden ring-1 ring-neutral-200 sm:rounded-lg">
+        <table className="min-w-full divide-y divide-neutral-200">
+          <thead className="bg-white">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs text-gray-400 font-normal">
+                Severity
+              </th>
+              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Description
+              </th>
+              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Time
+              </th>
+              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Location
+              </th>
+              <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
+                Acknowledged
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200 bg-white">
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
+                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
+                Value of 200.00 at inlet "total" (1) has exceeded the warning threshold of 180.00 via rule "Schieflast" for PDU "real PDU 3.6.1".
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
+                The Schleifenbauer device "real PDU 3.6.1", sensor "Presence Detector 1" for slot 1 is in an alarmed state.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_ABA</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
+                  <p className="text-xs text-gray-400/50"><FontAwesomeIcon className="text-gray-500/50" icon={faBell} /></p>
+                  <Switch defaultChecked />
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-blue-700" icon={faBellSlash} /></p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
+                Value of 200.00 at inlet "total" (1) has exceeded the warning threshold of 180.00 via rule "Schieflast" for PDU "real PDU 3.6.1".
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
+                    <Switch />
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
+              The device "192.168.33.223" could not connect, it will be retried.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">11:44:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
+                  <Switch />
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
+              The device at the IP address "192.168.33.249" has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">11:44:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
+                  <Switch />
+                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
+                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
+              Unsuccessful login attempt into Om7Sense Gateway as user "admin" from IP address "172.20.0.2".
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
     </div>
-  );
+  )
 }
 
 /* eslint-enable @typescript-eslint/no-unused-vars */

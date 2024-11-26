@@ -381,9 +381,10 @@ const data = {
       icon: TableProperties,
     },
     {
-      name: "Alarms",
+      name: "Active Alarms",
       url: "/notifications",
       icon: Bell,
+      count: 6,
     },
     {
       name: "Audit Log",
