@@ -251,7 +251,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU "real PDU 3.6.1".
+                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
@@ -297,7 +297,7 @@ export function Example() {
                 </div>
               </td>
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU "real PDU 3.6.1".
+                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
