@@ -2,6 +2,17 @@
 
 "use client"
 
+import { addDays, format } from "date-fns"
+import { CalendarIcon } from "lucide-react"
+import { DateRange } from "react-day-picker"
+import { Calendar } from "@/components/ui/calendar"
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
 import * as React from "react"
 import {
   ColumnDef,
@@ -42,6 +53,7 @@ import Link from "next/link"
 import {
   Search,
   ChevronsUpDown,
+  ChevronLeft,
   ChevronRight,
   Eye,
   Bell,
@@ -76,12 +88,58 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+
 import { TopTabs, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
+
+export function DatePickerWithRange({
+  className,
+}: React.HTMLAttributes<HTMLDivElement>) {
+  const [date, setDate] = React.useState<DateRange | undefined>({
+    from: new Date(2022, 0, 20),
+    to: addDays(new Date(2022, 0, 20), 20),
+  })
+ 
+  return (
+    <div className={cn("grid gap-4", className)}>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            id="date"
+            variant={"outline"}
+            className={cn(
+              "w-[250px] justify-start text-left font-normal pl-3",
+              !date && "text-muted-foreground"
+            )}
+          >
+            <CalendarIcon className="size-4 text-gray-400 mr-2" />
+            {date?.from ? (
+              date.to ? (
+                <>
+                  {format(date.from, "LLL dd, y")} -{" "}
+                  {format(date.to, "LLL dd, y")}
+                </>
+              ) : (
+                format(date.from, "LLL dd, y")
+              )
+            ) : (
+              <span>Pick a date</span>
+            )}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0" align="start">
+          <Calendar
+            initialFocus
+            mode="range"
+            defaultMonth={date?.from}
+            selected={date}
+            onSelect={setDate}
+            numberOfMonths={2}
+          />
+        </PopoverContent>
+      </Popover>
+    </div>
+  )
+}
 
 const frameworks = [
   {
@@ -117,7 +175,7 @@ export function Combobox() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[300px] justify-between"
+          className="w-[250px] justify-between"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
@@ -162,7 +220,7 @@ export function Combobox() {
 export function ToggleGroupType() {
   const [activeType, setActiveType] = React.useState("bothtype");
   return (
-    <TopTabs className="mr-4"  value={activeType} onValueChange={(value) => setActiveType(value)}>
+    <TopTabs className="rounded"  value={activeType} onValueChange={(value) => setActiveType(value)}>
       <TopTabsList>
         <TopTabsTrigger value="bothtype">All</TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-blue-600" size="sm" icon={faDiamond} /></TopTabsTrigger>
@@ -178,7 +236,7 @@ export function ToggleGroupState() {
   const [activeState, setActiveState] = React.useState("bothstate");
   return (
     
-    <TopTabs className="mr-4"  value={activeState} onValueChange={(value) => setActiveState(value)}>
+    <TopTabs className=""  value={activeState} onValueChange={(value) => setActiveState(value)}>
       <TopTabsList>
         <TopTabsTrigger value="bothstate">Both</TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-gray-600" size="sm" icon={faBell} /></TopTabsTrigger>
@@ -207,17 +265,15 @@ export function Audit() {
           </BreadcrumbList>
         </Breadcrumb>
         
-        <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-2">
+        <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-4">
           <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">Type</div>
             <ToggleGroupType />
           </div>
           <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">State</div>
             <ToggleGroupState />
           </div>
           
-          
+          <DatePickerWithRange />
           <Combobox />
         </div>
         
@@ -497,7 +553,91 @@ export function Audit() {
             </tr>
           </tbody>
         </table>
+        <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3">
+      <div className="flex flex-1 justify-between sm:hidden">
+        <a
+          href="#"
+          className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+        >
+          Previous
+        </a>
+        <a
+          href="#"
+          className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+        >
+          Next
+        </a>
       </div>
+      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+        <div>
+          <p className="text-sm text-gray-400">
+            Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
+            <span className="font-medium">97</span> results
+          </p>
+        </div>
+        <div>
+          <nav aria-label="Pagination" className="isolate inline-flex -space-x-px rounded-md bg-gray-200 p-1">
+            <a
+              href="#"
+              className="relative inline-flex items-center rounded-l-md px-3 py-1 text-gray-400 focus:z-20 focus:outline-offset-0"
+            >
+              <span className="sr-only">Previous</span>
+              <ChevronLeft aria-hidden="true" className="size-4" />
+            </a>
+            {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+            <a
+              href="#"
+              aria-current="page"
+              className="relative z-10 inline-flex items-center bg-white rounded px-3 py-1 text-sm text-blue-700 focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+            >
+              1
+            </a>
+            <a
+              href="#"
+              className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
+            >
+              2
+            </a>
+            <a
+              href="#"
+              className="relative hidden items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0 md:inline-flex"
+            >
+              3
+            </a>
+            <span className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:outline-offset-0">
+              ...
+            </span>
+            <a
+              href="#"
+              className="relative hidden items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0 md:inline-flex"
+            >
+              8
+            </a>
+            <a
+              href="#"
+              className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
+            >
+              9
+            </a>
+            <a
+              href="#"
+              className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
+            >
+              10
+            </a>
+            <a
+              href="#"
+              className="relative inline-flex items-center rounded-r-md px-3 py-1 text-gray-400 focus:z-20 focus:outline-offset-0"
+            >
+              <span className="sr-only">Next</span>
+              <ChevronRight aria-hidden="true" className="size-4" />
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+      </div>
+      <br/>
 
     </div>
   )
