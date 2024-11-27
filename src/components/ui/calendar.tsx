@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client"
 
 import * as React from "react"
@@ -70,3 +72,5 @@ function Calendar({
 Calendar.displayName = "Calendar"
 
 export { Calendar }
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
