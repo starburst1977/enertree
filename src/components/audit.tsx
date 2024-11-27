@@ -18,7 +18,7 @@ import {
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTriangle as faTriangle, faCircle as faCircle } from '@fortawesome/pro-solid-svg-icons'
-import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall, faEye as faEye, faBell as faBell, faBellSlash as faBellSlash } from '@fortawesome/pro-solid-svg-icons'
+import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall, faEye as faEye, faBell as faBell, faBellSlash as faBellSlash, faDiamond as faDiamond } from '@fortawesome/pro-solid-svg-icons'
 import { Switch } from "@/components/ui/switch"
 import {
   Select,
@@ -164,7 +164,8 @@ export function ToggleGroupType() {
   return (
     <TopTabs className="mr-4"  value={activeType} onValueChange={(value) => setActiveType(value)}>
       <TopTabsList>
-        <TopTabsTrigger value="bothtype">Both</TopTabsTrigger>
+        <TopTabsTrigger value="bothtype">All</TopTabsTrigger>
+        <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-blue-600" size="sm" icon={faDiamond} /></TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-yellow-600" size="sm" icon={faTriangle} /></TopTabsTrigger>
         <TopTabsTrigger value="warning"><FontAwesomeIcon className="text-red-600" size="sm" icon={faCircle} /></TopTabsTrigger>
       </TopTabsList>
@@ -189,7 +190,7 @@ export function ToggleGroupState() {
 }
 
 
-export function Example() {
+export function Audit() {
   return (
     <div className="flex flex-col">
       <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 py-4">
@@ -199,7 +200,7 @@ export function Example() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="#" className="text-blue-700 font-bold text-lg">Active Alarms</Link>
+                <Link href="#" className="text-blue-700 font-bold text-lg">Audit Log</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             
@@ -233,7 +234,10 @@ export function Example() {
                 Description
               </th>
               <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Time
+                Created
+              </th>
+              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Ceased
               </th>
               <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Location
@@ -246,137 +250,12 @@ export function Example() {
           <tbody className="divide-y divide-gray-200 bg-white">
             <tr>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
-                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
+                  <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
                 </div>
               </td>
-              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.22</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
-              </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-              <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
-                  <p className="text-xs text-gray-400/50"><FontAwesomeIcon className="text-gray-500/50" icon={faBell} /></p>
-                  <Switch defaultChecked />
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-blue-700" icon={faBellSlash} /></p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
-                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
-                </div>
-              </td>
-              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_ABA</p>
-              </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
-                  <p className="text-xs text-gray-400/50"><FontAwesomeIcon className="text-gray-500/50" icon={faBell} /></p>
-                  <Switch defaultChecked />
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-blue-700" icon={faBellSlash} /></p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
-                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
-                </div>
-              </td>
-              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
-              </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
-                    <Switch />
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
-                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
-                </div>
-              </td>
-              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-              The device &quot;192.168.33.223&quot; could not connect, it will be retried.
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
-              </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
-                  <Switch />
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
-                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
-                </div>
-              </td>
-              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-              The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
-              </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
-                  <Switch />
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
-                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
-                </div>
-              </td>
-              <td className="px-4 py-4 text-lg text-gray-800 font-normal">
-                The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
@@ -385,12 +264,235 @@ export function Example() {
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 
               </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-              <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
-                  <Switch />
-                  <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
+                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
                 </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">18:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+                The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">18:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_ABA</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+                <p className="text-md text-blue-700">Acknowledged</p>
+                <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
+                  <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">18:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+                <p className="text-md text-blue-700">Acknowledged</p>
+                <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              The device &quot;192.168.33.223&quot; could not connect, it will be retried.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">11:44:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">18:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+                <p className="text-md text-blue-700">Acknowledged</p>
+                <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
+                  <FontAwesomeIcon className="text-red-600" icon={faCircle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">11:44:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">18:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
+                  <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
+                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              Unsuccessful login attempt into Om7Sense Gateway as user &quot;admin&quot; from IP address &quot;172.20.0.2&quot;.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
+                  <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                
+              </td>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+              </td>
+              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                
               </td>
             </tr>
           </tbody>
