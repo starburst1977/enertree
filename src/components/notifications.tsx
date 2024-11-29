@@ -208,11 +208,11 @@ export function Example() {
         
         <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-2">
           <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">Type</div>
+            <div className="text-xs text-neutral-400">Severity</div>
             <ToggleGroupType />
           </div>
           <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">State</div>
+            <div className="text-xs text-neutral-400">Acknowledged</div>
             <ToggleGroupState />
           </div>
           
@@ -226,17 +226,18 @@ export function Example() {
         <table className="min-w-full divide-y divide-neutral-200">
           <thead className="bg-white">
             <tr>
+              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Time
+              </th>
               <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs text-gray-400 font-normal">
                 Severity
               </th>
               <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Description
               </th>
+              
               <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Time
-              </th>
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Location
+                Device & Location
               </th>
               <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
                 Acknowledged
@@ -245,6 +246,10 @@ export function Example() {
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             <tr>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
                   <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
@@ -253,12 +258,9 @@ export function Example() {
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
+              
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.22</p>
+                <p className="text-md text-gray-600">A 14456</p>
                 <p className="text-sm text-gray-400">RowA_Rack1_A</p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -270,6 +272,10 @@ export function Example() {
               </td>
             </tr>
             <tr>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
@@ -278,12 +284,9 @@ export function Example() {
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
                 The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
               </td>
+              
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-md text-gray-600">A 25112</p>
                 <p className="text-sm text-gray-400">RowA_Rack1_ABA</p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -295,6 +298,10 @@ export function Example() {
               </td>
             </tr>
             <tr>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
@@ -303,12 +310,9 @@ export function Example() {
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
+              
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-md text-gray-600">A 52351</p>
                 <p className="text-sm text-gray-400">RowA_Rack1_A</p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -320,6 +324,10 @@ export function Example() {
               </td>
             </tr>
             <tr>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">11:44:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
@@ -328,12 +336,9 @@ export function Example() {
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
               The device &quot;192.168.33.223&quot; could not connect, it will be retried.
               </td>
+              
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-md text-gray-600">A 53890</p>
                 <p className="text-sm text-gray-400">RowA_Rack1_A</p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -345,6 +350,10 @@ export function Example() {
               </td>
             </tr>
             <tr>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">11:44:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
@@ -353,12 +362,9 @@ export function Example() {
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
               The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
+              
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">real PDU 3.6.1</p>
+                <p className="text-md text-gray-600">A 62243</p>
                 <p className="text-sm text-gray-400">RowA_Rack1_A</p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -370,6 +376,10 @@ export function Example() {
               </td>
             </tr>
             <tr>
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600">12:07:04</p>
+                <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
                   <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
@@ -378,10 +388,7 @@ export function Example() {
               <td className="px-4 py-4 text-lg text-gray-800 font-normal">
                 The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
+              
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 
               </td>

@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 const devices = [
   {
     id: 1,
-    name: "PX3-482",
+    name: "A-34221",
     type: "PDU",
     vendor: "Schleifenbauer BV",
     location: "Schnaitsee",
@@ -26,7 +26,7 @@ const devices = [
   },
   {
     id: 2,
-    name: "PX3-484",
+    name: "A-34221",
     type: "PDU",
     vendor: "Schleifenbauer BV",
     location: "Default",
@@ -35,7 +35,7 @@ const devices = [
   },
   {
     id: 3,
-    name: "real PDU 3.6.1",
+    name: "A-34277",
     type: "PDU",
     vendor: "Schleifenbauer BV",
     location: "Labor",
@@ -62,7 +62,7 @@ const devices = [
   },
   {
     id: 6,
-    name: "EPC-8225",
+    name: "A-81123",
     type: "PDU",
     vendor: "Schleifenbauer BV",
     location: "Labor",
