@@ -13,6 +13,7 @@ export function NavProjects({
     url?: string
     icon?: LucideIcon
     count?: number
+    isDestructive?: boolean
   }[]
 } & React.ComponentProps<"ul">) {
   return (
@@ -31,7 +32,9 @@ export function NavProjects({
               {item.name}
             </div>
             {item.count && (
-              <Badge variant="destructive">{item.count}</Badge>
+              <Badge variant={item.isDestructive ? "destructive" : "default"}>
+                {item.count}
+              </Badge>
             )}
           </Link>
           

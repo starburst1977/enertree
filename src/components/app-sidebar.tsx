@@ -379,12 +379,14 @@ const data = {
       name: "Device List",
       url: "devices",
       icon: TableProperties,
+      count: 4,
     },
     {
       name: "Active Alarms",
       url: "/notifications",
       icon: Bell,
       count: 6,
+      isDestructive: true,
     },
     {
       name: "Audit Log",

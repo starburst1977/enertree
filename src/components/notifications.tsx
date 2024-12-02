@@ -162,7 +162,7 @@ export function Combobox() {
 export function ToggleGroupType() {
   const [activeType, setActiveType] = React.useState("bothtype");
   return (
-    <TopTabs className="mr-4"  value={activeType} onValueChange={(value) => setActiveType(value)}>
+    <TopTabs className=""  value={activeType} onValueChange={(value) => setActiveType(value)}>
       <TopTabsList>
         <TopTabsTrigger value="bothtype">Both</TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-yellow-600" size="sm" icon={faTriangle} /></TopTabsTrigger>
@@ -177,7 +177,7 @@ export function ToggleGroupState() {
   const [activeState, setActiveState] = React.useState("bothstate");
   return (
     
-    <TopTabs className="mr-4"  value={activeState} onValueChange={(value) => setActiveState(value)}>
+    <TopTabs className=""  value={activeState} onValueChange={(value) => setActiveState(value)}>
       <TopTabsList>
         <TopTabsTrigger value="bothstate">Both</TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-gray-600" size="sm" icon={faBell} /></TopTabsTrigger>
@@ -206,13 +206,11 @@ export function Example() {
           </BreadcrumbList>
         </Breadcrumb>
         
-        <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-2">
+        <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-4">
           <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">Severity</div>
             <ToggleGroupType />
           </div>
           <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">Acknowledged</div>
             <ToggleGroupState />
           </div>
           
@@ -260,8 +258,8 @@ export function Example() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 14456</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 14456</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
               <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
@@ -286,8 +284,8 @@ export function Example() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 25112</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_ABA</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 25112</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
@@ -312,8 +310,8 @@ export function Example() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 52351</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 52351</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
@@ -338,8 +336,8 @@ export function Example() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 53890</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 53890</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
@@ -364,8 +362,8 @@ export function Example() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 62243</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 62243</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">

@@ -56,7 +56,7 @@ export function Charts() {
               <h4 className="text-lg font-bold">Current & Power</h4>
             </div>
             <div className="flex flex-row gap-2 items-center">
-            <div className="text-xs text-neutral-400">Time frame</div>
+              <div className="text-xs text-neutral-400">Time frame</div>
               <TopTabs value={activeTimeFrame} className="mr-4" onValueChange={(value) => setActiveTimeFrame(value)}>
                 <TopTabsList>
                   <TopTabsTrigger value="30">30 days</TopTabsTrigger>
@@ -73,7 +73,7 @@ export function Charts() {
                   <TopTabsTrigger value="L2">L2</TopTabsTrigger>
                   <TopTabsTrigger value="L3">L3</TopTabsTrigger>
                 </TopTabsList>
-            </TopTabs>
+              </TopTabs>
             </div>
           </div>
           <div className="w-full grid grid-cols-2 gap-4">

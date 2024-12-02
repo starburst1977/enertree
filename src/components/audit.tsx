@@ -60,25 +60,6 @@ import {
   Check,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
 
 import {
   Command,
@@ -284,10 +265,7 @@ export function Audit() {
           <thead className="bg-white">
             <tr>
               <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Created
-              </th>
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Ceased
+                Time
               </th>
               <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs text-gray-400 font-normal">
                 Severity
@@ -310,9 +288,6 @@ export function Audit() {
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                
-              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
                   <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
@@ -323,8 +298,8 @@ export function Audit() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 93512</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 93512</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 
@@ -333,10 +308,6 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">18:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
@@ -349,8 +320,8 @@ export function Audit() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 81549</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 81549</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 
@@ -359,10 +330,6 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">18:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
@@ -375,11 +342,11 @@ export function Audit() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 27781</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_ABA</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 27781</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-blue-700">Acknowledged</p>
+                <p className="text-md text-blue-700">Sven Read</p>
                 <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
               </td>
             </tr>
@@ -387,9 +354,6 @@ export function Audit() {
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
@@ -402,8 +366,8 @@ export function Audit() {
               
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 43325</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 43325</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 
@@ -412,10 +376,6 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">18:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
@@ -429,21 +389,17 @@ export function Audit() {
               
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 36142</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 36142</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-blue-700">Acknowledged</p>
+                <p className="text-md text-blue-700">Sven Read</p>
                 <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
               </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">18:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
@@ -457,21 +413,17 @@ export function Audit() {
               
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 22481</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 22481</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-blue-700">Acknowledged</p>
+                <p className="text-md text-blue-700">Sven Read</p>
                 <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
               </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">18:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
@@ -485,8 +437,8 @@ export function Audit() {
               
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 18873</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 18873</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
                 
@@ -496,9 +448,6 @@ export function Audit() {
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
@@ -510,10 +459,10 @@ export function Audit() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 05842</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 05842</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
@@ -521,9 +470,6 @@ export function Audit() {
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
-              </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
@@ -546,9 +492,6 @@ export function Audit() {
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                
-              </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
                   <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
@@ -559,8 +502,8 @@ export function Audit() {
               </td>
               
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600">A 84461</p>
-                <p className="text-sm text-gray-400">RowA_Rack1_A</p>
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 84461</Link></p>
+                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                 
