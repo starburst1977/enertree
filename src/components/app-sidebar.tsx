@@ -382,7 +382,7 @@ const data = {
       count: 4,
     },
     {
-      name: "Active Alarms",
+      name: "Open Alarms",
       url: "/notifications",
       icon: Bell,
       count: 6,
@@ -395,7 +395,7 @@ const data = {
     },
     {
       name: "Reports",
-      url: "#",
+      url: "/reports",
       icon: ClipboardList,
     },
   ],

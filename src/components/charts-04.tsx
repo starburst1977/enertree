@@ -13,7 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import { Badge } from "@/components/ui/badge"
 import { PUEChart2 } from "@/app/puechart2"
 import { PUEChart } from "@/app/puechart"
 import { PowerChart } from "@/app/powerchart"
@@ -22,7 +22,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faCircle as fasCircle, 
   faPlus as fasPlus,
-  faMinus as fasMinus
+  faMinus as fasMinus,
+  faSquareBolt
 } from '@fortawesome/pro-solid-svg-icons'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -66,6 +67,7 @@ export function Charts() {
                         <TableRow>
                           <TableHead>Name</TableHead>
                           <TableHead>Type</TableHead>
+                          <TableHead>Feed</TableHead>
                           <TableHead className="text-right">Value</TableHead>
                           <TableHead className="text-right">Options</TableHead>
                         </TableRow>
@@ -77,6 +79,11 @@ export function Charts() {
                             <div className="text-gray-400">Schleifenbauer</div>
                           </TableCell>
                           <TableCell>PDU</TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                              <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                            </Badge>
+                          </TableCell>
                           <TableCell className="text-right text-yellow-600">0.25 A</TableCell>
                           <TableCell className="text-right">
                             <Button size="default" variant="outline">
@@ -92,6 +99,11 @@ export function Charts() {
                             <div className="text-gray-400">Schleifenbauer</div>
                           </TableCell>
                           <TableCell>PDU</TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                              <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                            </Badge>
+                          </TableCell>
                           <TableCell className="text-right text-green-600">20.15 A</TableCell>
                           <TableCell className="text-right">
                             <Button size="default" variant="outline">
@@ -107,6 +119,11 @@ export function Charts() {
                             <div className="text-gray-400">Schleifenbauer</div>
                           </TableCell>
                           <TableCell>PDU</TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                              <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                            </Badge>
+                          </TableCell>
                           <TableCell className="text-right text-green-600">200.25 V</TableCell>
                           <TableCell className="text-right">
                             <Button size="default" variant="outline">
@@ -122,6 +139,11 @@ export function Charts() {
                             <div className="text-gray-400">Schleifenbauer</div>
                           </TableCell>
                           <TableCell>PDU</TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                              <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                            </Badge>
+                          </TableCell>
                           <TableCell className="text-right text-green-600">210.25 V</TableCell>
                           <TableCell className="text-right">
                             <Button size="default" variant="outline">
@@ -147,6 +169,7 @@ export function Charts() {
                   <TableHead className="text-gray-400 flex items-center gap-2">Name</TableHead>
                   <TableHead className="text-gray-400">Type</TableHead>
                   <TableHead className="text-gray-400">Manufacturer</TableHead>
+                  <TableHead className="text-gray-400">Feed</TableHead>
                   <TableHead className="text-right text-gray-400">Value</TableHead>
                   <TableHead className="text-right text-gray-400">Options</TableHead>
                 </TableRow>
@@ -154,13 +177,18 @@ export function Charts() {
               <TableBody>
                   <TableRow>
                     <TableCell className="font-medium w-8"><FontAwesomeIcon icon={fasCircle} className="text-[10px] text-red-600"/></TableCell>
-                    <TableCell className="font-medium flex items-center gap-4">
+                    <TableCell className="font-medium">
                       PDU3_RowA_RackD
                     </TableCell>
                     <TableCell className="text-gray-600">PDU</TableCell>
                     <TableCell className="font-medium">Schleifenbauer</TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                        <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
+                    </TableCell>
                     <TableCell className="text-right text-red-600">0.0 A</TableCell>
-                    <TableCell className="text-right text-gray-400 flex items-center gap-2 justify-end">
+                    <TableCell className="text-right text-gray-400">
                     <Button size="default" variant="outline">
                         <span className="sm:whitespace-nowrap text-gray-800">
                           Unassign device
@@ -170,13 +198,18 @@ export function Charts() {
                   </TableRow>
                 <TableRow>
                   <TableCell className="font-medium w-8"></TableCell>
-                  <TableCell className="font-medium flex items-center gap-4">
+                  <TableCell className="font-medium">
                     PDU3_RowA_RackD
                   </TableCell>
                   <TableCell className="text-gray-600">PDU</TableCell>
                   <TableCell className="font-medium">Schleifenbauer</TableCell>
+                  <TableCell>
+                    <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                        <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
+                  </TableCell>
                   <TableCell className="text-right text-yellow-600">0.25 A</TableCell>
-                  <TableCell className="text-right text-gray-400 flex items-center gap-2 justify-end">
+                  <TableCell className="text-right text-gray-400">
                       <Button size="default" variant="outline">
                         <span className="sm:whitespace-nowrap text-gray-800">
                           Unassign device

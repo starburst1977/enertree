@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faScrubber as faScrubber, faCircleEllipsis as faCircleEllipsis } from '@fortawesome/pro-solid-svg-icons'
+import { faSquareBolt as faSquareBolt, faCircleEllipsis as faCircleEllipsis } from '@fortawesome/pro-solid-svg-icons'
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
@@ -344,10 +344,16 @@ export function DeviceListComponent() {
                     />
                   </div>
                   <div className="pl-6 py-4">
-                    <div className="text-base text-black/75 font-bold">
-                    <Link href={`/devices/detail`} >{device.name}</Link>
+                    <div className="text-base text-black/75 font-bold flex items-center gap-2">
+                      
+                      <Link href={`/devices/detail`} >{device.name}</Link>
                     </div>
-                    <div className="text-sm text-black/40"><Link href={`/rack/`}>{device.location}</Link></div>
+                    <div className="text-sm text-black/40 flex items-center gap-2">
+                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
+                      <Link href={`/rack/`}>{device.location}</Link>
+                    </div>
                   </div>
                 </div>
                 

@@ -14,6 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { TopTabs, TopTabsContent, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
+import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
@@ -30,7 +31,8 @@ import {
 } from "@/components/ui/sidebar"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowUpRightFromSquare as faArrowUpRightFromSquare, faPowerOff as faPowerOff } from '@fortawesome/pro-regular-svg-icons'
+import { faSquareBolt as faSquareBolt, faCircleEllipsis as faCircleEllipsis } from '@fortawesome/pro-solid-svg-icons'
+import { faArrowUpRightFromSquare as faArrowUpRightFromSquare, faPowerOff as faPowerOff, } from '@fortawesome/pro-regular-svg-icons'
 
 
 export default function DeviceViewComponent() {
@@ -291,6 +293,14 @@ export default function DeviceViewComponent() {
                           <TableRow>
                             <TableCell className="">Extra info.</TableCell>
                             <TableCell className="text-right text-neutral-600"></TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="">Feed</TableCell>
+                            <TableCell className="text-right">
+                              <Badge variant="outline" className=" text-blue-600 inline-flex items-center gap-2 px-2 text-sm">
+                                <FontAwesomeIcon className="text-blue-600" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                              </Badge>    
+                            </TableCell>
                           </TableRow>
                           <TableRow>
                             <TableCell className="">Location</TableCell>

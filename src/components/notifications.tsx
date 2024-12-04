@@ -3,30 +3,23 @@
 "use client"
 
 import * as React from "react"
+import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
+ 
 import {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from "@tanstack/react-table"
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTriangle as faTriangle, faCircle as faCircle } from '@fortawesome/pro-solid-svg-icons'
+import { faTriangle as faTriangle, faCircle as faCircle, faSquareBolt } from '@fortawesome/pro-solid-svg-icons'
 import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall, faEye as faEye, faBell as faBell, faBellSlash as faBellSlash } from '@fortawesome/pro-solid-svg-icons'
 import { Switch } from "@/components/ui/switch"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { cn } from "@/lib/utils"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
@@ -39,6 +32,7 @@ import {
   BreadcrumbList,
 } from "@/components/ui/breadcrumb"
 import Link from "next/link"
+import { Badge } from "@/components/ui/badge"
 import {
   Search,
   ChevronsUpDown,
@@ -48,17 +42,6 @@ import {
   Check,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import {
   Table,
   TableBody,
@@ -105,6 +88,51 @@ const frameworks = [
     label: "PDU-B1-13",
   },
 ]
+
+type Checked = DropdownMenuCheckboxItemProps["checked"]
+ 
+export function DropdownMenuCheckboxes() {
+  const [showAA, setshowAA] = React.useState<Checked>(true)
+  const [showIA, setshowIA] = React.useState<Checked>(false)
+  const [showAcA, setshowAcA] = React.useState<Checked>(true)
+  const [showUAcA, setshowUAcA] = React.useState<Checked>(true)
+ 
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Filter Alarms</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-72">
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem
+          checked={showAA}
+          onCheckedChange={setshowAA}
+        >
+          Acknowledged Active Alarms
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={showIA}
+          onCheckedChange={setshowIA}
+        >
+          Acknowledged Inactive Alarms
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem
+          checked={showAcA}
+          onCheckedChange={setshowAcA}
+        >
+          Unacknowledged Active Alarms
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={showUAcA}
+          onCheckedChange={setshowUAcA}
+        >
+          Unacknowledged Inactive Alarms
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
  
 export function Combobox() {
   const [open, setOpen] = React.useState(false)
@@ -199,7 +227,7 @@ export function Example() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="#" className="text-blue-700 font-bold text-lg">Active Alarms</Link>
+                <Link href="#" className="text-blue-700 font-bold text-lg">Open Alarms</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             
@@ -211,7 +239,7 @@ export function Example() {
             <ToggleGroupType />
           </div>
           <div className="flex flex-row gap-2 items-center">
-            <ToggleGroupState />
+            <DropdownMenuCheckboxes />
           </div>
           
           
@@ -224,29 +252,39 @@ export function Example() {
         <table className="min-w-full divide-y divide-neutral-200">
           <thead className="bg-white">
             <tr>
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+              
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Time
               </th>
-              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs text-gray-400 font-normal">
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
+                State
+              </th>
+              <th scope="col" className="py-3.5 pl-4 pr-4 text-left text-xs text-gray-400 font-normal">
                 Severity
               </th>
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Description
               </th>
               
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Device & Location
               </th>
-              <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
+              <th scope="col" className="relative py-3.5 pl-4 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
                 Acknowledged
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="px-4 py-4">
+                <Badge variant="outline" className=" text-red-600 inline-flex items-center gap-2 px-2 text-sm">
+                  Active
+                </Badge>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
@@ -257,11 +295,11 @@ export function Example() {
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 14456</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
               <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
                   <p className="text-xs text-gray-400/50"><FontAwesomeIcon className="text-gray-500/50" icon={faBell} /></p>
                   <Switch defaultChecked />
@@ -270,9 +308,14 @@ export function Example() {
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="px-4 py-4">
+                <Badge variant="outline" className=" text-red-600 inline-flex items-center gap-2 px-2 text-sm">
+                  Active
+                </Badge>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
@@ -283,11 +326,11 @@ export function Example() {
                 The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 25112</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-blue-100 rounded-lg px-3 py-3 gap-x-2">
                   <p className="text-xs text-gray-400/50"><FontAwesomeIcon className="text-gray-500/50" icon={faBell} /></p>
                   <Switch defaultChecked />
@@ -296,9 +339,14 @@ export function Example() {
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="px-4 py-4">
+                <Badge variant="outline" className=" text-red-600 inline-flex items-center gap-2 px-2 text-sm">
+                  Active
+                </Badge>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
@@ -309,11 +357,11 @@ export function Example() {
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 52351</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 px-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
                   <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
                     <Switch />
@@ -322,9 +370,14 @@ export function Example() {
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="px-4 py-4">
+                <Badge variant="outline" className=" text-red-600 inline-flex items-center gap-2 px-2 text-sm">
+                  Active
+                </Badge>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
@@ -335,11 +388,11 @@ export function Example() {
               The device &quot;192.168.33.223&quot; could not connect, it will be retried.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 53890</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 px-4 text-right text-sm font-medium sm:pr-6">
                 <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
                   <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
                   <Switch />
@@ -348,9 +401,14 @@ export function Example() {
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="px-4 py-4">
+                <Badge variant="outline" className=" text-red-600 inline-flex items-center gap-2 px-2 text-sm">
+                  Active
+                </Badge>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
@@ -361,12 +419,12 @@ export function Example() {
               The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 62243</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
+                <div className="flex items-center justify-center bg-gray-100 rounded-lg px-4 py-2 gap-x-2">
                   <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
                   <Switch />
                   <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>
@@ -374,9 +432,14 @@ export function Example() {
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="px-4 py-4">
+                <Badge variant="outline" className=" text-gray-400 inline-flex items-center gap-2 px-2 text-sm">
+                  Inactive
+                </Badge>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
@@ -387,11 +450,11 @@ export function Example() {
                 The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-              <div className="flex items-center justify-center bg-gray-100 rounded-lg px-2 py-2 gap-x-2">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
+              <div className="flex items-center justify-center bg-gray-100 rounded-lg px-4 py-2 gap-x-2">
                   <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-red-700" icon={faBell} /></p>
                   <Switch />
                   <p className="text-xs text-gray-400"><FontAwesomeIcon className="text-gray-500/50" icon={faBellSlash} /></p>

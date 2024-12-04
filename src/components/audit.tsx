@@ -264,27 +264,37 @@ export function Audit() {
         <table className="min-w-full divide-y divide-neutral-200">
           <thead className="bg-white">
             <tr>
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Time
               </th>
-              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs text-gray-400 font-normal">
-                Severity
+              <th scope="col" className="py-3.5 px-2 text-left text-xs text-gray-400 font-normal">
+                <div className="grid grid-cols-1">
+                  <select id="location" name="location" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1 pl-2 pr-6 text-xs text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+                    <option selected>Severity</option>
+                    <option>Alert</option>
+                    <option>Warning</option>
+                    <option>Info</option>
+                  </select>
+                  <svg className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">
+                    <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                  </svg>
+                </div>
               </th>
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Description
               </th>
               
-              <th scope="col" className="px-3 py-3.5 text-left text-xs text-gray-400 font-normal">
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Device & Location
               </th>
-              <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
-                Acknowledged
+              <th scope="col" className="relative py-3.5 pl-4 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
+                User
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -297,16 +307,16 @@ export function Audit() {
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 93512</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -319,16 +329,16 @@ export function Audit() {
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 81549</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -341,17 +351,16 @@ export function Audit() {
                 The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 27781</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
                 <p className="text-md text-blue-700">Sven Read</p>
-                <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -365,16 +374,16 @@ export function Audit() {
               </td>
               
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 43325</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">18:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -388,17 +397,16 @@ export function Audit() {
               </td>
               
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 36142</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
                 <p className="text-md text-blue-700">Sven Read</p>
-                <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -412,17 +420,16 @@ export function Audit() {
               </td>
               
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 22481</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
                 <p className="text-md text-blue-700">Sven Read</p>
-                <p className="text-sm text-gray-400">12:07:04 - 26/11/2024</p>
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -436,16 +443,16 @@ export function Audit() {
               </td>
               
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 18873</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-left text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -458,16 +465,16 @@ export function Audit() {
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 05842</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -480,15 +487,15 @@ export function Audit() {
               Unsuccessful login attempt into Om7Sense Gateway as user &quot;admin&quot; from IP address &quot;172.20.0.2&quot;.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
                 <p className="text-sm text-gray-400">26/11/2024 </p>
               </td>
@@ -501,11 +508,11 @@ export function Audit() {
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
-              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600"><Link href="devices/detail">A 84461</Link></p>
                 <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
-              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
             </tr>
@@ -537,7 +544,7 @@ export function Audit() {
           <nav aria-label="Pagination" className="isolate inline-flex -space-x-px rounded-md bg-gray-200 p-1">
             <a
               href="#"
-              className="relative inline-flex items-center rounded-l-md px-3 py-1 text-gray-400 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center rounded-l-md px-4 py-1 text-gray-400 focus:z-20 focus:outline-offset-0"
             >
               <span className="sr-only">Previous</span>
               <ChevronLeft aria-hidden="true" className="size-4" />
@@ -546,46 +553,46 @@ export function Audit() {
             <a
               href="#"
               aria-current="page"
-              className="relative z-10 inline-flex items-center bg-white rounded px-3 py-1 text-sm text-blue-700 focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              className="relative z-10 inline-flex items-center bg-white rounded px-4 py-1 text-sm text-blue-700 focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
             >
               1
             </a>
             <a
               href="#"
-              className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center px-4 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
             >
               2
             </a>
             <a
               href="#"
-              className="relative hidden items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0 md:inline-flex"
+              className="relative hidden items-center px-4 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0 md:inline-flex"
             >
               3
             </a>
-            <span className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:outline-offset-0">
+            <span className="relative inline-flex items-center px-4 py-1 text-sm text-gray-600 focus:outline-offset-0">
               ...
             </span>
             <a
               href="#"
-              className="relative hidden items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0 md:inline-flex"
+              className="relative hidden items-center px-4 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0 md:inline-flex"
             >
               8
             </a>
             <a
               href="#"
-              className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center px-4 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
             >
               9
             </a>
             <a
               href="#"
-              className="relative inline-flex items-center px-3 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center px-4 py-1 text-sm text-gray-600 focus:z-20 focus:outline-offset-0"
             >
               10
             </a>
             <a
               href="#"
-              className="relative inline-flex items-center rounded-r-md px-3 py-1 text-gray-400 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center rounded-r-md px-4 py-1 text-gray-400 focus:z-20 focus:outline-offset-0"
             >
               <span className="sr-only">Next</span>
               <ChevronRight aria-hidden="true" className="size-4" />
