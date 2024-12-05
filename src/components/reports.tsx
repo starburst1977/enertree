@@ -236,7 +236,7 @@ export function Reports() {
               <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Description
               </th>
-              <th scope="col" className="px-4 py-3.5  text-xs text-gray-400 font-normal text-right">
+              <th scope="col" className="px-4 py-3.5 text-xs text-gray-400 font-normal text-right">
                 Options
               </th>
             </tr>
@@ -249,7 +249,7 @@ export function Reports() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 <div className="text-sm text-gray-600 flex items-center gap-2">
                   <span className="text-white bg-blue-600 px-2 py-1 rounded-md">VA</span>
-                  Apparent power (VA) on any Inlets for "any PDU" 
+                  Apparent power (VA) on any Inlets for 'any PDU' 
                 </div>
               </td>
               
@@ -345,7 +345,7 @@ export function Reports() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 <div className="text-sm text-gray-600 flex items-center gap-2">
                   <span className="text-white bg-blue-600 px-2 py-1 rounded-md">VA</span>
-                  Apparent power (VA) on any Inlets for "any PDU" 
+                  Apparent power (VA) on any Inlets for 'any PDU' 
                 </div>
               </td>
               
