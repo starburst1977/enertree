@@ -249,7 +249,7 @@ export function Reports() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 <div className="text-sm text-gray-600 flex items-center gap-2">
                   <span className="text-white bg-blue-600 px-2 py-1 rounded-md">VA</span>
-                  Apparent power (VA) on any Inlets for 'any PDU' 
+                  Apparent power (VA) on any Inlets for &apos;any PDU&apos; 
                 </div>
               </td>
               
@@ -276,11 +276,11 @@ export function Reports() {
                 <div className="flex flex-col gap-1">
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">W</span>
-                    null for Donau 'Active power (W)'
+                    null for Donau &apos;Active power (W)&apos;
                   </div>
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">W</span>
-                    null for Reihe 1 li 'Active power (W)'
+                    null for Reihe 1 li &apos;Active power (W)&apos;
                   </div>
                 </div>
               </td>
@@ -307,19 +307,19 @@ export function Reports() {
                 <div className="flex flex-col gap-1">
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors 'Temperature 1' for PDU 'PDU-B1-4'
+                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-B1-4&apos;
                   </div>
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors 'Temperature 1' for PDU "PDU-K1-2'
+                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-K1-2&apos;
                   </div>
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors 'Temperature 1' for PDU "PDU-K6-1'
+                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-K6-1&apos;
                   </div>
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors 'Temperature 1' for PDU "PDU-K6-1'
+                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-K6-1&apos;
                   </div>
                 </div>
               </td>
@@ -345,7 +345,7 @@ export function Reports() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 <div className="text-sm text-gray-600 flex items-center gap-2">
                   <span className="text-white bg-blue-600 px-2 py-1 rounded-md">VA</span>
-                  Apparent power (VA) on any Inlets for 'any PDU' 
+                  Apparent power (VA) on any Inlets for &apos;any PDU&apos; 
                 </div>
               </td>
               

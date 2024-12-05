@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSquareBolt as faSquareBolt, faCircleEllipsis as faCircleEllipsis } from '@fortawesome/pro-solid-svg-icons'
+import { faSquareBolt as faSquareBolt } from '@fortawesome/pro-solid-svg-icons'
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
