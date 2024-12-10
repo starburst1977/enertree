@@ -210,14 +210,14 @@ const deviceBgBarColors = {
   ok: "bg-lime-400/35",
   warning: "bg-yellow-400/35",
   alert: "bg-red-400/25",
-  unassigned: "bg-blue-400/25",
+  unassigned: "bg-lime-400/25",
 };
 
 const deviceBarColors = {
   ok: "bg-lime-400 text-black/80",
   warning: "bg-yellow-400 text-black/80",
   alert: "bg-red-400 text-black/80",
-  unassigned: "bg-blue-400 text-black/80",
+  unassigned: "bg-lime-400 text-black/80",
 };
 
 export function ToggleGroupType() {
@@ -233,7 +233,9 @@ export function ToggleGroupType() {
             4
           </Badge>
         </TopTabsTrigger>
-        <TopTabsTrigger value="assigned">Assigned</TopTabsTrigger>
+        <TopTabsTrigger value="assigned">
+          <Link href="/devices/daisy">Assigned</Link>
+        </TopTabsTrigger>
       </TopTabsList>
     </TopTabs>
     
@@ -292,9 +294,9 @@ export function DeviceListComponent() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="flex-grow bg-white"
-      />
+          />
           <Select value={filterType} onValueChange={setFilterType}>
-            <SelectTrigger className="w-full sm:w-[180px]">
+          <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="Filter by type" />
             </SelectTrigger>
             <SelectContent>
@@ -311,6 +313,7 @@ export function DeviceListComponent() {
             <SelectContent>
               <SelectItem value="name">Sort by Name</SelectItem>
               <SelectItem value="type">Sort by Type</SelectItem>
+              <SelectItem value="type">Sort by Daisy Chain</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -345,13 +348,13 @@ export function DeviceListComponent() {
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      
-                      <Link href={`/devices/detail`} >{device.name}</Link>
-                    </div>
-                    <div className="text-sm text-black/40 flex items-center gap-2">
                       <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
                         <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
                       </Badge>
+                      <Link href={`/devices/detail`} >{device.name}</Link>
+                    </div>
+                    <div className="text-sm text-black/40 flex items-center gap-2">
+                      
                       <Link href={`/rack/`}>{device.location}</Link>
                     </div>
                   </div>
@@ -361,16 +364,17 @@ export function DeviceListComponent() {
                   <div className="text-base text-black/50">{device.serial}</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     
-                    <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
-                      {device.phase ? <Tally1  className="text-blue-600 size-3" /> : <Tally3 className="size-3 text-blue-600" />} 
-                    </div>
+                    
                     {device.type}
                   </div>
                 </div>
 
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">{device.modules}</div>
-                  <div className="text-sm text-black/40 dark:text-neutral-400">
+                  <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                    <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
+                      {device.phase ? <Tally1  className="text-blue-600 size-3" /> : <Tally3 className="size-3 text-blue-600" />} 
+                    </div>
                     {device.rating}
                   </div>
                 </div>
