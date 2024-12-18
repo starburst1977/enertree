@@ -24,10 +24,12 @@ import {
   ChevronDown,
   Plus,
 } from "lucide-react"
+import { useState } from "react";
 
 
 export default function Structure() {
-  
+  const [showThirdRack, setShowThirdRack] = useState(false);
+
   return (
     <div className="flex min-h-screen mx-auto w-full max-w-screen-2xl flex-col bg-neutral-100/40 dark:bg-neutral-800/40">
       
@@ -81,25 +83,37 @@ export default function Structure() {
                 </div>
               </div>
               <div className="flex flex-col gap-2 border-l-4 border-green-400 ml-6">
-              <div className="flex items-center justify-between gap-4 bg-white px-6 py-2 rounded-lg border border-gray-200 ml-4">
-                <span className="text-base font-bold">Rack 1</span>
-                <div className="flex items-center gap-2">
-                  <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Settings className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
-                  <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Trash2 className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
+                <div className="flex items-center justify-between gap-4 bg-white px-6 py-2 rounded-lg border border-gray-200 ml-4">
+                  <span className="text-base font-bold">Rack 1</span>
+                  <div className="flex items-center gap-2">
+                    <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Settings className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
+                    <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Trash2 className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between gap-4 bg-white px-6 py-2 rounded-lg border border-gray-200 ml-4">
+                  <span className="text-base font-bold">Rack 2</span>
+                  <div className="flex items-center gap-2">
+                    <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Settings className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
+                    <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Trash2 className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
+                  </div>
+                </div>
+                {showThirdRack && (
+                  <div className="flex items-center justify-between gap-4 bg-blue-50 px-2 py-2 rounded-lg border border-blue-200 ml-4">
+                    <span className="text-base font-bold flex items-center gap-2">
+                      <Input type="text" className="font-normal bg-white border-gray-400" placeholder="New Rack Name" />
+                      <Button size="default" variant="outline" className="border-blue-400 text-blue-600 bg-blue-100">
+                        Create New Rack
+                      </Button>
+                    </span>
+                    
+                  </div>
+                )}
+                <div className="flex justify-between items-center gap-2 px-4 pb-2">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setShowThirdRack(true); }} className="text-sm text-green-600 flex items-center gap-2">
+                    <Plus className="h-4 w-4 text-green-600 dark:text-neutral-400" />Add New Rack
+                  </a>
                 </div>
               </div>
-              <div className="flex items-center justify-between gap-4 bg-white px-6 py-2 rounded-lg border border-gray-200 ml-4">
-                <span className="text-base font-bold">Rack 2</span>
-                <div className="flex items-center gap-2">
-                  <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Settings className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
-                  <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><Trash2 className="h-4 w-4 text-neutral-500 dark:text-neutral-400" /></Button>
-                </div>
-              </div>
-              <div className="flex justify-between items-center gap-2 px-4 pb-2">
-                <a href="#" className="text-sm text-green-600 flex items-center gap-2"><Plus className="h-4 w-4 text-green-600 dark:text-neutral-400" />Add New Rack</a>
-              </div>
-              
-            </div>
               <div className="flex items-center justify-between gap-4 bg-white pl-4 pr-6 py-2 rounded-lg border border-gray-200 ml-4">
                 <span className="text-base font-bold flex items-center gap-2">
                   <Button variant="ghost" size="icon" className="overflow-hidden rounded-full"><ChevronUp className="h-4 w-4 text-neutral-400 dark:text-neutral-400" /></Button>

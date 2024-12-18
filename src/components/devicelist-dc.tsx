@@ -9,7 +9,7 @@ import {
   Tally1,
 } from "lucide-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSquareBolt as faSquareBolt } from '@fortawesome/pro-solid-svg-icons'
+import { faSquareBolt as faSquareBolt, faTriangleExclamation as faTriangleExclamation } from '@fortawesome/pro-solid-svg-icons'
 import {
   Search,
 } from "lucide-react"
@@ -139,16 +139,14 @@ export default function DeviceListDCComponent() {
         <main className="w-full max-w-screen-2xl px-8">
           <div className="flex flex-col gap-0">
             
-            <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5">
+            <div className="border border-green-600 bg-white text-lime-800 rounded-lg grid grid-cols-5">
               <div className="flex items-center">
                 <div className="pl-6 py-4">
                   <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                 </div>
                 <div className="pl-6 py-4">
                   <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                    <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                      <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                    </Badge>
+                    
                     <Link href={`/devices/detail`} >A-34221</Link>
                   </div>
                   <div className="text-sm text-black/40 flex items-center gap-2">
@@ -157,14 +155,17 @@ export default function DeviceListDCComponent() {
                 </div>
               </div>
               <div className="pl-2 py-4">
-                <div className="text-base text-black/50">58395102</div>
+                <div className="text-base text-black/50">SN-58395102</div>
                 <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                   PDU
                 </div>
               </div>
               <div className="pl-2 py-4">
-                <div className="text-base text-black/50">Controller</div>
+                <div className="text-base text-black/50">Gateway</div>
                 <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                   <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                     <Tally1  className="text-blue-600 size-3" />
                   </div>
@@ -180,20 +181,18 @@ export default function DeviceListDCComponent() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-0 border-l-4 border-blue-400 ml-8">
+            <div className="flex flex-col gap-0 border-l-8 border-green-600 ml-8">
               <div className="">
-                <div className="border-l-4 border-blue-400 ml-12 h-4"></div>
+                <div className="border-l-8 border-green-600 ml-12 h-4"></div>
               </div>
-              <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
+              <div className="border border-green-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
                   <div className="pl-6 py-4">
                     <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >A-34221</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -202,7 +201,7 @@ export default function DeviceListDCComponent() {
                   </div>
                 </div>
                 <div className="pl-2 py-4">
-                  <div className="text-base text-black/50">58395102</div>
+                  <div className="text-base text-black/50">SN-58395102</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     PDU
                   </div>
@@ -210,6 +209,9 @@ export default function DeviceListDCComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">Daisy Chain</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                  <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                     <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                       <Tally1  className="text-blue-600 size-3" />
                     </div>
@@ -226,19 +228,17 @@ export default function DeviceListDCComponent() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="border-l-4 border-blue-400 ml-12 h-4"></div>
+                <div className="border-l-8 border-green-600 ml-12 h-4"></div>
               </div>
               
-              <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
+              <div className="border border-green-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
                   <div className="pl-6 py-4">
                     <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >A-34221</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -247,7 +247,7 @@ export default function DeviceListDCComponent() {
                   </div>
                 </div>
                 <div className="pl-2 py-4">
-                  <div className="text-base text-black/50">58395102</div>
+                  <div className="text-base text-black/50">SN-58395102</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     PDU
                   </div>
@@ -255,6 +255,9 @@ export default function DeviceListDCComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">Daisy Chain</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                  <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                     <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                       <Tally1  className="text-blue-600 size-3" />
                     </div>
@@ -270,19 +273,17 @@ export default function DeviceListDCComponent() {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <div className="border-l-4 border-blue-400 ml-12 h-4"></div>
+                <div className="border-l-8 border-green-600 ml-12 h-4"></div>
               </div>
               
-              <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
+              <div className="border border-green-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
                   <div className="pl-6 py-4">
                     <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >A-34221</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -291,7 +292,7 @@ export default function DeviceListDCComponent() {
                   </div>
                 </div>
                 <div className="pl-2 py-4">
-                  <div className="text-base text-black/50">58395102</div>
+                  <div className="text-base text-black/50">SN-58395102</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     PDU
                   </div>
@@ -299,6 +300,9 @@ export default function DeviceListDCComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">Daisy Chain</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                  <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                     <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                       <Tally1  className="text-blue-600 size-3" />
                     </div>
@@ -314,19 +318,17 @@ export default function DeviceListDCComponent() {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <div className="border-l-4 border-blue-400 ml-12 h-4"></div>
+                <div className="border-l-8 border-green-600 ml-12 h-4"></div>
               </div>
               
-              <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
+              <div className="border border-green-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
                   <div className="pl-6 py-4">
                     <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >A-34221</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -335,7 +337,7 @@ export default function DeviceListDCComponent() {
                   </div>
                 </div>
                 <div className="pl-2 py-4">
-                  <div className="text-base text-black/50">58395102</div>
+                  <div className="text-base text-black/50">SN-58395102</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     PDU
                   </div>
@@ -343,10 +345,14 @@ export default function DeviceListDCComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">Daisy Chain</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                  <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                     <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                       <Tally1  className="text-blue-600 size-3" />
                     </div>
                     32 A
+                    
                   </div>
                 </div>
                 <div className="col-span-2 px-4 py-4">
@@ -358,21 +364,19 @@ export default function DeviceListDCComponent() {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <div className="border-r-4 border-blue-400 w-14 border-b-4 h-4"></div>
+                <div className="border-r-8 border-green-600 w-14 border-b-8 h-4"></div>
               </div>
               
             </div>
 
-            <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 mt-4">
+            <div className="border border-green-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 mt-4">
               <div className="flex items-center">
                 <div className="pl-6 py-4">
                   <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                 </div>
                 <div className="pl-6 py-4">
                   <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                    <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                      <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                    </Badge>
+                    
                     <Link href={`/devices/detail`} >A-34221</Link>
                   </div>
                   <div className="text-sm text-black/40 flex items-center gap-2">
@@ -381,14 +385,17 @@ export default function DeviceListDCComponent() {
                 </div>
               </div>
               <div className="pl-2 py-4">
-                <div className="text-base text-black/50">58395102</div>
+                <div className="text-base text-black/50">SN-58395102</div>
                 <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                   PDU
                 </div>
               </div>
               <div className="pl-2 py-4">
-                <div className="text-base text-black/50">Controller</div>
+                <div className="text-base text-black/50">Gateway</div>
                 <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                  <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                   <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                     <Tally1  className="text-blue-600 size-3" />
                   </div>
@@ -404,20 +411,18 @@ export default function DeviceListDCComponent() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-0 border-l-4 border-blue-400 ml-8">
+            <div className="flex flex-col gap-0 border-l-8 border-green-600 ml-8">
               <div className="">
-                <div className="border-l-4 border-blue-400 ml-12 h-4"></div>
+                <div className="border-l-8 border-blue-600 ml-12 h-4"></div>
               </div>
-              <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
+              <div className="border border-red-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
                   <div className="pl-6 py-4">
                     <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >A-34221</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -426,7 +431,7 @@ export default function DeviceListDCComponent() {
                   </div>
                 </div>
                 <div className="pl-2 py-4">
-                  <div className="text-base text-black/50">58395102</div>
+                  <div className="text-base text-black/50">SN-58395102</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     PDU
                   </div>
@@ -434,6 +439,9 @@ export default function DeviceListDCComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">Daisy Chain</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                    <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                     <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                       <Tally1  className="text-blue-600 size-3" />
                     </div>
@@ -450,19 +458,19 @@ export default function DeviceListDCComponent() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="border-l-4 border-red-400 ml-12 h-4"></div>
+                <div className="border-l-8 border-red-600 ml-12 h-8 flex items-center pl-2">
+                  <FontAwesomeIcon className="text-red-600 size-4" icon={faTriangleExclamation} />
+                </div>
               </div>
               
-              <div className="border border-gray-300 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
+              <div className="border border-red-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
                   <div className="pl-6 py-4">
                     <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >A-34221</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -471,7 +479,7 @@ export default function DeviceListDCComponent() {
                   </div>
                 </div>
                 <div className="pl-2 py-4">
-                  <div className="text-base text-black/50">58395102</div>
+                  <div className="text-base text-black/50">SN-58395102</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     PDU
                   </div>
@@ -479,6 +487,9 @@ export default function DeviceListDCComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">Daisy Chain</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
+                    <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
+                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      </Badge>
                     <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
                       <Tally1  className="text-blue-600 size-3" />
                     </div>
@@ -494,7 +505,7 @@ export default function DeviceListDCComponent() {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <div className="border-r-4 border-blue-400 w-14 border-b-4 h-4"></div>
+                <div className="border-r-8 border-green-600 w-14 border-b-8 h-4"></div>
               </div>
               
             </div>
