@@ -456,12 +456,12 @@ export default function DeviceViewComponent() {
                           <TableCell className="text-right">A1</TableCell>
                           <TableCell className=" text-neutral-600">USV</TableCell>
                           <TableCell className="text-right text-neutral-600"><DrawerTrigger>494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></DrawerTrigger></TableCell>
-                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>109.36<span className="text-xs text-neutral-400 pl-1">vA</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>-109<span className="text-xs text-neutral-400 pl-1">VAR</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>-76<span className="text-xs text-neutral-400 pl-1">º</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>231.7<span className="text-xs text-neutral-400 pl-1">V</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>28.7<span className="text-xs text-neutral-400 pl-1">W</span></DrawerTrigger></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
                           <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" width={6} height={6} className="h-6" /></TableCell>
                             <TableCell className="">
@@ -473,13 +473,13 @@ export default function DeviceViewComponent() {
                         <TableRow>
                           <TableCell className="text-right">A1</TableCell>
                           <TableCell className=" text-neutral-600">USV</TableCell>
-                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>109.36<span className="text-xs text-neutral-400 pl-1">vA</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>-109<span className="text-xs text-neutral-400 pl-1">VAR</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>-76<span className="text-xs text-neutral-400 pl-1">º</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>231.7<span className="text-xs text-neutral-400 pl-1">V</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>28.7<span className="text-xs text-neutral-400 pl-1">W</span></DrawerTrigger></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
                           <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" width={6} height={6} className="h-6" /></TableCell>
                             <TableCell className="">
@@ -491,13 +491,13 @@ export default function DeviceViewComponent() {
                         <TableRow>
                           <TableCell className="text-right">A1</TableCell>
                           <TableCell className=" text-neutral-600">USV</TableCell>
-                          <TableCell className="text-right text-neutral-600">494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">109.36<span className="text-xs text-neutral-400 pl-1">vA</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">-109<span className="text-xs text-neutral-400 pl-1">VAR</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">-76<span className="text-xs text-neutral-400 pl-1">º</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">231.7<span className="text-xs text-neutral-400 pl-1">V</span></TableCell>
-                          <TableCell className="text-right text-neutral-600">28.7<span className="text-xs text-neutral-400 pl-1">W</span></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>494.36<span className="text-xs text-neutral-400 pl-1">kWh</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>491.41<span className="text-xs text-neutral-400 pl-1">kWh</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>109.36<span className="text-xs text-neutral-400 pl-1">vA</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>-109<span className="text-xs text-neutral-400 pl-1">VAR</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>-76<span className="text-xs text-neutral-400 pl-1">º</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>231.7<span className="text-xs text-neutral-400 pl-1">V</span></DrawerTrigger></TableCell>
+                          <TableCell className="text-right text-neutral-600"><DrawerTrigger>28.7<span className="text-xs text-neutral-400 pl-1">W</span></DrawerTrigger></TableCell>
                           <TableCell className="text-right text-neutral-600">0.5<span className="text-xs text-neutral-400 pl-1">A</span></TableCell>
                           <TableCell className="flex items-center justify-end"><Image src="../images/C13.svg" alt="Switch" width={6} height={6} className="h-6" /></TableCell>
                             <TableCell className="">
