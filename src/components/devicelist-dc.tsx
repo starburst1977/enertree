@@ -413,7 +413,7 @@ export default function DeviceListDCComponent() {
 
             <div className="flex flex-col gap-0 border-l-8 border-green-600 ml-8">
               <div className="">
-                <div className="border-l-8 border-blue-600 ml-12 h-4"></div>
+                <div className="border-l-8 border-green-600 ml-12 h-4"></div>
               </div>
               <div className="border border-red-600 bg-white text-lime-800 rounded-lg grid grid-cols-5 ml-4">
                 <div className="flex items-center">
