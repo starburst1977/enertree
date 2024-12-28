@@ -197,26 +197,7 @@ export function DialogComponent() {
           
         </div>
         
-        <div className="flex">
-          {["desktop"].map((key) => {
-            const chart = key as keyof typeof chartConfig
-            return (
-              <button
-                key={chart}
-                data-active={activeChart === chart}
-                className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
-                onClick={() => setActiveChart(chart)}
-              >
-                <span className="text-xs text-muted-foreground">
-                  kWh
-                </span>
-                <span className="text-lg font-bold leading-none sm:text-3xl">
-                  {total[key as keyof typeof total].toLocaleString()}
-                </span>
-              </button>
-            )
-          })}
-        </div>
+        
         <div className="flex">
           <div className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6">
             <span className="text-xs text-muted-foreground">
@@ -249,6 +230,7 @@ export function DialogComponent() {
                 <SelectValue/>
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="realtime">Realtime</SelectItem>
                 <SelectItem value="4hours">Last four hours</SelectItem>
                 <SelectItem value="3days">Last three days</SelectItem>
                 <SelectItem value="7days">Last seven days</SelectItem>
@@ -271,7 +253,7 @@ export function DialogComponent() {
       <CardContent className="px-2 sm:p-6">
         <ChartContainer
           config={chartConfig}
-          className="aspect-auto h-[400px] w-full"
+          className="aspect-auto h-[500px] w-full"
         >
           <AreaChart
             accessibilityLayer
@@ -313,12 +295,7 @@ export function DialogComponent() {
         </ChartContainer>
       </CardContent>
       <CardHeader className="flex flex-col items-stretch space-y-0 p-0 sm:flex-row border-t">
-        <div className="flex flex-1 flex-row justify-between gap-1 px-6 py-5 sm:py-6">
-          <CardTitle className="text-md">
-            <div className="pt-0.5">Active Rule</div>
-            <span className="text-sm font-light text-gray-400">Trigger events if value is above or below</span>
-          </CardTitle>
-        </div>
+        
         
         <div className="flex">
           <div className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6">
@@ -328,7 +305,7 @@ export function DialogComponent() {
             <span className="leading-none flex items-center gap-2 pt-2">
               <Switch />
               <Input type="text" className="w-24" placeholder="0" />
-              <span>kWh</span>
+              <span className="text-xs text-gray-500 font-normal">kWh</span>
             </span>
           </div>
         </div>
@@ -340,9 +317,29 @@ export function DialogComponent() {
             <span className="leading-none flex items-center gap-2 pt-2">
               <Switch />
               <Input type="text" className="w-24" placeholder="0" />
-              <span>kWh</span>
+              <span className="text-xs text-gray-500 font-normal">kWh</span>
             </span>
           </div>
+        </div>
+        <div className="flex flex-1">
+          {["desktop"].map((key) => {
+            const chart = key as keyof typeof chartConfig
+            return (
+              <button
+                key={chart}
+                data-active={activeChart === chart}
+                className="relative z-30 flex flex-1 flex-col justify-center items-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
+                onClick={() => setActiveChart(chart)}
+              >
+                <span className="text-xs text-muted-foreground">
+                 Current value
+                </span>
+                <span className="text-lg font-bold text-blue-600 leading-none sm:text-3xl">
+                  {total[key as keyof typeof total].toLocaleString()}  <span className="text-xs text-gray-500 font-normal">kWh</span>
+                </span>
+              </button>
+            )
+          })}
         </div>
         <div className="flex">
           <div className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6">
@@ -352,7 +349,7 @@ export function DialogComponent() {
             <span className="leading-none flex items-center gap-2 pt-2">
               <Switch />
               <Input type="text" className="w-24" placeholder="0" />
-              <span>kWh</span>
+              <span className="text-xs text-gray-500 font-normal">kWh</span>
             </span>
           </div>
         </div>
@@ -364,7 +361,7 @@ export function DialogComponent() {
             <span className="leading-none flex items-center gap-2 pt-2">
               <Switch />
               <Input type="text" className="w-24" placeholder="0" />
-              <span>kWh</span>
+              <span className="text-xs text-gray-500 font-normal">kWh</span>
             </span>
           </div>
         </div>
