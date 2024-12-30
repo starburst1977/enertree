@@ -13,6 +13,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
+import { Input } from "@/components/ui/input"
+import { useState, ReactNode } from 'react'
 import * as React from "react"
 import {
   ColumnDef,
@@ -71,6 +73,163 @@ import {
 } from "@/components/ui/command"
 
 import { TopTabs, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Card, CardContent, CardTitle, CardHeader } from "./ui/card"
+
+const steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5']
+
+interface StepContentProps {
+  children: ReactNode
+  isActive: boolean
+}
+
+function StepContent({ children, isActive }: StepContentProps) {
+  if (!isActive) return null
+  return (
+    <div className="mt-8 p-4">
+      {children}
+    </div>
+  )
+}
+
+function Stepper() {
+  const [currentStep, setCurrentStep] = useState(0)
+
+  const handleNext = () => {
+    setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1))
+  }
+
+  const handleBack = () => {
+    setCurrentStep((prev) => Math.max(prev - 1, 0))
+  }
+
+  return (
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="mb-8 relative">
+        <div className="flex items-center justify-between w-full relative z-20">
+          {steps.map((step, index) => (
+            <div key={step} className="flex flex-col items-center">
+              <div 
+                className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  index <= currentStep ? 'bg-blue-600 text-white' : 'bg-gray-200 text-muted-foreground'
+                }`}
+              >
+                {index + 1}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="">
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2" />
+          <div 
+            className="absolute top-1/2 left-0 h-1 bg-primary -translate-y-1/2 transition-all duration-300 ease-in-out"
+            style={{ width: `${(currentStep / (steps.length - 1)) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      <StepContent isActive={currentStep === 0}>
+        
+        <div className="text-sm text-gray-600 flex justify-center pb-8">
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle className="text-lg font-bold text-blue-700">I want to create a new report concerning</CardTitle>
+            </CardHeader>
+              <CardContent>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
+                    <div className="flex flex-col">
+                      <h3 className="text-normal font-bold text-gray-800">Actual devices</h3>
+                      <h5 className="text-sm text-gray-500">Some subtext</h5>
+                    </div>
+                    <Switch id="air-conditioning" />
+                  </div>
+                  <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
+                    <div className="flex flex-col">
+                      <h3 className="text-normal font-bold text-gray-800">DC devices</h3>
+                      <h5 className="text-sm text-gray-500">Some subtext</h5>
+                    </div>
+                    <Switch id="air-conditioning" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+      </StepContent>
+
+      <StepContent isActive={currentStep === 1}>
+        <div className="text-sm text-gray-600 flex justify-center pb-8">
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle className="text-lg font-bold text-blue-700">This report should consist of</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
+                  <div className="flex flex-col">
+                    <h3 className="text-normal font-bold text-gray-800">All devices</h3>
+                    <h5 className="text-sm text-gray-500">Some subtext</h5>
+                  </div>
+                  <Switch id="air-conditioning" />
+                </div>
+                <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
+                  <div className="flex flex-col">
+                    <h3 className="text-normal font-bold text-gray-800">Specific type of devices</h3>
+                    <h5 className="text-sm text-gray-500 pt-2">
+                      <Combobox />
+                    </h5>
+                  </div>
+                  <Switch id="air-conditioning" />
+                </div>
+                <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
+                  <div className="flex flex-col">
+                    <h3 className="text-normal font-bold text-gray-800">Specific type of devices</h3>
+                    <h5 className="text-sm text-gray-500 pt-2">
+                      <Combobox />
+                    </h5>
+                  </div>
+                  <Switch id="air-conditioning" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </StepContent>
+
+      <StepContent isActive={currentStep === 2}>
+        <h2 className="text-xl font-semibold mb-4">Exploring Step 3</h2>
+        <p>Step 3 content goes here. You have full control over what appears in this section.</p>
+      </StepContent>
+
+      <StepContent isActive={currentStep === 3}>
+        <h2 className="text-xl font-semibold mb-4">Almost There - Step 4</h2>
+        <p>Use this space for Step 4 content. Add any components or information relevant to this step.</p>
+      </StepContent>
+
+      <StepContent isActive={currentStep === 4}>
+        <h2 className="text-xl font-semibold mb-4">Final Step - Step 5</h2>
+        <p>Congratulations on reaching the last step! Customize this content to wrap up your stepper process.</p>
+      </StepContent>
+
+      <div className="flex justify-between py-4">
+        <Button onClick={handleBack} disabled={currentStep === 0}>
+          Back
+        </Button>
+        <Button onClick={handleNext} disabled={currentStep === steps.length - 1}>
+          {currentStep === steps.length - 1 ? 'Finish' : 'Next'}
+        </Button>
+      </div>
+    </div>
+  )
+}
 
 export function DatePickerWithRange({
   className,
@@ -201,6 +360,8 @@ export function Combobox() {
 
 
 export function Reports() {
+  const [open, setOpen] = React.useState(false)
+
   return (
     <div className="flex flex-col">
       <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 py-4">
@@ -218,9 +379,22 @@ export function Reports() {
         </Breadcrumb>
         
         <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-4">
-          <Button variant="outline" size="default" className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faPlus} /> Create New Report
-          </Button>
+          <Drawer open={open} onOpenChange={setOpen}>
+            <DrawerTrigger asChild>
+              <Button variant="outline" size="default" className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faPlus} /> Create New Report
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle className="text-2xl font-light text-blue-700 text-center py-4">Create New Report</DrawerTitle>
+              </DrawerHeader>
+
+              <Stepper />
+
+                
+              </DrawerContent>
+            </Drawer>
           <Combobox />
         </div>
         
