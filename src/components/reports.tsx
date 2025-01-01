@@ -45,6 +45,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -142,81 +144,185 @@ function Stepper() {
             <CardHeader>
               <CardTitle className="text-lg font-bold text-blue-700">I want to create a new report concerning</CardTitle>
             </CardHeader>
-              <CardContent>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
-                    <div className="flex flex-col">
-                      <h3 className="text-normal font-bold text-gray-800">Actual devices</h3>
-                      <h5 className="text-sm text-gray-500">Some subtext</h5>
-                    </div>
-                    <Switch id="air-conditioning" />
-                  </div>
-                  <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
-                    <div className="flex flex-col">
-                      <h3 className="text-normal font-bold text-gray-800">DC devices</h3>
-                      <h5 className="text-sm text-gray-500">Some subtext</h5>
-                    </div>
-                    <Switch id="air-conditioning" />
-                  </div>
+            <CardContent>
+
+              <RadioGroup defaultValue="option-one" className="border border-gray-200 rounded-lg flex flex-col gap-0">
+                <div className="flex items-center space-x-4 h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-one" id="option-one" />
+                  <Label htmlFor="option-one" className="font-bold">Actual devices</Label>
+                  
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                <div className="flex items-center space-x-4 h-16 px-8 py-8">
+                  <RadioGroupItem value="option-two" id="option-two" />
+                  <Label htmlFor="option-two" className="font-bold">DC devices</Label>
+                </div>
+              </RadioGroup>
+              
+            </CardContent>
+          </Card>
+        </div>
 
       </StepContent>
 
       <StepContent isActive={currentStep === 1}>
+        
         <div className="text-sm text-gray-600 flex justify-center pb-8">
           <Card className="w-full">
             <CardHeader>
               <CardTitle className="text-lg font-bold text-blue-700">This report should consist of</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
-                  <div className="flex flex-col">
-                    <h3 className="text-normal font-bold text-gray-800">All devices</h3>
-                    <h5 className="text-sm text-gray-500">Some subtext</h5>
-                  </div>
-                  <Switch id="air-conditioning" />
+              <RadioGroup defaultValue="option-one" className="border border-gray-200 rounded-lg flex flex-col gap-0">
+                <div className="flex items-center space-x-4 h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-one" id="option-one" />
+                  <Label htmlFor="option-one" className="font-bold">All devices</Label>
+                  
                 </div>
-                <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
-                  <div className="flex flex-col">
-                    <h3 className="text-normal font-bold text-gray-800">Specific type of devices</h3>
-                    <h5 className="text-sm text-gray-500 pt-2">
-                      <Combobox />
-                    </h5>
-                  </div>
-                  <Switch id="air-conditioning" />
+                <div className="flex items-center space-x-4 h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-two" id="option-two" />
+                  <Label htmlFor="option-two" className="font-bold">Specific type of devices</Label>
+                  <Combobox />  
                 </div>
-                <div className="flex items-center gap-2 justify-between border border-gray-200 py-2 px-4 rounded-md">
-                  <div className="flex flex-col">
-                    <h3 className="text-normal font-bold text-gray-800">Specific type of devices</h3>
-                    <h5 className="text-sm text-gray-500 pt-2">
-                      <Combobox />
-                    </h5>
-                  </div>
-                  <Switch id="air-conditioning" />
+                <div className="flex items-center space-x-4 h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-three" id="option-three" />
+                  <Label htmlFor="option-two" className="font-bold">Specific devices</Label>
+                  <Combobox /> 
                 </div>
-              </div>
+              </RadioGroup>
+              
             </CardContent>
           </Card>
         </div>
       </StepContent>
 
       <StepContent isActive={currentStep === 2}>
-        <h2 className="text-xl font-semibold mb-4">Exploring Step 3</h2>
-        <p>Step 3 content goes here. You have full control over what appears in this section.</p>
+        <div className="text-sm text-gray-600 flex justify-center pb-8">
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle className="text-lg font-bold text-blue-700">What type of value should this report target?</CardTitle>
+            </CardHeader>
+            <CardContent>
+
+
+              <RadioGroup defaultValue="option-one" className="border border-gray-200 rounded-lg flex flex-col gap-0">
+                <div className="flex items-center space-x-4 h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-one" id="option-one" />
+                  <Label htmlFor="option-one" className="font-bold">Outlets</Label>
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a value" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Active power (W)</SelectItem>
+                      <SelectItem value="2">Apparent power (VA)</SelectItem>
+                      <SelectItem value="3">Crest factor</SelectItem>
+                      <SelectItem value="4">Current (A)</SelectItem>
+                      <SelectItem value="5">Voltage (V)</SelectItem>
+                      <SelectItem value="6">Power factor</SelectItem>
+                      <SelectItem value="7">Reactive power (VAR)</SelectItem>
+                      <SelectItem value="8">Temperature (ºC)</SelectItem>
+                    </SelectContent>
+                  </Select> 
+                </div>
+                <div className="flex items-center space-x-4  h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-two" id="option-two" />
+                  <Label htmlFor="option-two" className="font-bold">Inlets</Label>
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a value" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Active power (W)</SelectItem>
+                      <SelectItem value="2">Apparent power (VA)</SelectItem>
+                      <SelectItem value="3">Crest factor</SelectItem>
+                      <SelectItem value="4">Current (A)</SelectItem>
+                      <SelectItem value="5">Voltage (V)</SelectItem>
+                      <SelectItem value="6">Power factor</SelectItem>
+                      <SelectItem value="7">Reactive power (VAR)</SelectItem>
+                      <SelectItem value="8">Temperature (ºC)</SelectItem>
+                    </SelectContent>
+                  </Select>  
+                </div>
+                <div className="flex items-center space-x-4  h-16 px-8 py-8">
+                  <RadioGroupItem value="option-three" id="option-three" />
+                  <Label htmlFor="option-two" className="font-bold">Sensors</Label>
+                  <Select className="w-auto">
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a value" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Active power (W)</SelectItem>
+                      <SelectItem value="2">Apparent power (VA)</SelectItem>
+                      <SelectItem value="3">Crest factor</SelectItem>
+                      <SelectItem value="4">Current (A)</SelectItem>
+                      <SelectItem value="5">Voltage (V)</SelectItem>
+                      <SelectItem value="6">Power factor</SelectItem>
+                      <SelectItem value="7">Reactive power (VAR)</SelectItem>
+                      <SelectItem value="8">Temperature (ºC)</SelectItem>
+                    </SelectContent>
+                  </Select>  
+                </div>
+              </RadioGroup>
+              
+            </CardContent>
+          </Card>
+        </div>
       </StepContent>
 
       <StepContent isActive={currentStep === 3}>
-        <h2 className="text-xl font-semibold mb-4">Almost There - Step 4</h2>
-        <p>Use this space for Step 4 content. Add any components or information relevant to this step.</p>
+        <div className="text-sm text-gray-600 flex justify-center pb-8">
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle className="text-lg font-bold text-blue-700">Further restrict Outlet for this report?</CardTitle>
+            </CardHeader>
+            <CardContent>
+
+              <RadioGroup defaultValue="option-one" className="border border-gray-200 rounded-lg flex flex-col gap-0">
+                <div className="flex items-center space-x-4 h-16 px-8 py-8 border-b border-gray-200">
+                  <RadioGroupItem value="option-one" id="option-one" />
+                  <Label htmlFor="option-one" className="font-bold">No</Label>
+                  
+                </div>
+                <div className="flex items-center space-x-4 h-16 px-8 py-8">
+                  <RadioGroupItem value="option-two" id="option-two" />
+                  <Label htmlFor="option-two" className="font-bold whitespace-nowrap">By name?</Label>
+                  <Select className="w-auto">
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a value" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Name is</SelectItem>
+                      <SelectItem value="2">Name starts with</SelectItem>
+                      <SelectItem value="3">Name ends with</SelectItem>
+                      <SelectItem value="4">Name contains</SelectItem>
+                      <SelectItem value="5">Name does not contain</SelectItem>
+                      <SelectItem value="6">Name is not</SelectItem>
+                      <SelectItem value="7">Name is</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Input placeholder="Enter a name" />
+                </div>
+              </RadioGroup>
+              
+            </CardContent>
+          </Card>
+        </div>
       </StepContent>
 
       <StepContent isActive={currentStep === 4}>
-        <h2 className="text-xl font-semibold mb-4">Final Step - Step 5</h2>
-        <p>Congratulations on reaching the last step! Customize this content to wrap up your stepper process.</p>
+        <div className="text-sm text-gray-600 flex justify-center pb-8">
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle className="text-lg font-bold text-blue-700">Nearly done</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center space-x-4 pb-6">
+                Please enter a name for this report:
+              </div>
+              <Input placeholder="Enter a name" />
+            </CardContent>
+          </Card>
+        </div>
       </StepContent>
 
       <div className="flex justify-between py-4">
