@@ -536,7 +536,9 @@ export function Reports() {
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
                 <div className="flex items-center gap-2 justify-end">
                   <Button size="default" variant="outline">
-                    <span className="text-gray-800">Generate Report</span>
+                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer">
+                      <span className="text-gray-800">Generate Report</span>
+                    </Link>
                   </Button>
                   
                   <Button size="default" variant="outline">
@@ -552,7 +554,7 @@ export function Reports() {
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
                 <p className="text-lg text-gray-800 font-bold">Custom Power</p>
               </td>
-              <td className="px-4 py-4 text-base text-gray-800 font-normal">
+              <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
                 <div className="flex flex-col gap-1">
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">W</span>
@@ -567,10 +569,14 @@ export function Reports() {
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
                 <div className="flex items-center gap-2 justify-end">
                   <Button size="default" variant="outline">
-                    <span className="text-gray-800">Generate Report</span>
+                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
+                      <a target="_blank">
+                        <span className="text-gray-800">Generate Report</span>
+                      </a>
+                    </Link>
                   </Button>
                   
-                  <Button size="default" variant="outline">
+                  <Button size="default" variant="outline"> 
                     <FontAwesomeIcon icon={faEnvelopeOpenText} /> 
                   </Button>
                   <Button size="default" variant="outline">
@@ -606,7 +612,11 @@ export function Reports() {
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
                 <div className="flex items-center gap-2 justify-end">
                   <Button size="default" variant="outline">
-                    <span className="text-gray-800">Generate Report</span>
+                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
+                      <a target="_blank">
+                        <span className="text-gray-800">Generate Report</span>
+                      </a>
+                    </Link>
                   </Button>
                   
                   <Button size="default" variant="outline">
@@ -632,7 +642,11 @@ export function Reports() {
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
                 <div className="flex items-center gap-2 justify-end">
                   <Button size="default" variant="outline">
-                    <span className="text-gray-800">Generate Report</span>
+                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
+                      <a target="_blank">
+                        <span className="text-gray-800">Generate Report</span>
+                      </a>
+                    </Link>
                   </Button>
                   
                   <Button size="default" variant="outline">
