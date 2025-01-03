@@ -54,10 +54,8 @@ export function ReportDetail() {
                 <SelectValue placeholder="Select interval" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="15m">15 minutes</SelectItem>
-                <SelectItem value="1h">1 hour</SelectItem>
-                <SelectItem value="1d">1 day</SelectItem>
-                <SelectItem value="1w">1 week</SelectItem>
+                <SelectItem value="15m">Group by hours</SelectItem>
+                <SelectItem value="1h">Group by days</SelectItem>
               </SelectContent>
             </Select>
             <Button variant="outline">Pivot</Button>
@@ -93,6 +91,9 @@ export function ReportDetail() {
       </div>
 
       {/* Chart Area */}
+      <div className="flex items-center justify-center pt-16 pb-8">
+        <h1 className="text-2xl font-bold">Report for strom - 1/1/2025, 12:00:00 AM to 1/2/2025, 11:59:59 PM</h1>
+      </div>
       <div className="flex-grow p-4">
         <Card className="p-4 h-[400px]">
           <ResponsiveContainer width="100%" height="100%">
