@@ -1,8 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
 import { ReportDetail } from "@/components/reportdetail"
-import {
-  SidebarLayout,
-} from "@/components/ui/sidebar"
 
 export default async function Page() {
   return (

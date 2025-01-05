@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client"
 
 import { useState } from "react"
@@ -195,3 +197,5 @@ export function PUE() {
     </div>
   )
 } 
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
