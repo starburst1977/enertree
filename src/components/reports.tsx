@@ -245,8 +245,8 @@ function Stepper() {
                 </div>
                 <div className="flex items-center space-x-4  h-16 px-8 py-8">
                   <RadioGroupItem value="option-three" id="option-three" />
-                  <Label htmlFor="option-two" className="font-bold">Sensors</Label>
-                  <Select className="w-auto">
+                  <Label htmlFor="option-three" className="font-bold">Sensors</Label>
+                  <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Select a value" />
                     </SelectTrigger>
@@ -286,8 +286,8 @@ function Stepper() {
                 <div className="flex items-center space-x-4 h-16 px-8 py-8">
                   <RadioGroupItem value="option-two" id="option-two" />
                   <Label htmlFor="option-two" className="font-bold whitespace-nowrap">By name?</Label>
-                  <Select className="w-auto">
-                    <SelectTrigger>
+                  <Select>
+                    <SelectTrigger className="w-auto">
                       <SelectValue placeholder="Select a value" />
                     </SelectTrigger>
                     <SelectContent>
