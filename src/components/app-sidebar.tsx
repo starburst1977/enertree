@@ -18,7 +18,7 @@ import {
   Rows3,
   ScrollText,
   GitFork,
-  Info,
+  Zap,
   BookOpen,
   Settings,
   Settings2,
@@ -382,6 +382,11 @@ const data = {
       count: 4,
     },
     {
+      name: "PUE",
+      url: "/pue",
+      icon: Zap,
+    },
+    {
       name: "Open Alarms",
       url: "/notifications",
       icon: Bell,
@@ -393,6 +398,7 @@ const data = {
       url: "/audit",
       icon: ScrollText,
     },
+
     {
       name: "Reports",
       url: "/reports",

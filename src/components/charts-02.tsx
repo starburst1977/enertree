@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/card"
 
 import { PUEChart2 } from "@/app/puechart2"
-import { PUEChart } from "@/app/puechart"
+import { PUEChart } from "@/components/pue-chart"
 import { PowerChart } from "@/app/powerchart"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,25 +33,12 @@ export function Charts() {
   return (
       
       <div className="chart-wrapper mx-auto max-w-screen-2xl grid grid-cols-3 gap-4 px-6">
+        <div className="col-span-3 pb-2">
+          <PUEChart />
+        </div>
         <div className="col-span-2">
-          <Card>
-            <div className="grid grid-cols-3">
-              <CardHeader className="col-span-2">
-                <CardTitle>PUE</CardTitle>
-                <CardDescription>January - October 2024</CardDescription>
-              </CardHeader>
-              <CardHeader>
-                <CardTitle>Energy Consumption</CardTitle>
-                <CardDescription>January - October 2024</CardDescription>
-              </CardHeader>
-            </div>
-            <CardContent className="grid grid-cols-3 gap-4">
-              <PUEChart />
-              <PUEChart2 />
-              <PowerChart />
-            </CardContent>
-          </Card>
-          <div className="flex items-center gap-4 justify-between pb-4 pt-8">
+          
+          <div className="flex items-center gap-4 justify-between pb-4">
             <div className="flex gap-2 items-center">
               <h4 className="text-lg font-bold">Current & Power</h4>
             </div>
