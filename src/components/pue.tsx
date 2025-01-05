@@ -23,6 +23,16 @@ import {
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend
+} from 'recharts'
 
 // Helper function to get days in a month
 const getDaysInMonth = (year: number, month: number) => {
@@ -51,6 +61,46 @@ export function PUE() {
       pue: (1 + Math.random() * 0.5).toFixed(2), // Random PUE value between 1 and 1.5
     }
   })
+
+  // Generate last 12 months data
+  const getLast12Months = () => {
+    const months = []
+    const today = new Date()
+    
+    for (let i = 11; i >= 0; i--) {
+      const date = new Date(today.getFullYear(), today.getMonth() - i, 1)
+      const itPower = Math.floor(800 + Math.random() * 400) // Random IT Power between 800-1200
+      const totalPower = Math.floor(itPower * (1 + Math.random() * 0.5)) // Total Power with random overhead
+      months.push({
+        month: date.toLocaleString('default', { month: 'short' }),
+        itPower: itPower,
+        totalPower: totalPower - itPower, // Show the difference as the stacked part
+        pue: (totalPower / itPower).toFixed(2) // Calculate PUE
+      })
+    }
+    return months
+  }
+
+  const monthlyData = getLast12Months()
+
+  // Custom tooltip component
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (active && payload && payload.length) {
+      const itPower = payload[0].value
+      const totalPower = itPower + payload[1].value
+      const pue = (totalPower / itPower).toFixed(2)
+      
+      return (
+        <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-sm">
+          <p className="font-semibold">{label}</p>
+          <p className="text-sm">IT Power: {itPower} kW</p>
+          <p className="text-sm">Total Power: {totalPower} kW</p>
+          <p className="text-sm font-semibold text-blue-600">PUE: {pue}</p>
+        </div>
+      )
+    }
+    return null
+  }
 
   const handlePreviousMonth = () => {
     setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))
@@ -87,6 +137,50 @@ export function PUE() {
         </div>
         
       </header>
+
+      {/* Monthly Overview Chart */}
+      <div className="p-4">
+        <Card className="p-4">
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-neutral-900">Last 12 Months Power Usage Overview</h3>
+          </div>
+          <div className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={monthlyData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis 
+                  dataKey="month"
+                  tick={{ fontSize: 12 }}
+                />
+                <YAxis 
+                  tick={{ fontSize: 12 }}
+                  label={{ 
+                    value: 'Power (kW)', 
+                    angle: -90, 
+                    position: 'insideLeft',
+                    style: { textAnchor: 'middle' }
+                  }}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend />
+                <Bar 
+                  dataKey="itPower" 
+                  fill="#2563eb"
+                  name="IT Power"
+                  stackId="a"
+                />
+                <Bar 
+                  dataKey="totalPower" 
+                  fill="#93c5fd"
+                  name="Cooling Power"
+                  radius={[4, 4, 0, 0]}
+                  stackId="a"
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </Card>
+      </div>
 
       {/* Month Navigation */}
       <div className="py-4 flex items-center justify-between">
