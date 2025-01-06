@@ -139,10 +139,10 @@ export function PUE() {
       </header>
 
       {/* Monthly Overview Chart */}
-      <div className="p-4">
+      <div className="py-4">
         <Card className="p-4">
           <div className="mb-4">
-            <h3 className="text-lg font-semibold text-neutral-900">Last 12 Months Power Usage Overview</h3>
+            <h3 className="text-lg font-semibold text-neutral-900">Last 12 Months Energy Overview</h3>
           </div>
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -246,11 +246,8 @@ export function PUE() {
                 <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase">
                   Date
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase text-right">
-                  IT Power (kW)
-                </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase">
-                  Total Power (kW)
+                  Total Energy (kWh)
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase">
                   PUE
@@ -266,9 +263,7 @@ export function PUE() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-900">
                     {day.date}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-900 text-right">
-                    {(parseFloat(day.pue) * 1000).toFixed(2)}
-                  </td>
+                  
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-900">
                     <Input
                       type="number"
