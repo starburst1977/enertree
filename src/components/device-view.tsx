@@ -158,6 +158,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -366,7 +367,18 @@ export function DialogComponent() {
           </div>
         </div>
         
+        
       </CardHeader>
+      <CardFooter className="w-full p-0">
+          <div className="relative z-30 flex w-full items-center justify-center gap-2 border-t border-gray-200 px-0 py-4 text-left">
+            <span className="text-sm text-gray-300 font-bold">
+              Create Threshold
+            </span>
+            <Input type="text" className="w-36" placeholder="Name" disabled />
+            <Button variant="primary" className="w-24 bg-gray-100 text-gray-300">Save</Button>
+          </div>
+
+      </CardFooter>
     </Card>
   )
 }
