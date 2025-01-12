@@ -400,7 +400,7 @@ export function DialogComponent() {
               Create Threshold
             </span>
             <Input type="text" className="w-36" placeholder="Name" disabled />
-            <Button variant="primary" className="w-24 bg-gray-100 text-gray-300 flex items-center gap-2"><LoadingSpinnerSmall /> Save</Button>
+            <Button variant="outline" className="w-24 bg-gray-100 text-gray-300 flex items-center gap-2"><LoadingSpinnerSmall /> Save</Button>
           </div>
 
       </CardFooter>
