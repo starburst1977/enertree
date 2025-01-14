@@ -3,7 +3,7 @@
 "use client"
 
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-
+import { Label } from "@/components/ui/label"
 
 import {
   Drawer,
@@ -975,7 +975,49 @@ export default function DeviceViewComponent() {
             </TopTabsContent>
             <TopTabsContent value="config">Configuration</TopTabsContent>
             <TopTabsContent value="notifications">Notifications</TopTabsContent>
-            <TopTabsContent value="backups">Backups</TopTabsContent>
+            <TopTabsContent value="backups">
+              <Card className="max-w-xl">
+                <CardHeader>
+                  <CardTitle>Form Examples</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-col gap-4 p-4">
+                    <div className="flex items-center gap-4 relative">
+                      <Label>Name</Label>
+                      <Input className="bg-gray-50 border-gray-300"/>
+                      
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-4 p-4">
+                    <div className="flex items-center gap-4 relative">
+                      <Label className="flex items-center gap-2">Name <span className="text-red-600 font-bold">*</span></Label>
+                      <Input className="bg-gray-50 border-gray-300"/>
+                      
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-4 p-4">
+                    <div className="flex items-center gap-4 relative">
+                      <Label>Name</Label>
+                      <Input className="bg-gray-50 border-red-600" value="test"/>
+                      <div className="absolute bottom-full left-1/2 z-20 mb-0.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-red-600 py-1 px-2 text-xs text-white font-medium " role="tooltip" id="top-tooltip">
+                        <span className="absolute -bottom-1 left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-white bg-red-600"></span>
+                        Please enter a valid name
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-4 p-4">
+                    <div className="flex items-center gap-4 relative">
+                      <Label>Name</Label>
+                      <Input  className="bg-gray-50 border-red-600" />
+                      <div className="absolute bottom-full left-1/2 z-20 mb-0.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-red-600 py-1 px-2 text-xs text-white font-medium " role="tooltip" id="top-tooltip">
+                        <span className="absolute -bottom-1 left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-white bg-red-600"></span>
+                        Missing required field
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TopTabsContent>
           </TopTabs>
           </main>
         </div>
