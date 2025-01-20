@@ -4,7 +4,8 @@
 
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { Label } from "@/components/ui/label"
-
+import { Checkbox } from "@/components/ui/checkbox"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import {
   Drawer,
   DrawerClose,
@@ -1028,6 +1029,46 @@ export default function DeviceViewComponent() {
                           <span className="absolute -bottom-1 left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-white bg-red-600"></span>
                           Missing required field
                         </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-4 p-4">
+                      <div className="flex items-center gap-4 relative">
+                        <Label className="flex items-center gap-2">Optional</Label>
+                        <Checkbox />
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-4 p-4">
+                      <div className="flex items-center gap-4 relative">
+                        <Label className="flex items-center gap-2">Mandatory</Label>
+                        <RadioGroup>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="option-one" id="option-one" checked />
+                            <Label htmlFor="option-one">Option One</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="option-two" id="option-two" />
+                            <Label htmlFor="option-two">Option Two</Label>
+                          </div>
+                        </RadioGroup>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-4 p-4">
+                      <div className="flex items-center gap-4 relative">
+                        <Label className="flex items-center gap-2">Mandatory</Label>
+                        <RadioGroup className="relative">
+                          <div className="absolute bottom-full left-2.5 z-20 mb-0.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-red-600 py-1 px-2 text-xs text-white font-medium " role="tooltip" id="top-tooltip">
+                            <span className="absolute -bottom-1 left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-white bg-red-600"></span>
+                            Missing required field
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="option-one" className="border-red-600" id="option-one" />
+                            <Label htmlFor="option-one">Option One</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="option-two" className="border-red-600" id="option-two" />
+                            <Label htmlFor="option-two">Option Two</Label>
+                          </div>
+                        </RadioGroup>
                       </div>
                     </div>
                   </CardContent>

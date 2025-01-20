@@ -372,10 +372,10 @@ export function DeviceListComponent() {
                 <div className="pl-2 py-4">
                   <div className="text-base text-black/50">{device.modules}</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
-                    <div className="flex items-center justify-center bg-blue-100 rounded-sm p-1 pr-0.5">
-                      {device.phase ? <Tally1  className="text-blue-600 size-3" /> : <Tally3 className="size-3 text-blue-600" />} 
+                    <div className="flex items-center justify-center text-blue-600">
+                      1 Ph&nbsp;<span className="text-xs text-neutral-400">|</span>&nbsp;
+                      {device.rating}
                     </div>
-                    {device.rating}
                   </div>
                 </div>
 
