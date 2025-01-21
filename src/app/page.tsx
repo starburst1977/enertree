@@ -31,9 +31,7 @@ export default function Home() {
               <a href="room" className="text-sm font-medium text-gray-500 underline hover:text-blue-600">Forgot password?</a>
             </div>
             <button type="submit" className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-base px-5 py-2.5 text-center">Sign in to your account</button>
-            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don't have an account? <a href="room" className="font-medium text-gray-500 underline hover:text-blue-600">Sign up</a>
-            </p>
+            
           </form>
         </div>  
         <div className="flex items-center justify-center px-4 bg-blue-600 lg:py-0 sm:px-0">
@@ -42,7 +40,7 @@ export default function Home() {
               <Image className="w-12 h-12 mr-6" src="/images/logo.svg" alt="logo" width={32} height={32} />
                   Enertree    
             </a>
-            <h1 className="mb-8 text-4xl font-light text-white leading-tight">Solutions for High-Performance Technologies.</h1>
+            <h1 className="mb-8 text-5xl font-light text-white leading-tight">Solutions for<br /> High-Performance <br /> Technologies.</h1>
             <p className=" font-light text-blue-300 mb-8">Our PDUs support a wide range of applications, from AI, HPC, ML, and IoT to GPU-intensive workloads from Nvidia, AMD, Intel, Graphcore, and AWS. </p>
             
             <p className=" font-light text-blue-300">More Information available here: <a href="room" className="font-medium text-blue-200 underline hover:text-white">www.enertree.com</a></p>
