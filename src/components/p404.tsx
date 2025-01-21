@@ -41,7 +41,7 @@ export function Page404() {
       
       <div className="">
         <div className="container min-h-screen px-6 py-12">
-          <div className="relative w-full mt-12 flex flex-col items-center justify-center">
+          <div className="relative w-full mt-24 flex flex-col items-center justify-center">
             <svg width="514" height="164" viewBox="0 0 514 164" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="8.74228e-08" y1="1" x2="513" y2="1.00004" stroke="#ddd" stroke-width="2"/>
             <line x1="-8.74228e-08" y1="163" x2="513" y2="163" stroke="#ddd" stroke-width="2"/>
