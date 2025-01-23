@@ -454,7 +454,7 @@ export default function DeviceViewComponent() {
           <main className="">
           <TopTabs defaultValue="info" className="px-8 py-4">
             <div className="flex flex-row gap-2 items-center justify-between pb-8">
-              <h1 className="text-3xl font-bold text-blue-600">PX3-482</h1>
+              <h1 className="text-3xl font-bold text-blue-600">PDU A15</h1>
               <TopTabsList>
                 <TopTabsTrigger value="info">Information</TopTabsTrigger>
                 <TopTabsTrigger value="config">Configuration</TopTabsTrigger>
