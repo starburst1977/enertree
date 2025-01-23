@@ -73,7 +73,7 @@ export function Page404() {
           </div>
           <div className="w-full pt-12 flex flex-col items-center justify-center">
             <h1 className="mt-3 text-2xl font-bold text-blue-600">Page not found</h1>
-            <p className="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn't exist.</p>
+            <p className="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn&apos;t exist.</p>
 
             <div className="flex items-center mt-6 gap-x-3">
                 <button className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">

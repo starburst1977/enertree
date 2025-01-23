@@ -5,10 +5,7 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Tally3,
-  Tally1,
-} from "lucide-react"
+
 import {
   Select,
   SelectContent,
