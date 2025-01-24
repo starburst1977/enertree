@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSquareBolt as faSquareBolt } from '@fortawesome/pro-solid-svg-icons'
+import { faBolt as faBolt } from '@fortawesome/pro-solid-svg-icons'
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
@@ -345,9 +345,7 @@ export function DeviceListComponent() {
                   </div>
                   <div className="pl-6 py-4">
                     <div className="text-base text-black/75 font-bold flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs text-blue-600 flex items-center gap-1 px-1.5">
-                        <FontAwesomeIcon className="text-blue-600 text-xs" icon={faSquareBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
-                      </Badge>
+                      
                       <Link href={`/devices/detail`} >{device.name}</Link>
                     </div>
                     <div className="text-sm text-black/40 flex items-center gap-2">
@@ -370,6 +368,9 @@ export function DeviceListComponent() {
                   <div className="text-base text-black/50">{device.modules}</div>
                   <div className="text-sm text-black/40 dark:text-neutral-400 flex items-center gap-2">
                     <div className="flex items-center justify-center text-blue-600">
+                      <FontAwesomeIcon className="text-blue-600 text-xs mr-1" icon={faBolt} /> {Math.random() < 0.5 ? 'A' : 'B'}
+                      
+                      <span className="text-xs text-neutral-400">&nbsp;|&nbsp;</span>
                       1 Ph&nbsp;<span className="text-xs text-neutral-400">|</span>&nbsp;
                       {device.rating}
                     </div>
