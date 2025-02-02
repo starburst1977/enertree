@@ -267,28 +267,20 @@ export function Audit() {
               <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Time
               </th>
-              <th scope="col" className="py-3.5 px-2 text-left text-xs text-gray-400 font-normal">
-                <div className="grid grid-cols-1">
-                  <select id="location" name="location" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1 pl-2 pr-6 text-xs text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
-                    <option selected>Severity</option>
-                    <option>Alert</option>
-                    <option>Warning</option>
-                    <option>Info</option>
-                  </select>
-                  <svg className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">
-                    <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                  </svg>
-                </div>
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Location
               </th>
+              <th scope="col" className="py-3.5 px-2 text-left text-xs text-gray-400 font-normal">
+                Type
+              </th>
+              
               <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Description
               </th>
               
-              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Device & Location
-              </th>
+              
               <th scope="col" className="relative py-3.5 pl-4 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
-                User
+                Acknowledged
               </th>
             </tr>
           </thead>
@@ -296,21 +288,23 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 93512</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
                   <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 93512</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
@@ -318,21 +312,23 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 81549</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
                   <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 81549</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
@@ -340,44 +336,49 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 27781</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 The Schleifenbauer device &quot;real PDU 3.6.1&quot;, sensor &quot;Presence Detector 1&quot; for slot 1 is in an alarmed state.
               </td>
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 27781</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-blue-700">Sven Read</p>
+                <p className="text-md text-gray-600">By Sven Read</p>
+                <p className="text-xs text-gray-400">12:07:04 - 26/11/2024 </p>
               </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 43325</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
                   <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 43325</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
@@ -385,68 +386,76 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">18:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 36142</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
               
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 36142</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-blue-700">Sven Read</p>
+              <p className="text-md text-gray-600">By Sven Read</p>
+                <p className="text-xs text-gray-400">12:07:04 - 26/11/2024 </p>
               </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 22481</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The device &quot;192.168.33.223&quot; could not connect, it will be retried.
               </td>
               
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 22481</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-blue-700">Sven Read</p>
+              <p className="text-md text-gray-600">By Sven Read</p>
+                <p className="text-xs text-gray-400">12:07:04 - 26/11/2024 </p>
               </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">11:44:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 18873</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-red-100">
                   <FontAwesomeIcon className="text-red-600" icon={faCircle} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
               
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 18873</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
                 
               </td>
@@ -454,21 +463,23 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 05842</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
                   <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 05842</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
                 <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
@@ -476,20 +487,22 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
                   <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               Unsuccessful login attempt into Om7Sense Gateway as user &quot;admin&quot; from IP address &quot;172.20.0.2&quot;.
               </td>
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
@@ -497,21 +510,23 @@ export function Audit() {
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
                 <p className="text-md text-gray-600">12:07:04</p>
-                <p className="text-sm text-gray-400">26/11/2024 </p>
+                <p className="text-xs text-gray-400">26/11/2024 </p>
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
+                <p className="text-md text-gray-600"><Link href="devices/detail">A 84461</Link></p>
+                <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-blue-100">
                   <FontAwesomeIcon className="text-blue-600" icon={faDiamond} />
                 </div>
               </td>
+              
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
               
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                <p className="text-md text-gray-600"><Link href="devices/detail">A 84461</Link></p>
-                <p className="text-sm text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
-              </td>
+              
               <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
                 
               </td>
