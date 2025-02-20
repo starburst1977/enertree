@@ -326,7 +326,7 @@ export function UsersComponent() {
                 <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                   Color
                 </th>
-                <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal text-right">
+                <th scope="col" className="px-4 py-3.5 text-xs text-gray-400 font-normal text-right">
                   Permissions
                 </th>
               </tr>
