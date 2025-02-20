@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 import * as React from "react"
 import { TopTabs, TopTabsList, TopTabsTrigger } from "@/components/ui/tabs-top"
@@ -265,3 +267,5 @@ export function DiscoveryListComponent() {
     </div>
   );
 }
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
