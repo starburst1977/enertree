@@ -77,7 +77,7 @@ export function DialogComponent() {
             </div>
             <div className="flex items-center space-x-2 h-12">
               <RadioGroupItem value="option-two" id="option-two" />
-              <Label htmlFor="option-two">You can't</Label>
+              <Label htmlFor="option-two">You can&apos;t</Label>
             </div>
           </RadioGroup>
         </div>
@@ -357,7 +357,7 @@ export function SettingsRulesDetailComponent() {
                 <div className="flex flex-row items-center gap-4 bg-gray-50 py-2 px-2 rounded-lg border border-gray-200">
                   <FontAwesomeIcon icon={faGripDotsVertical} className="text-gray-400 ml-2" /> 
                   <div className="flex font-bold text-red-800 border border-red-300 rounded-md px-2 py-1 bg-red-200">
-                    You can't
+                    You can&apos;t
                   </div>
                   <div className="flex font-bold text-gray-800 border border-blue-200 rounded-md px-2 py-1 bg-blue-100">
                     Read
