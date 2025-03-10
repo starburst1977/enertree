@@ -206,7 +206,6 @@ export function UsersComponent() {
     <TooltipProvider>
       <Drawer >
     <div className="flex min-h-screen mx-auto w-full max-w-screen-2xl flex-col p-4">
-      <TopTabs defaultValue="users" className="px-8 py-4">
         <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 pb-4 px-2">
           <Breadcrumb className="hidden md:flex">
             <SidebarTrigger />
@@ -223,16 +222,12 @@ export function UsersComponent() {
           <div className="relative ml-auto flex-1 md:grow-0 flex items-center justify-end gap-4">
             <div className="flex flex-row gap-2 items-center">
                 <div className="text-xs text-neutral-400">View</div>
-                <TopTabsList>
-                  <TopTabsTrigger value="users">Users</TopTabsTrigger>
-                  <TopTabsTrigger value="roles">Roles</TopTabsTrigger>
-                </TopTabsList>
+                
                 
             </div>
           </div>
         </header>
 
-        <TopTabsContent value="users">
         <div className="overflow-hidden ring-1 ring-neutral-200 sm:rounded-lg">
           <table className="min-w-full divide-y divide-neutral-200">
             <thead className="bg-white">
@@ -311,106 +306,7 @@ export function UsersComponent() {
 
           
         </div>
-        </TopTabsContent>
-        <TopTabsContent value="roles">
-        <div className="overflow-hidden ring-1 ring-neutral-200 sm:rounded-lg">
-          <table className="min-w-full divide-y divide-neutral-200">
-            <thead className="bg-white">
-              <tr>
-                <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
-                  Role Name
-                </th>
-                <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
-                  Description
-                </th>
-                <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
-                  Color
-                </th>
-                <th scope="col" className="px-4 py-3.5 text-xs text-gray-400 font-normal text-right">
-                  Permissions
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200 bg-white">
-              <tr>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-800 font-bold">Administrator</p></DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-600">Full access to all features</p></DrawerTrigger>
-                </td>
-                <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                  <DrawerTrigger className="flex items-center gap-2">
-                    <div className="bg-blue-600 rounded w-4 h-4"></div>
-                  </DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                  <div className="flex items-center gap-2 justify-end"> <DrawerTrigger>
-                    <Badge variant="outline">13</Badge>
-                  </DrawerTrigger></div>
-                </td>
-              </tr>
-              <tr>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-800 font-bold">Owner</p></DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-600">Full access to all features</p></DrawerTrigger>
-                </td>
-                <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                  <DrawerTrigger className="flex items-center gap-2">
-                    <div className="bg-red-600 rounded w-4 h-4"></div>
-                  </DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                  <div className="flex items-center gap-2 justify-end"> <DrawerTrigger>
-                    <Badge variant="outline">16</Badge>
-                  </DrawerTrigger></div>
-                </td>
-              </tr>
-              <tr>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-800 font-bold">Designer</p></DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-600">Full access to all features</p></DrawerTrigger>
-                </td>
-                <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                  <DrawerTrigger className="flex items-center gap-2">
-                    <div className="bg-green-600 rounded w-4 h-4"></div>
-                  </DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                  <div className="flex items-center gap-2 justify-end"> <DrawerTrigger>
-                    <Badge variant="outline">8</Badge>
-                  </DrawerTrigger></div>
-                </td>
-              </tr>
-              <tr>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-800 font-bold">Standard User</p></DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
-                  <DrawerTrigger><p className=" text-gray-600">Restricted access</p></DrawerTrigger>
-                </td>
-                <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                  <DrawerTrigger className="flex items-center gap-2">
-                    <div className="bg-gray-400 rounded w-4 h-4"></div>
-                  </DrawerTrigger>
-                </td>
-                <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                  <div className="flex items-center gap-2 justify-end"> <DrawerTrigger>
-                    <Badge variant="outline">4</Badge>
-                  </DrawerTrigger></div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          
-        </div>
-        </TopTabsContent>
-      </TopTabs>
+        
       <br/>
     </div>
     <DrawerContent>

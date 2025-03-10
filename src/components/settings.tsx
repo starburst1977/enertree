@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Sidebar, SidebarHeader } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
@@ -28,6 +29,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
+  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import Link from "next/link"
 
@@ -52,167 +54,55 @@ import { Card, CardContent, CardTitle, CardHeader } from "./ui/card"
 export function SettingsComponent() {
 
   return (
-    <div className="flex flex-col">
-      
-      
-      <div className="overflow-hidden ring-1 ring-neutral-200 sm:rounded-lg">
-        <table className="min-w-full divide-y divide-neutral-200">
-          <thead className="bg-white">
-            <tr>
-              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Name
-              </th>
-              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
-                Description
-              </th>
-              <th scope="col" className="px-4 py-3.5 text-xs text-gray-400 font-normal text-right">
-                Options
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200 bg-white">
-            <tr>
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <p className="text-lg text-gray-800 font-bold">Test</p>
-              </td>
-              <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                <div className="text-sm text-gray-600 flex items-center gap-2">
-                  <span className="text-white bg-blue-600 px-2 py-1 rounded-md">VA</span>
-                  Apparent power (VA) on any Inlets for &apos;any PDU&apos; 
-                </div>
-              </td>
-              
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <div className="flex items-center gap-2 justify-end">
-                  <Button size="default" variant="outline">
-                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer">
-                      <span className="text-gray-800">Generate Report</span>
-                    </Link>
-                  </Button>
-                  
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faEnvelopeOpenText} /> 
-                  </Button>
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faTrashCan} /> 
-                  </Button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <p className="text-lg text-gray-800 font-bold">Custom Power</p>
-              </td>
-              <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
-                <div className="flex flex-col gap-1">
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">W</span>
-                    null for Donau &apos;Active power (W)&apos;
-                  </div>
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">W</span>
-                    null for Reihe 1 li &apos;Active power (W)&apos;
-                  </div>
-                </div>
-              </td>
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <div className="flex items-center gap-2 justify-end">
-                  <Button size="default" variant="outline">
-                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
-                      <a target="_blank">
-                        <span className="text-gray-800">Generate Report</span>
-                      </a>
-                    </Link>
-                  </Button>
-                  
-                  <Button size="default" variant="outline"> 
-                    <FontAwesomeIcon icon={faEnvelopeOpenText} /> 
-                  </Button>
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faTrashCan} /> 
-                  </Button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <p className="text-lg text-gray-800 font-bold">RZ PDU temps</p>
-              </td>
-              <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                <div className="flex flex-col gap-1">
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-B1-4&apos;
-                  </div>
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-K1-2&apos;
-                  </div>
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-K6-1&apos;
-                  </div>
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">ºC</span>
-                    Temperature (ºC) on Sensors &apos;Temperature 1&apos; for PDU &apos;PDU-K6-1&apos;
-                  </div>
-                </div>
-              </td>
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <div className="flex items-center gap-2 justify-end">
-                  <Button size="default" variant="outline">
-                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
-                      <a target="_blank">
-                        <span className="text-gray-800">Generate Report</span>
-                      </a>
-                    </Link>
-                  </Button>
-                  
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faEnvelopeOpenText} /> 
-                  </Button>
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faTrashCan} /> 
-                  </Button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <p className="text-lg text-gray-800 font-bold">Test</p>
-              </td>
-              <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                <div className="text-sm text-gray-600 flex items-center gap-2">
-                  <span className="text-white bg-blue-600 px-2 py-1 rounded-md">VA</span>
-                  Apparent power (VA) on any Inlets for &apos;any PDU&apos; 
-                </div>
-              </td>
-              
-              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
-                <div className="flex items-center gap-2 justify-end">
-                  <Button size="default" variant="outline">
-                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
-                      <a target="_blank">
-                        <span className="text-gray-800">Generate Report</span>
-                      </a>
-                    </Link>
-                  </Button>
-                  
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faEnvelopeOpenText} /> 
-                  </Button>
-                  <Button size="default" variant="outline">
-                    <FontAwesomeIcon icon={faTrashCan} /> 
-                  </Button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <div className=" min-h-screen mx-auto w-full max-w-screen-2xl p-4">
+      <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 pb-4 px-2">
+        <Breadcrumb className="hidden md:flex">
+          <SidebarTrigger />
+          
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink className="text-lg pl-2" href="/settings/">Settings</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="#" className="text-blue-700 font-bold text-lg">General</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         
-      </div>
-      <br/>
+        
+      </header>
+      <div className="flex flex-row w-full">
+        <div className="flex flex-col   h-full text-sm p-2">
+          <a href="/settings" className="text-blue-700 px-4 py-2 bg-blue-100 rounded-md">General</a>
+          <a href="/settings/rules" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Rules</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">PUE Items</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Web Access</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Connections</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">PUE Items</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SQL Data Logger</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Syslog</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SNMP Agent</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SNMP Client</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Email</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Device Backup</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Notifications</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Authentication Settings</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">LDAP / Active Directory</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">DC Consistency</a>
+          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Task Scheduler</a>
+        </div>
 
+        <div className="flex-1 px-6 py-4 w-full">
+          <div className="overflow-hidden ring-1 ring-neutral-200 sm:rounded-lg w-full">
+            Settings
+
+            
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
