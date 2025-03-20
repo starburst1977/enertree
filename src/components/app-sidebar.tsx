@@ -363,7 +363,7 @@ const data = {
     },
     {
       title: "Manage Settings Profiles",
-      url: "#",
+      url: "/profiles",
       icon: FolderCog,
     },
     {
