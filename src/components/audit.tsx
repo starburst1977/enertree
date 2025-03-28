@@ -251,7 +251,19 @@ export function Audit() {
             <ToggleGroupType />
           </div>
           <div className="flex flex-row gap-2 items-center">
-            <ToggleGroupState />
+            <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Filter by Type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="option-one">Show all</SelectItem>
+                  <SelectItem value="option-two">PDU-related</SelectItem>
+                  <SelectItem value="option-three">Device connection</SelectItem>
+                  <SelectItem value="option-four">UPS</SelectItem>
+                  <SelectItem value="option-five">Login / Logout</SelectItem>
+                  <SelectItem value="option-six">Thresholds</SelectItem>
+                </SelectContent>
+              </Select>
           </div>
           
           <DatePickerWithRange />
@@ -271,7 +283,7 @@ export function Audit() {
                 Location
               </th>
               <th scope="col" className="py-3.5 px-2 text-left text-xs text-gray-400 font-normal">
-                Type
+                Severity
               </th>
               
               <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
@@ -279,9 +291,6 @@ export function Audit() {
               </th>
               
               
-              <th scope="col" className="relative py-3.5 pl-4 pr-4 sm:pr-6 text-xs text-gray-400 font-normal">
-                Acknowledged
-              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
@@ -305,9 +314,6 @@ export function Audit() {
               </td>
               
               
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
-                
-              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
@@ -329,9 +335,6 @@ export function Audit() {
               </td>
               
               
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
-                
-              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
@@ -353,10 +356,6 @@ export function Audit() {
               </td>
               
               
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-                <p className="text-md text-gray-600">By Sven Read</p>
-                <p className="text-xs text-gray-400">12:07:04 - 26/11/2024 </p>
-              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
@@ -375,12 +374,6 @@ export function Audit() {
               
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
-              </td>
-              
-              
-              
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
-                
               </td>
             </tr>
             <tr>
@@ -401,13 +394,6 @@ export function Audit() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
                 Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
               </td>
-              
-              
-              
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-              <p className="text-md text-gray-600">By Sven Read</p>
-                <p className="text-xs text-gray-400">12:07:04 - 26/11/2024 </p>
-              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
@@ -426,13 +412,6 @@ export function Audit() {
               
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The device &quot;192.168.33.223&quot; could not connect, it will be retried.
-              </td>
-              
-              
-              
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-              <p className="text-md text-gray-600">By Sven Read</p>
-                <p className="text-xs text-gray-400">12:07:04 - 26/11/2024 </p>
               </td>
             </tr>
             <tr>
@@ -453,12 +432,6 @@ export function Audit() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The device at the IP address &quot;192.168.33.249&quot; has not responded to an SNMP request. Perhaps the Community or IP address is incorrect. Om7Sense Gateway will try to poll the device again in several minutes.
               </td>
-              
-              
-              
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-left text-sm font-medium sm:pr-6">
-                
-              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
@@ -478,11 +451,6 @@ export function Audit() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
               </td>
-              
-              
-                <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
-                
-              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500">
@@ -500,11 +468,6 @@ export function Audit() {
               
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               Unsuccessful login attempt into Om7Sense Gateway as user &quot;admin&quot; from IP address &quot;172.20.0.2&quot;.
-              </td>
-              
-              
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
-                
               </td>
             </tr>
             <tr>
@@ -524,11 +487,6 @@ export function Audit() {
               
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
               The connection to the Schleifenbauer PDU, PMC or EMX at the IP address &quot;https://192.168.33.250&quot; is now started.
-              </td>
-              
-              
-              <td className="relative whitespace-nowrap py-4 pl-4 pr-4 text-right text-sm font-medium sm:pr-6">
-                
               </td>
             </tr>
           </tbody>
