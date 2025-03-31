@@ -80,7 +80,7 @@ export function SettingsComponent() {
           <a href="../settings/rules" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Rules</a>
           <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">PUE Items</a>
           <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Web Access</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Connections</a>
+          <a href="/settings/connections" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Connections</a>
           <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">PUE Items</a>
           <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SQL Data Logger</a>
           <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Syslog</a>
