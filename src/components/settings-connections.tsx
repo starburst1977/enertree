@@ -7,6 +7,7 @@ import * as React from "react"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faTrash, faXmark } from '@fortawesome/pro-solid-svg-icons'
+import { faCircleInfo } from '@fortawesome/pro-regular-svg-icons'
 import { Badge } from "@/components/ui/badge"
 import {
   Select,
@@ -15,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Separator } from "./ui/separator"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
@@ -31,6 +33,14 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -48,113 +58,12 @@ import {
 import { Card, CardContent, CardTitle, CardHeader, CardFooter } from "./ui/card"
 
 
-export function DialogComponent() {
-  return (
-    <Card className="w-full">
-      <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
-        <div className="flex flex-1 flex-row justify-between gap-1 px-6 py-5 sm:py-6">
-          <CardTitle className="text-xl">
-            <div>Scan for New Connections</div>
-            <span className="text-sm font-light text-gray-400">Adding new connections, manually or by scanning and autodetecting them.</span>
-          </CardTitle>
-          
-        </div>
-        <div className="flex">
-          <div className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6">
-            <DrawerClose>
-              <Button variant="ghost" size="icon" className="p-0">
-                <FontAwesomeIcon icon={faXmark} />
-              </Button>
-            </DrawerClose>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="flex flex-row px-0">
-        <RadioGroup defaultValue="option-one" className="">
-        <div className="grid grid-cols-2 px-12 py-8 w-full">
-          <div className="pr-12">
-          
-            <h4 className="text-base text-blue-700 pb-4 font-bold flex items-center gap-4"><RadioGroupItem value="option-one" id="option-one" /> Auto-Detecting New Connections</h4>
-            <div className="flex flex-col gap-2">
-              <div className="grid grid-cols-12 border border-gray-200 rounded-lg">
-                <div className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">
-                  <Checkbox></Checkbox>
-                </div>
-                <div className="whitespace-nowrap px-4 py-2 text-sm text-gray-5000 col-span-2 flex items-center">
-                  <p className=" text-gray-800 font-bold">10.4.8.10</p>
-                </div>
-                <div className="px-2 py-2 text-sm text-gray-500 col-span-4 overflow-hidden flex items-center">
-                  <p className=" text-gray-600">Raritan PX2/PX3 PDU, PMC or EMX</p>
-                </div>
-                <div className="px-2 py-2 text-base text-gray-800 font-normal col-span-4 flex items-center">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <Badge variant="outline"><Link href="/devices/detail">My PDU</Link></Badge>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-12 border border-gray-200 rounded-lg">
-                <div className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">
-                  <Checkbox></Checkbox>
-                </div>
-                <div className="whitespace-nowrap px-4 py-2 text-sm text-gray-5000 col-span-2 flex items-center">
-                  <p className=" text-gray-800 font-bold">10.4.8.10</p>
-                </div>
-                <div className="px-2 py-2 text-sm text-gray-500 col-span-4 overflow-hidden flex items-center">
-                  <p className=" text-gray-600">Raritan PX2/PX3 PDU, PMC or EMX</p>
-                </div>
-                <div className="px-2 py-2 text-base text-gray-800 font-normal col-span-4 flex items-center">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <Badge variant="outline"><Link href="/devices/detail">My PDU</Link></Badge>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h4 className="text-base text-blue-700 pb-4 font-bold flex items-center gap-4"><RadioGroupItem value="option-two" id="option-two" /> Manually adding New Connection</h4>
-            <div className="flex items-center space-x-4 pl-8 py-2">
-              <Label htmlFor="option-two" className="font-bold whitespace-nowrap">Device Type</Label>
-              <Select>
-                <SelectTrigger className="w-auto">
-                  <SelectValue placeholder="Select device type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">Name is</SelectItem>
-                  <SelectItem value="2">Name starts with</SelectItem>
-                  <SelectItem value="3">Name ends with</SelectItem>
-                  <SelectItem value="4">Name contains</SelectItem>
-                  <SelectItem value="5">Name does not contain</SelectItem>
-                  <SelectItem value="6">Name is not</SelectItem>
-                  <SelectItem value="7">Name is</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="flex items-center space-x-4 pl-8 py-2">
-              <Label htmlFor="option-two" className="font-bold whitespace-nowrap">Hostname / IP (e.g. 192.168.20.16, abc.demo.org)</Label>
-              
-              <Input placeholder="Enter a IP adresse" />
-            </div>
-          </div>
-        </div>
-        </RadioGroup>
-      </CardContent>
-      <CardFooter className="w-full p-0">
-          <div className="relative z-30 flex w-full items-center justify-between gap-2 border-t border-gray-200 px-8 py-4 text-left">
-            <Button variant="outline" className="w-24 flex items-center gap-2">Cancel</Button>
-            <Button variant="default" className="w-24 flex items-center gap-2">Adopt Device</Button>
-          </div>
-
-      </CardFooter>
-    </Card>
-  )
-}
-
 
 export function SettingsConnectionsComponent() {
 
   return (
     
-    <Drawer >
+    <Sheet>
     <div className=" min-h-screen mx-auto w-full max-w-screen-2xl p-4">
       <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 pb-4 px-2">
         <Breadcrumb className="hidden md:flex">
@@ -173,9 +82,9 @@ export function SettingsConnectionsComponent() {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="relative ml-auto flex-1 md:grow-0 flex flex-row gap-4">
-        <DrawerTrigger><Button variant="outline" size="default" className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faPlus} /> Scan for New Connections
-          </Button></DrawerTrigger>
+          <SheetTrigger><Button variant="outline" size="default" className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faPlus} /> Add New Connections
+          </Button></SheetTrigger>
           <Button variant="outline" size="default" className="flex items-center gap-2">
             <FontAwesomeIcon icon={faPlus} /> Import from Excel or CSV
           </Button>
@@ -415,14 +324,73 @@ export function SettingsConnectionsComponent() {
         </div>
       </div>
     </div>
-    <DrawerContent>
-      <DrawerHeader>
-        <DrawerDescription>
-          <DialogComponent />
-        </DrawerDescription>
-      </DrawerHeader>
-    </DrawerContent>
-    </Drawer>
+    <SheetContent className="w-[600px] sm:w-[400px]">
+      <SheetHeader>
+        <SheetDescription className="pt-4">
+          <SheetTitle className="pb-4">Add New Connections</SheetTitle>
+          <Card className="w-full ">
+            <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
+              <div className=" px-6 py-5 sm:py-6">
+                <CardTitle className="flex items-center gap-4 ">
+                  <FontAwesomeIcon icon={faCircleInfo} className="w-12" />
+                  <span className="text-sm font-light text-gray-400">Adding new connections, manually or by scanning and autodetecting them.</span>
+                </CardTitle>
+               
+              </div>
+              
+            </CardHeader>
+            <CardContent className="flex flex-row px-0">
+              <div className="px-6 py-6 w-full">
+                <div>
+                  <h4 className="text-base text-blue-700 font-bold flex items-center pb-4">Manually adding New Connection</h4>
+                  <div className="flex items-center space-x-4 py-4">
+                    <Label htmlFor="option-two" className="font-bold whitespace-nowrap">Device Type</Label>
+                    <Select>
+                      <SelectTrigger className="w-auto">
+                        <SelectValue placeholder="Select device type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">Name is</SelectItem>
+                        <SelectItem value="2">Name starts with</SelectItem>
+                        <SelectItem value="3">Name ends with</SelectItem>
+                        <SelectItem value="4">Name contains</SelectItem>
+                        <SelectItem value="5">Name does not contain</SelectItem>
+                        <SelectItem value="6">Name is not</SelectItem>
+                        <SelectItem value="7">Name is</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <Separator className="my-4" />
+                  <div className="py-4 flex flex-col gap-2">
+                    <Label htmlFor="option-two" className="font-bold whitespace-nowrap">Hostname / IP </Label>
+                    <div className="font-normal text-gray-600">(e.g. 192.168.20.16, abc.demo.org)</div>
+                    
+                    <Input placeholder="Enter a IP adresse" />
+                  </div>
+                  <div className="py-4 flex flex-col gap-2">
+                    <Label htmlFor="option-two" className="font-bold whitespace-nowrap">Username</Label>
+                    <Input placeholder="Enter Username" />
+                  </div>
+                  <div className="py-4 flex flex-col gap-2">
+                    <Label htmlFor="option-two" className="font-bold whitespace-nowrap">Password</Label>
+                    <Input placeholder="Enter Password" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="w-full p-0">
+                <div className="relative z-30 flex w-full items-center justify-between gap-2 border-t border-gray-200 px-8 py-4 text-left">
+                  <Button variant="outline" className="flex items-center gap-2">Cancel</Button>
+                  <Button variant="default" className="flex items-center gap-2">Add New Connection</Button>
+                </div>
+
+            </CardFooter>
+          </Card>
+
+        </SheetDescription>
+      </SheetHeader>
+    </SheetContent>
+  </Sheet>
   )
 }
 
