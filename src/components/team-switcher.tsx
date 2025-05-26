@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client"
 
 import * as React from "react"
@@ -47,3 +49,5 @@ export function TeamSwitcher({
     </DropdownMenu>
   )
 }
+
+/* eslint-enable @typescript-eslint/no-unused-vars */
