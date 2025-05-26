@@ -324,7 +324,7 @@ export function SettingsConnectionsComponent() {
         </div>
       </div>
     </div>
-    <SheetContent className="w-[600px] sm:w-[400px]">
+    <SheetContent className="w-[800px] sm:w-[600px]">
       <SheetHeader>
         <SheetDescription className="pt-4">
           <SheetTitle className="pb-4">Add New Connections</SheetTitle>

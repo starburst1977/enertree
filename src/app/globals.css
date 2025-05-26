@@ -93,3 +93,12 @@ body {
     --chart-5: 340 75% 55%;
   }
 }
+
+
+.login-bg {
+  background-position: right center;
+  background-size: cover;
+  backdrop-filter: dar;
+  background-color: #000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(/images/bg1.jpeg);
+}
