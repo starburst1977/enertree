@@ -220,10 +220,12 @@ export default function DeviceViewComponent() {
                     
                     <CardContent className="p-6 pt-0">
                       <p className="text-sm">Please verify your device connection and try again.</p>
-                      <ul className="list-inside list-disc text-sm pt-2">
+                      <ul className="list-inside list-disc text-sm py-4">
                         <li>Ensure device is powered on</li>
                         <li>Verify device is connected to the network</li>
                       </ul>
+                      <p className="text-sm">If this device is permanently unavailable, you can remove it.</p>
+                      <Button variant="destructive" className="mt-4">Remove Device</Button>
                     </CardContent>
                   </Card>
 
