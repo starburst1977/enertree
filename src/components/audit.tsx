@@ -28,7 +28,7 @@ import {
 } from "@tanstack/react-table"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTriangle as faTriangle, faCircle as faCircle } from '@fortawesome/pro-solid-svg-icons'
+import { faTriangle as faTriangle, faCircle as faCircle, faDiamonds4 as faDiamonds4 } from '@fortawesome/pro-solid-svg-icons'
 import { faCircleDot as faCircleDot, faCircleSmall as faCircleSmall, faEye as faEye, faBell as faBell, faBellSlash as faBellSlash, faDiamond as faDiamond } from '@fortawesome/pro-solid-svg-icons'
 import { Switch } from "@/components/ui/switch"
 import {
@@ -207,6 +207,7 @@ export function ToggleGroupType() {
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-blue-600" size="sm" icon={faDiamond} /></TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-yellow-600" size="sm" icon={faTriangle} /></TopTabsTrigger>
         <TopTabsTrigger value="warning"><FontAwesomeIcon className="text-red-600" size="sm" icon={faCircle} /></TopTabsTrigger>
+        <TopTabsTrigger value="critical"><FontAwesomeIcon className="text-red-900" size="sm" icon={faDiamonds4} /></TopTabsTrigger>
       </TopTabsList>
     </TopTabs>
     
@@ -232,6 +233,13 @@ export function ToggleGroupState() {
 export function Audit() {
   return (
     <div className="flex flex-col">
+      <div className="flex flex-row bg-fuchsia-600 border rounded-lg px-4 py-2 text-white mt-4">
+        <div className="flex flex-row gap-4 items-center">
+          <FontAwesomeIcon className="text-white animate-pulse" size="sm" icon={faDiamonds4} />
+          <a href="#" className="text-fuchsia-100 text-sm hover:underline"><span className="font-bold text-white">Critical alert</span>. Click here for details.</a>
+
+        </div>
+      </div>
       <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 py-4">
       
         <Breadcrumb className="hidden md:flex">
@@ -325,13 +333,14 @@ export function Audit() {
                 <p className="text-xs text-gray-400"><Link href="rack/">RowA_Rack1_A</Link></p>
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
-                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-yellow-100">
-                  <FontAwesomeIcon className="text-yellow-600" icon={faTriangle} />
+                <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-fuchsia-100 relative">
+                  <FontAwesomeIcon className="text-fuchsia-800" icon={faDiamonds4} />
+                  <div className="w-12 h-12 absolute top-0 left-0 border-2 border-fuchsia-400 rounded-full animate-pulse"></div>
                 </div>
               </td>
               
               <td className="px-4 py-4 text-base text-gray-800 font-normal">
-                Value of 200.00 at inlet &quot;total&quot; (1) has exceeded the warning threshold of 180.00 via rule &quot;Schieflast&quot; for PDU &quot;real PDU 3.6.1&quot;.
+                Thats not good. We have a critical alert.
               </td>
               
               
