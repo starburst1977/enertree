@@ -233,11 +233,14 @@ export function ToggleGroupState() {
 export function Audit() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row bg-fuchsia-600 border rounded-lg px-4 py-2 text-white mt-4">
+      <div className="flex flex-row justify-between items-center bg-fuchsia-600 border rounded-lg px-4 py-2 text-white mt-4">
         <div className="flex flex-row gap-4 items-center">
           <FontAwesomeIcon className="text-white animate-pulse" size="sm" icon={faDiamonds4} />
-          <a href="#" className="text-fuchsia-100 text-sm hover:underline"><span className="font-bold text-white">Critical alert</span>. Click here for details.</a>
-
+          <div className="text-fuchsia-100 text-sm hover:underline"><span className="font-bold text-white">Critical alert title</span>. Here are the details.</div>
+        </div>
+        <div className="flex flex-row gap-4 items-center">
+          <div className="text-fuchsia-200 text-xs">11:44:04 - 26/11/2024</div>
+          <Button variant="secondary" className="text-white bg-fuchsia-700 hover:bg-fuchsia-800">Acknowledge</Button>
         </div>
       </div>
       <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-white sm:static sm:h-auto sm:border-0 sm:bg-transparent dark:bg-neutral-950 py-4">
