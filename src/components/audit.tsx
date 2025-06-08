@@ -207,7 +207,7 @@ export function ToggleGroupType() {
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-blue-600" size="sm" icon={faDiamond} /></TopTabsTrigger>
         <TopTabsTrigger value="alert"><FontAwesomeIcon className="text-yellow-600" size="sm" icon={faTriangle} /></TopTabsTrigger>
         <TopTabsTrigger value="warning"><FontAwesomeIcon className="text-red-600" size="sm" icon={faCircle} /></TopTabsTrigger>
-        <TopTabsTrigger value="critical"><FontAwesomeIcon className="text-red-900" size="sm" icon={faDiamonds4} /></TopTabsTrigger>
+        <TopTabsTrigger value="critical"><FontAwesomeIcon className="text-fuchsia-600" size="sm" icon={faDiamonds4} /></TopTabsTrigger>
       </TopTabsList>
     </TopTabs>
     
@@ -334,7 +334,7 @@ export function Audit() {
               </td>
               <td className="whitespace-nowrap py-2 px-4 text-sm font-medium text-gray-900">
                 <div className="w-12 flex-shrink-0 h-12 flex items-center justify-center rounded-full bg-fuchsia-100 relative">
-                  <FontAwesomeIcon className="text-fuchsia-800" icon={faDiamonds4} />
+                  <FontAwesomeIcon className="text-fuchsia-600" icon={faDiamonds4} />
                   <div className="w-12 h-12 absolute top-0 left-0 border-2 border-fuchsia-400 rounded-full animate-pulse"></div>
                 </div>
               </td>
