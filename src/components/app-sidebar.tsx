@@ -372,6 +372,11 @@ const data = {
       icon: Users,
     },
     {
+      title: "Rules",
+      url: "/rules",
+      icon: ScrollText,
+    },
+    {
       title: "Settings",
       url: "/settings",
       icon: Settings,
