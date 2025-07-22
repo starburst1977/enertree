@@ -530,7 +530,7 @@ export function Rules() {
               <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
                 <div className="flex flex-col gap-1">
                   <div className="text-sm text-gray-600 flex items-center gap-2">
-                    Active power (W) on any Branches for "any device"
+                    Active power (W) on any Branches for &quot;any device&quot;
                   </div>
                   <div className="text-sm text-gray-600 flex items-center gap-2">
                     <span className="text-white bg-blue-600 px-2 py-1 rounded-md">⇞ 0 W</span>
