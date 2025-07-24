@@ -6,6 +6,8 @@ import { addDays, format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 import { DateRange } from "react-day-picker"
 import { Calendar } from "@/components/ui/calendar"
+import { Separator } from "@/components/ui/separator"
+import { Checkbox } from "@/components/ui/checkbox"
 
 import {
   Popover,
@@ -57,11 +59,12 @@ import Link from "next/link"
 import {
   Search,
   ChevronsUpDown,
-  ChevronLeft,
+  Pen,
   ChevronRight,
   Eye,
   Bell,
   Check,
+  Siren, ArrowUpToLine, TriangleAlert, ArrowDownToLine, PowerOff, Power 
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -84,6 +87,16 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Card, CardContent, CardTitle, CardHeader } from "./ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog"
 
 const steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5']
 
@@ -514,6 +527,9 @@ export function Rules() {
                 Name
               </th>
               <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
+                Thresholds
+              </th>
+              <th scope="col" className="px-4 py-3.5 text-left text-xs text-gray-400 font-normal">
                 Description
               </th>
               <th scope="col" className="px-4 py-3.5 text-xs text-gray-400 font-normal text-right">
@@ -528,16 +544,16 @@ export function Rules() {
                 <p className="text-lg text-gray-800 font-bold">Test</p>
               </td>
               <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
-                <div className="flex flex-col gap-1">
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    Active power (W) on any Branches for &quot;any device&quot;
-                  </div>
-                  <div className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">⇞ 0 W</span>
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">⤉ 0 W</span>
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">⤈ 0 W</span>
-                    <span className="text-white bg-blue-600 px-2 py-1 rounded-md">⇟ 0 W</span>
-                  </div>
+                <div className="text-sm text-gray-600 flex items-center gap-2">
+                  <div className="flex items-center gap-1 bg-red-800 rounded-md text-white overflow-hidden"><span className="text-white bg-red-600 px-2 py-2 flex items-center gap-1"><Siren className="size-4" /><ArrowUpToLine className="size-4" /></span> <span className="text-white px-2 py-1">0 W</span></div>
+                  <div className="flex items-center gap-1 bg-yellow-800 rounded-md text-white overflow-hidden"><span className="text-white bg-yellow-600 px-2 py-2 flex items-center gap-1"><TriangleAlert className="size-4" /><ArrowUpToLine className="size-4" /></span> <span className="text-white px-2 py-1">0 W</span></div>
+                  <div className="flex items-center gap-1 bg-yellow-800 rounded-md text-white overflow-hidden"><span className="text-white bg-yellow-600 px-2 py-2 flex items-center gap-1"><TriangleAlert className="size-4" /><ArrowDownToLine className="size-4" /></span> <span className="text-white px-2 py-1">0 W</span></div>
+                  <div className="flex items-center gap-1 bg-red-800 rounded-md text-white overflow-hidden"><span className="text-white bg-red-600 px-2 py-2 flex items-center gap-1"><Siren className="size-4" /><ArrowDownToLine className="size-4" /></span> <span className="text-white px-2 py-1">0 W</span></div>
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
+                <div className="text-sm text-gray-600 flex items-center gap-2">
+                  Active power (W) on any Branches for &quot;any device&quot;
                 </div>
               </td>
               <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
@@ -550,8 +566,106 @@ export function Rules() {
                     </Link>
                   </Button>
                   
+                  
+                  <Dialog>
+                    <DialogTrigger>
+                      <Button size="default" variant="outline"> 
+                      <Pen className="size-4" />
+                    </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Setup Threshold Rule</DialogTitle>
+                        <DialogDescription className="flex flex-col p-4">
+                          <div className="flex flex-col gap-2 p-4 bg-blue-100 rounded-lg my-4">
+                            <Label className="text-blue-600 font-bold">Rule Name</Label>
+                            <Input type="text" className="bg-white" />
+                          </div>
+                          <div className="flex flex-col gap-2 py-4">
+                            <Label className="text-sm text-red-700 flex items-center gap-2 font-bold"><Siren className="size-4" /><ArrowUpToLine className="size-4" />Critical Above</Label>
+                            <div className="flex items-center gap-2">
+                              
+                              <Checkbox id="terms" />
+                              <Input type="numbers" />
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-2 py-4">
+                            <Label className="text-sm text-yellow-700 flex items-center gap-2 font-bold"><TriangleAlert className="size-4" /><ArrowUpToLine className="size-4" />Warning Above</Label>
+                            <div className="flex items-center gap-2">
+                              
+                              <Checkbox id="terms" />
+                              <Input type="numbers" />
+                            </div>
+                          </div>
+                          <Separator className="my-4" />
+                          <div className="flex flex-col gap-2 py-4">
+                            <Label className="text-sm text-yellow-700 flex items-center gap-2 font-bold"><TriangleAlert className="size-4" /><ArrowDownToLine className="size-4" />Warning Below</Label>
+                            <div className="flex items-center gap-2">
+                              
+                              <Checkbox id="terms" />
+                              <Input type="numbers" />
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-2 py-4">
+                            <Label className="text-sm text-red-700 flex items-center gap-2 font-bold"><Siren className="size-4" /><ArrowDownToLine className="size-4" />Critical Below</Label>
+                            <div className="flex items-center gap-2">
+                              
+                              <Checkbox id="terms" />
+                              <Input type="numbers" />
+                            </div>
+                          </div>
+                          
+                        </DialogDescription>
+                      </DialogHeader>
+                      <DialogFooter className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2 justify-between w-full">
+                        <DialogClose asChild>
+                          <Button type="button" variant="secondary">
+                            Cancel
+                          </Button>
+                        </DialogClose>
+                        <Button type="button" variant="default">
+                          Save
+                        </Button>
+                        </div>
+                        
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                  <Button size="default" variant="outline">
+                    <FontAwesomeIcon icon={faTrashCan} /> 
+                  </Button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
+                <p className="text-lg text-gray-800 font-bold">Digital Inputs</p>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
+                <div className="text-sm text-gray-600 flex items-center gap-2">
+                  <div className="flex items-center gap-1 bg-red-800 rounded-md text-white overflow-hidden"><span className="text-white bg-red-600 px-2 py-2 flex items-center gap-1"><PowerOff className="size-4" /></span> <span className="text-white px-2 py-1"><Siren className="size-4" /></span></div>
+                  <div className="flex items-center gap-1 bg-green-800 rounded-md text-white overflow-hidden"><span className="text-white bg-green-600 px-2 py-2 flex items-center gap-1"><Power className="size-4" /></span></div>
+                </div>
+              </td>
+              <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
+                <div className="text-sm text-gray-600 flex items-center gap-2">
+                  Active power (W) on any Branches for &quot;any device&quot;
+                </div>
+                  
+              </td>
+              <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-500 align-top">
+                <div className="flex items-center gap-2 justify-end">
+                  <Button size="default" variant="outline">
+                    <Link href="/reports/detail" target="_blank" rel="noopener noreferrer" passHref legacyBehavior>
+                      <a target="_blank">
+                        <span className="text-gray-800">Generate Report</span>
+                      </a>
+                    </Link>
+                  </Button>
+                  
                   <Button size="default" variant="outline"> 
-                    <FontAwesomeIcon icon={faPenToSquare} />
+                    <Pen className="size-4" />
                   </Button>
                   <Button size="default" variant="outline">
                     <FontAwesomeIcon icon={faTrashCan} /> 
@@ -567,6 +681,7 @@ export function Rules() {
       <br/>
 
     </div>
+    
   )
 }
 
