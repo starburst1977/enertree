@@ -644,8 +644,15 @@ export function Rules() {
               </td>
               <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
                 <div className="text-sm text-gray-600 flex items-center gap-2">
-                  <div className="flex items-center gap-1 bg-red-800 rounded-md text-white overflow-hidden"><span className="text-white bg-red-600 px-2 py-2 flex items-center gap-1"><PowerOff className="size-4" /></span> <span className="text-white px-2 py-1"><Siren className="size-4" /></span></div>
-                  <div className="flex items-center gap-1 bg-green-800 rounded-md text-white overflow-hidden"><span className="text-white bg-green-600 px-2 py-2 flex items-center gap-1"><Power className="size-4" /></span></div>
+                  <div className="flex items-center gap-1 bg-red-800 rounded-md text-white overflow-hidden h-8">
+                    <div className="text-white px-2 h-full bg-red-600 flex items-center gap-1"><Siren className="size-4" /></div>
+                    <div className="text-white px-2 h-full flex items-center">Closed</div> 
+                  </div>
+                  <div className="flex items-center gap-1 bg-yellow-800 rounded-md text-white overflow-hidden h-8">
+                    <div className="text-white px-2 h-full bg-yellow-600 flex items-center gap-1"><TriangleAlert className="size-4" /></div>
+                    <div className="text-white px-2 h-full flex items-center">Closed</div> 
+                  </div>
+                  <div className="flex items-center gap-1 bg-green-800 rounded-md text-white overflow-hidden h-8"><div className="text-white bg-green-600 px-2 h-full flex items-center gap-1">Open</div></div>
                 </div>
               </td>
               <td className="px-4 py-4 text-base text-gray-800 font-normal legacyBe">
