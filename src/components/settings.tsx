@@ -4,11 +4,30 @@
 
 import * as React from "react"
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTriangle as faTriangle, faCircle as faCircle, faArrowUpRightFromSquare } from '@fortawesome/pro-solid-svg-icons'
 import { faTrashCan as faTrashCan, faEnvelopeOpenText as faEnvelopeOpenText, faPlus as faPlus } from '@fortawesome/pro-solid-svg-icons'
 import { Switch } from "@/components/ui/switch"
+import {
+  Search,
+  ChevronsUpDown,
+  Pen,
+  ChevronRight,
+  Eye,
+  Bell,
+  Check,
+  Siren, ArrowUpToLine, TriangleAlert, ArrowDownToLine, PowerOff, Power 
+} from "lucide-react"
 import {
   Select,
   SelectContent,
@@ -60,40 +79,49 @@ export function SettingsComponent() {
           <SidebarTrigger />
           
           <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink className="text-lg pl-2" href="/settings/">Settings</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="#" className="text-blue-700 font-bold text-lg">General</Link>
+                <Link href="#" className="text-blue-700 font-bold text-lg">Settings</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">General <ChevronsUpDown className="ml-4 h-4 w-4" /></Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>General Settings</DropdownMenuLabel>
+            <DropdownMenuItem>General</DropdownMenuItem>
+            <DropdownMenuItem>Rules</DropdownMenuItem>
+            <DropdownMenuItem>Web Access</DropdownMenuItem>
+            
+            <DropdownMenuItem>Notifications</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Connections</DropdownMenuLabel>
+            <DropdownMenuItem>Authentication Settings</DropdownMenuItem>
+            <DropdownMenuItem>LDAP / Active Directory</DropdownMenuItem>
+            <DropdownMenuItem>PUE Items</DropdownMenuItem>
+            <DropdownMenuItem>SQL Data Logger</DropdownMenuItem>
+            
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Utilites</DropdownMenuLabel>
+            <DropdownMenuItem>SNMP Agent</DropdownMenuItem>
+            <DropdownMenuItem>SNMP Client</DropdownMenuItem>
+            <DropdownMenuItem>Syslog</DropdownMenuItem>
+            <DropdownMenuItem>Email</DropdownMenuItem>
+            <DropdownMenuItem>Device Backup</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Advanced</DropdownMenuLabel>
+            <DropdownMenuItem>DC Consistency</DropdownMenuItem>
+            <DropdownMenuItem>Task Scheduler</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
         
       </header>
       <div className="flex flex-row w-full">
-        <div className="flex flex-col   h-full text-sm p-2">
-          <a href="/enertree/settings" className="text-blue-700 px-4 py-2 bg-blue-100 rounded-md">General</a>
-          <a href="/enertree/settings/rules" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Rules</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">PUE Items</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Web Access</a>
-          <a href="/enertree/settings/connections" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Connections</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">PUE Items</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SQL Data Logger</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Syslog</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SNMP Agent</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">SNMP Client</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Email</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Device Backup</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Notifications</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Authentication Settings</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">LDAP / Active Directory</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">DC Consistency</a>
-          <a href="/settings" className="text-gray-700 px-4 py-2 hover:bg-gray-100 rounded-md">Task Scheduler</a>
-        </div>
+        
 
         <div className="flex-1 px-6 py-4 w-full">
           <div className="overflow-hidden ring-1 ring-neutral-200 sm:rounded-lg w-full">
